@@ -1,0 +1,5 @@
+/home/mile/POP_SF_63_2017/POP_SF_63_2017/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/mile/POP_SF_63_2017/POP_SF_63_2017/bin/Debug/POP_SF_63_2017.exe.mdb
+/home/mile/POP_SF_63_2017/POP_SF_63_2017/bin/Debug/POP_SF_63_2017.exe
+/home/mile/POP_SF_63_2017/POP_SF_63_2017/obj/x86/Debug/POP_SF_63_2017.exe
+/home/mile/POP_SF_63_2017/POP_SF_63_2017/obj/x86/Debug/POP_SF_63_2017.exe.mdb

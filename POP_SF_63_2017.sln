@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POP_SF_63_2017", "POP_SF_63_2017\POP_SF_63_2017.csproj", "{E2373B41-9763-4263-A7AB-247640C58B87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2373B41-9763-4263-A7AB-247640C58B87}.Debug|x86.ActiveCfg = Debug|x86
+		{E2373B41-9763-4263-A7AB-247640C58B87}.Debug|x86.Build.0 = Debug|x86
+		{E2373B41-9763-4263-A7AB-247640C58B87}.Release|x86.ActiveCfg = Release|x86
+		{E2373B41-9763-4263-A7AB-247640C58B87}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal

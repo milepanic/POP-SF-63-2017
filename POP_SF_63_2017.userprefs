@@ -1,0 +1,12 @@
+﻿<Properties StartupItem="POP_SF_63_2017/POP_SF_63_2017.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="POP_SF_63_2017/Program.cs">
+    <Files>
+      <File FileName="POP_SF_63_2017/Program.cs" Line="7" Column="42" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
