@@ -4,6 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using POP_SF_63_2017.Utils;
+
+/*
+ * propfull 
+*/
+
+/*
+ * ZADACA
+ * Pretvoriti liste u fajlove
+ * Napraviti sistem za autentikaciju
+ * Korisnik ne moze nista uraditi dok se ne uloguje
+ * Ima 3 pokusaja, inace se zatvara program
+ * Logicko brisanje
+*/
 
 namespace POP_SF_63_2017
 {
@@ -38,7 +52,7 @@ namespace POP_SF_63_2017
 				Naziv = "Sofa"
 			};
 
-			var n1 = new Namestaj () {
+            var n1 = new Namestaj () {
 				Id = 1,
 				Cena = 516,
 				TipNamestaja = tp1,
@@ -52,7 +66,28 @@ namespace POP_SF_63_2017
 			TipoviNamestaja.Add (tp2);
 			Salon.Add (s1);
 
-			Console.WriteLine($"=== Dobrodosli u salon namestaja { s1.Naziv } ===");
+            var listaNamestaja = new List<Namestaj>();
+            listaNamestaja.Add(n1);
+
+            GenericSerializer.Serialize<TipNamestaja>("tipovi_namestaja.xml", TipoviNamestaja);
+            Console.WriteLine("Finished serialization...");
+
+            var listaTipovaNamestaja = GenericSerializer.Deserialize<TipNamestaja>("tipovi_namestaja.xml");
+
+            var noviTipNamestaja = new TipNamestaja()
+            {
+                Naziv = "Ugaona"
+            };
+
+            Projekat.Instance.TipoviNamestaja = listaTipovaNamestaja;
+            /* Napraviti main u Projekat.cs */
+
+            //GenericSerializer.Serialize<Namestaj>("namestaj.xml", listaNamestaja);
+            //Console.WriteLine("Finished serialization...");
+
+            //var listaNamestaja = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
+
+            Console.WriteLine($"=== Dobrodosli u salon namestaja { s1.Naziv } ===");
 
 			IspisiGlavniMeni ();
 		}
