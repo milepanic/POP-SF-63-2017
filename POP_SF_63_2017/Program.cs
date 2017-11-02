@@ -11,6 +11,8 @@ namespace POP_SF_63_2017
 	{
 		private static List<Namestaj> Namestaj = new List<Namestaj>();
 		private static List<TipNamestaja> TipoviNamestaja = new List<TipNamestaja>();
+		private static List<Salon> Salon = new List<Salon>();
+		private static List<Korisnik> Korisnici = new List<Korisnik>();
 
 		public static void Main (string[] args)
 		{
@@ -48,6 +50,7 @@ namespace POP_SF_63_2017
 			Namestaj.Add (n1);
 			TipoviNamestaja.Add (tp1);
 			TipoviNamestaja.Add (tp2);
+			Salon.Add (s1);
 
 			Console.WriteLine($"=== Dobrodosli u salon namestaja { s1.Naziv } ===");
 
@@ -63,23 +66,35 @@ namespace POP_SF_63_2017
 					Console.WriteLine("=== GLAVNI MENI ===");
 					Console.WriteLine("1. Rad sa namestajem");
 					Console.WriteLine("2. Rad sa tipom namestaja");
+					Console.WriteLine("3. Rad sa salonima namestaja");
+					Console.WriteLine("4. Rad sa korisnicima");
 					//uraditi
 					Console.WriteLine("0. Izlaz");
 
 					izbor = int.Parse(Console.ReadLine());
-				} while (izbor < 0 || izbor > 2);
+				} while (izbor < 0 || izbor > 4);
 
 				switch (izbor) {
-					case 1:
-						NamestajMeni();
-						break;
-					default:
-						break;
+				case 1:
+					NamestajMeni();
+					break;
+				case 2:
+					TipNamestajaMeni();
+					break;
+				case 3:
+					SalonMeni();
+					break;
+				case 4:
+					KorisnikMeni();
+					break;
+				default:
+					break;
 				}
 
 			} while (izbor != 0);
 		}
 
+		// RAD SA NAMJESTAJEM
 		public static void NamestajMeni()
 		{
 			int izbor = 0;
@@ -202,6 +217,345 @@ namespace POP_SF_63_2017
 			}
 		}
 
+		// RAD SA TIPOVIMA NAMJESTAJA
+		private static void TipNamestajaMeni()
+		{
+			int izbor = 0;
+
+			do {
+				do {
+					Console.WriteLine ("=== RAD SA TIPOM NAMESTAJA ===");
+					IspisiCRUDMeni ();
+
+					izbor = int.Parse (Console.ReadLine ());
+				} while (izbor < 0 || izbor > 4);
+
+				switch (izbor) 
+				{
+				case 1:
+					PrikaziTipNamestaja();
+					break;
+				case 2:
+					DodajTipNamestaja();
+					break;
+				case 3:
+					IzmeniTipNamestaja();
+					break;
+				case 4:
+					ObrisiTipNamestaja();
+					break;
+				default:
+					break;
+				}
+
+			} while (izbor != 0);
+		}
+
+		private static void PrikaziTipNamestaja()
+		{
+			Console.WriteLine("=== LISTING TIPOVA NAMESTAJA ===");
+
+			for (int i = 0; i < TipoviNamestaja.Count; i++) {
+				Console.WriteLine ($"===== {i + 1}. ===== \nID: { TipoviNamestaja[i].Id }\nNaziv: { TipoviNamestaja[i].Naziv }\n");
+			}
+		}
+
+		private static void DodajTipNamestaja()
+		{
+			Console.WriteLine ("=== DODAVANJE TIPA NAMESTAJA ===");
+
+			Console.WriteLine ("Unesite naziv: ");
+			string naziv = Console.ReadLine ();
+
+			var noviTipNamestaja = new TipNamestaja {
+				Id = TipoviNamestaja.Count + 1,
+				Naziv = naziv
+			};
+
+			TipoviNamestaja.Add (noviTipNamestaja);
+		}
+
+		private static void IzmeniTipNamestaja()
+		{
+			Console.WriteLine ("=== IZMENA TIPA NAMESTAJA ===");
+
+			Console.WriteLine ("Unesite ID tipa namestaja koji hocete da izmenite: ");
+			int id = int.Parse(Console.ReadLine ());
+
+			Console.WriteLine ("Unesite novi naziv: ");
+			string naziv = Console.ReadLine ();
+
+			TipoviNamestaja [id - 1].Naziv = naziv;
+		}
+
+		private static void ObrisiTipNamestaja()
+		{
+			Console.WriteLine ("=== BRISANJE TIPA NAMESTAJA ===");
+
+			Console.WriteLine ("Unesite ID tipa namestaja koji hocete da obriste: ");
+			int idTipaNamestaja = int.Parse(Console.ReadLine ());
+
+			Console.WriteLine($"Da li zelite da obrisete namestaj \nID: { TipoviNamestaja[idTipaNamestaja-1].Id }\nnaziv: { TipoviNamestaja[idTipaNamestaja-1].Naziv}\nZa brisanje unesite 1");
+
+			if (int.Parse(Console.ReadLine()) == 1) {
+				TipoviNamestaja.RemoveAll (i => i.Id == idTipaNamestaja);
+			}
+		}
+
+		// RAD SA SALONIMA
+		private static void SalonMeni()
+		{
+			int izbor = 0;
+
+			do {
+				do {
+					Console.WriteLine ("=== RAD SA SALONIMA NAMESTAJA ===");
+					IspisiCRUDMeni ();
+
+					izbor = int.Parse (Console.ReadLine ());
+				} while (izbor < 0 || izbor > 4);
+
+				switch (izbor) 
+				{
+				case 1:
+					PrikaziSalon();
+					break;
+				case 2:
+					DodajSalon();
+					break;
+				case 3:
+					IzmeniSalon();
+					break;
+				case 4:
+					ObrisiSalon();
+					break;
+				default:
+					break;
+				}
+
+			} while (izbor != 0);
+		}
+
+		private static void PrikaziSalon()
+		{
+			Console.WriteLine("=== LISTING SALONA NAMESTAJA ===");
+
+			for (int i = 0; i < Salon.Count; i++) {
+				Console.WriteLine ($"===== {i + 1}. ===== \nID: { Salon[i].Id }\nNaziv: { Salon[i].Naziv }\nAdresa: { Salon[i].Adresa }\nTelefon: { Salon[i].Telefon }\nEmail: { Salon[i].Email }\nWebsajt: { Salon[i].Websajt }\nPIB: { Salon[i].PIB }\nMaticniBroj: { Salon[i].MaticniBroj }\nBrojZiroRacuna: { Salon[i].BrojZiroRacuna }\n");
+			}
+		}
+
+		private static void DodajSalon()
+		{
+			Console.WriteLine("=== DODAVANJE SALONA ===");
+
+			Console.WriteLine ("Unesite naziv: ");
+			string naziv = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite adresu: ");
+			string adresa = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite telefon: ");
+			string telefon = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite email: ");
+			string email = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite websajt: ");
+			string websajt = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite PIB: ");
+			int pib = int.Parse(Console.ReadLine ());
+
+			Console.WriteLine ("Unesite maticni broj: ");
+			int maticniBroj = int.Parse(Console.ReadLine ());
+
+			Console.WriteLine ("Unesite broj ziro racuna: ");
+			string ziroRacun = Console.ReadLine ();
+
+
+			var noviSalon = new Salon () {
+				Id = Salon.Count + 1,
+				Naziv = naziv,
+				Adresa = adresa,
+				Telefon = telefon,
+				Email = email,
+				Websajt = websajt,
+				PIB = pib,
+				MaticniBroj = maticniBroj,
+				BrojZiroRacuna = ziroRacun
+			};
+
+			Salon.Add (noviSalon);
+		}
+
+		private static void IzmeniSalon()
+		{
+			Console.WriteLine ("=== IZMENA SALONA ===");
+
+			Console.WriteLine ("Unesite ID salona koji hocete da izmenite: ");
+			int id = int.Parse(Console.ReadLine ());
+
+			Console.WriteLine ("Unesite novi naziv: ");
+			string naziv = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite adresu: ");
+			string adresa = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite telefon: ");
+			string telefon = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite email: ");
+			string email = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite websajt: ");
+			string websajt = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite PIB: ");
+			int pib = int.Parse(Console.ReadLine ());
+
+			Console.WriteLine ("Unesite maticni broj: ");
+			int maticniBroj = int.Parse(Console.ReadLine ());
+
+			Console.WriteLine ("Unesite broj ziro racuna: ");
+			string ziroRacun = Console.ReadLine ();
+
+			Salon [id - 1].Naziv = naziv;
+			Salon [id - 1].Adresa = adresa;
+			Salon [id - 1].Telefon = telefon;
+			Salon [id - 1].Email = email;
+			Salon [id - 1].Websajt = websajt;
+			Salon [id - 1].PIB = pib;
+			Salon [id - 1].MaticniBroj = maticniBroj;
+			Salon [id - 1].BrojZiroRacuna = ziroRacun;
+
+		}
+
+		private static void ObrisiSalon()
+		{
+			Console.WriteLine ("=== BRISANJE TIPA NAMESTAJA ===");
+
+			Console.WriteLine ("Unesite ID salona koji hocete da obriste: ");
+			int idSalona = int.Parse(Console.ReadLine ());
+
+			//Console.WriteLine($"Da li zelite da obrisete namestaj \nID: { TipoviNamestaja[idTipaNamestaja-1].Id }\nnaziv: { TipoviNamestaja[idTipaNamestaja-1].Naziv}\nZa brisanje unesite 1");
+
+			//if (int.Parse(Console.ReadLine()) == 1) {
+				Salon.RemoveAll (i => i.Id == idSalona);
+			//}
+		}
+
+		// RAD SA KORISNICIMA
+		private static void KorisnikMeni()
+		{
+			int izbor = 0;
+
+			do {
+				do {
+					Console.WriteLine ("=== RAD SA KORISNICIMA ===");
+					IspisiCRUDMeni ();
+
+					izbor = int.Parse (Console.ReadLine ());
+				} while (izbor < 0 || izbor > 4);
+
+				switch (izbor) 
+				{
+				case 1:
+					PrikaziKorisnike();
+					break;
+				case 2:
+					DodajKorisnika();
+					break;
+				case 3:
+					IzmeniKorisnika();
+					break;
+				case 4:
+					ObrisiKorisnika();
+					break;
+				default:
+					break;
+				}
+
+			} while (izbor != 0);
+		}
+
+		public static void PrikaziKorisnike()
+		{
+			Console.WriteLine("=== LISTING KORISNIKA ===");
+
+			for (int i = 0; i < Korisnici.Count; i++) {
+				Console.WriteLine ($"===== {i + 1}. ===== \nID: { Korisnici[i].Id }\nIme: { Korisnici[i].Ime }\nPrezime: { Korisnici[i].Prezime }\nKorisnicko ime: { Korisnici[i].KorisnickoIme }\nLozinka: { Korisnici[i].Lozinka }\n");
+			}
+		}
+
+		private static void DodajKorisnika()
+		{
+			Console.WriteLine("=== DODAVANJE KORISNIKA ===");
+
+			Console.WriteLine ("Unesite ime: ");
+			string ime = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite prezime: ");
+			string prezime = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite korisnicko ime: ");
+			string korisnickoIme = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite lozinku: ");
+			string lozinka = Console.ReadLine ();
+
+			var noviKorisnik = new Korisnik () {
+				Id = Korisnici.Count + 1,
+				Ime = ime,
+				Prezime = prezime,
+				KorisnickoIme = korisnickoIme,
+				Lozinka = lozinka,
+			};
+
+			Korisnici.Add (noviKorisnik);
+		}
+
+		private static void IzmeniKorisnika()
+		{
+			Console.WriteLine ("=== IZMENA KORISNIKA ===");
+
+			Console.WriteLine ("Unesite ID korisnika koji hocete da izmenite: ");
+			int id = int.Parse(Console.ReadLine ());
+
+			Console.WriteLine ("Unesite novo ime: ");
+			string ime = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite prezime: ");
+			string prezime = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite korisnicko ime: ");
+			string korisnickoIme = Console.ReadLine ();
+
+			Console.WriteLine ("Unesite lozinku: ");
+			string lozinka = Console.ReadLine ();
+
+			Korisnici [id - 1].Ime = ime;
+			Korisnici [id - 1].Prezime = prezime;
+			Korisnici [id - 1].KorisnickoIme = korisnickoIme;
+			Korisnici [id - 1].Lozinka = lozinka;
+		}
+
+		public static void ObrisiKorisnika()
+		{
+			Console.WriteLine ("=== BRISANJE KORISNIKA ===");
+
+			Console.WriteLine ("Unesite ID korisnika koji hocete da obriste: ");
+			int idKorisnika = int.Parse(Console.ReadLine ());
+
+			//Console.WriteLine($"Da li zelite da obrisete namestaj \nID: { TipoviNamestaja[idTipaNamestaja-1].Id }\nnaziv: { TipoviNamestaja[idTipaNamestaja-1].Naziv}\nZa brisanje unesite 1");
+
+			//if (int.Parse(Console.ReadLine()) == 1) {
+			Korisnici.RemoveAll (i => i.Id == idKorisnika);
+			//}
+		}
+
+			
+		// CreateReadUpdateDelete Meni
 		private static void IspisiCRUDMeni()
 		{
 			Console.WriteLine("1. Prikazi listing");
