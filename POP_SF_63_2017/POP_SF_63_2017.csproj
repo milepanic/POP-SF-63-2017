@@ -48,10 +48,13 @@
     <Compile Include="Utils\GenericSerializer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\namestaj.xml" />
+    <Content Include="Data\tipovi_namestaja.xml" />
+    <Content Include="Zabiljeske.txt" />
   </ItemGroup>
 </Project>

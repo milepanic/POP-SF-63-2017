@@ -1,0 +1,7 @@
+﻿
+ ZADACA 2.11.2017.
+ Pretvoriti liste u fajlove
+ Napraviti sistem za autentikaciju++
+ Korisnik ne moze nista uraditi dok se ne uloguje++
+ Ima 3 pokusaja, inace se zatvara program++
+ Logicko brisanje

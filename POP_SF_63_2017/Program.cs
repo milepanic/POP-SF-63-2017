@@ -10,15 +10,6 @@ using POP_SF_63_2017.Utils;
  * propfull 
 */
 
-/*
- * ZADACA
- * Pretvoriti liste u fajlove
- * Napraviti sistem za autentikaciju
- * Korisnik ne moze nista uraditi dok se ne uloguje
- * Ima 3 pokusaja, inace se zatvara program
- * Logicko brisanje
-*/
-
 namespace POP_SF_63_2017
 {
 	class Program
@@ -61,10 +52,21 @@ namespace POP_SF_63_2017
 				Sifra = "KR3993434SC"	
 			};
 
+            var admin = new Korisnik()
+            {
+                Id = 1,
+                Ime = "admin",
+                Prezime = "admin",
+                KorisnickoIme = "admin",
+                Lozinka = "admin",
+                TipKorisnika = 2
+            };
+
 			Namestaj.Add (n1);
 			TipoviNamestaja.Add (tp1);
 			TipoviNamestaja.Add (tp2);
 			Salon.Add (s1);
+            Korisnici.Add(admin);
 
             var listaNamestaja = new List<Namestaj>();
             listaNamestaja.Add(n1);
@@ -74,23 +76,46 @@ namespace POP_SF_63_2017
 
             var listaTipovaNamestaja = GenericSerializer.Deserialize<TipNamestaja>("tipovi_namestaja.xml");
 
-            var noviTipNamestaja = new TipNamestaja()
-            {
-                Naziv = "Ugaona"
-            };
-
             Projekat.Instance.TipoviNamestaja = listaTipovaNamestaja;
             /* Napraviti main u Projekat.cs */
-
-            //GenericSerializer.Serialize<Namestaj>("namestaj.xml", listaNamestaja);
-            //Console.WriteLine("Finished serialization...");
-
-            //var listaNamestaja = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
+            
 
             Console.WriteLine($"=== Dobrodosli u salon namestaja { s1.Naziv } ===");
 
-			IspisiGlavniMeni ();
+            Login();
 		}
+
+        public static void Login()
+        {
+            int pokusaj = 3;
+
+            do
+            {
+
+                Console.WriteLine($"broj pokusaja: {pokusaj}");
+
+                Console.WriteLine("Unesite korisnicko ime");
+                string ime = Console.ReadLine();
+
+                Console.WriteLine("Unesite sifru");
+                string sifra = Console.ReadLine();
+
+                foreach (var korisnik in Korisnici)
+                {
+                    if (korisnik.Ime != ime || korisnik.Lozinka != sifra)
+                    {
+                        Console.WriteLine("Greska, pokusajte ponovo");
+                        --pokusaj;
+                    }
+                    else
+                    {
+                        IspisiGlavniMeni();
+                    }
+                }
+            } while (pokusaj != 0);
+
+          Environment.Exit(1);
+        }
 
 		public static void IspisiGlavniMeni()
 		{
@@ -127,7 +152,9 @@ namespace POP_SF_63_2017
 				}
 
 			} while (izbor != 0);
-		}
+
+            Environment.Exit(1);
+        }
 
 		// RAD SA NAMJESTAJEM
 		public static void NamestajMeni()
