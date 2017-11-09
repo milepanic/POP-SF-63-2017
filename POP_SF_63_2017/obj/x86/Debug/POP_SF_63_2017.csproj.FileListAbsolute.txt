@@ -8,3 +8,8 @@ C:\Users\Mile\Desktop\POP-SF-63-2017\POP_SF_63_2017\obj\x86\Debug\POP_SF_63_2017
 C:\Users\Mile\Desktop\POP-SF-63-2017\POP_SF_63_2017\bin\Debug\POP_SF_63_2017.exe
 C:\Users\Mile\Desktop\POP-SF-63-2017\POP_SF_63_2017\bin\Debug\POP_SF_63_2017.pdb
 C:\Users\Mile\Desktop\POP-SF-63-2017\POP_SF_63_2017\obj\x86\Debug\POP_SF_63_2017.csprojResolveAssemblyReference.cache
+C:\Users\TEMP.FTN.009\POP-SF-63-2017\POP_SF_63_2017\obj\x86\Debug\POP_SF_63_2017.exe
+C:\Users\TEMP.FTN.009\POP-SF-63-2017\POP_SF_63_2017\obj\x86\Debug\POP_SF_63_2017.pdb
+C:\Users\TEMP.FTN.009\POP-SF-63-2017\POP_SF_63_2017\bin\Debug\POP_SF_63_2017.exe
+C:\Users\TEMP.FTN.009\POP-SF-63-2017\POP_SF_63_2017\bin\Debug\POP_SF_63_2017.pdb
+C:\Users\TEMP.FTN.009\POP-SF-63-2017\POP_SF_63_2017\obj\x86\Debug\POP_SF_63_2017.csprojResolveAssemblyReference.cache

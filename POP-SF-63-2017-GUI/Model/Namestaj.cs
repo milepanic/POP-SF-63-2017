@@ -16,6 +16,23 @@ namespace POP_SF_63_2017.Model
 		public Akcija Akcija { get; set; }
 		public int TipNamestajaId { get; set; }
 		public bool Obrisan { get; set; }
-	}
+
+        public override string ToString()
+        {
+            return $"{ Naziv }, { Cena }, { TipNamestaja.GetById(TipNamestajaId).Naziv } ";
+        }
+
+        public static Namestaj GetById(int id)
+        {
+            foreach (Namestaj namestaj in Projekat.Instance.Namestaji)
+            {
+                if (namestaj.Id == id)
+                {
+                    return namestaj;
+                }
+            }
+            return null;
+        }
+    }
 }
 

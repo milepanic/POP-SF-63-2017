@@ -1,0 +1,19 @@
+﻿<Window x:Class="POP_SF_63_2017_GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_63_2017_GUI"
+        mc:Ignorable="d"
+        Title="Glavni prozor" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250*"/>
+            <RowDefinition Height="69*"/>
+        </Grid.RowDefinitions>
+        <ListBox Grid.Row="0" x:Name="lbNamestaj" HorizontalAlignment="Stretch" Height="230" Margin="10,10,0,0" VerticalAlignment="Top" Width="525"/>
+        <Button Grid.Row="1" Width="Auto" Height="30" HorizontalAlignment="Left" Name="btnDodajNamestaj" Click="btnDodajNamestaj_Click">Dodaj Namestaj</Button>
+        <Button Grid.Row="1" Width="Auto" Height="30" HorizontalAlignment="Left" Name="btnIzmeniNamestaj" Click="btnIzmeniNamestaj_Click" Margin="109,20,0,19">Izmeni Namestaj</Button>
+        <Button Grid.Row="1" Width="Auto" Height="30" HorizontalAlignment="Right" Name="btnIzlaz" Click="btnIzlaz_Click">Izlaz</Button>
+    </Grid>
+</Window>

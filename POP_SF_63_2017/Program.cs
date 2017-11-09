@@ -1,18 +1,9 @@
 ﻿using System;
 using POP_SF_63_2017.Model;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using POP_SF_63_2017.Utils;
-
-/*
- * propfull 
-*/
 
 namespace POP_SF_63_2017
 {
-	class Program
+    class Program
 	{
 		public static void Main (string[] args)
 		{
@@ -91,7 +82,6 @@ namespace POP_SF_63_2017
 
             do
             {
-
                 Console.WriteLine($"broj pokusaja: {pokusaj}");
 
                 Console.WriteLine("Unesite korisnicko ime");
@@ -200,7 +190,7 @@ namespace POP_SF_63_2017
             {
 				if (UcitanNamestaj[i].Obrisan == false)
                 {
-                    Console.WriteLine($"===== {i + 1}. ===== \nID: { UcitanNamestaj[i].Id }\nNaziv: { UcitanNamestaj[i].Naziv }\nCena: { UcitanNamestaj[i].Cena }\nTip namestaja: { UcitanNamestaj[i].TipNamestaja }\n");
+                    Console.WriteLine($"===== {i + 1}. ===== \nID: { UcitanNamestaj[i].Id }\nNaziv: { UcitanNamestaj[i].Naziv }\nCena: { UcitanNamestaj[i].Cena }\nTip namestaja: { UcitanNamestaj[i].TipNamestajaId }\n");
                 }
 			}
 		}
@@ -224,7 +214,7 @@ namespace POP_SF_63_2017
 				Id = UcitanNamestaj.Count + 1,
 				Naziv = naziv,
 				Cena = cena,
-				TipNamestaja = idTipaNamestaja
+				TipNamestajaId = idTipaNamestaja
 			};
 
 			UcitanNamestaj.Add(noviNamestaj);
@@ -241,7 +231,7 @@ namespace POP_SF_63_2017
 			Console.WriteLine ("Unesite redni broj namestaja");
 			int idNamestaja = int.Parse (Console.ReadLine ());
 
-			Console.WriteLine($"Izmenjujete namestaj \nID: { UcitanNamestaj[idNamestaja-1].Id }\nnaziv: {UcitanNamestaj[idNamestaja-1].Naziv}\ncena: {UcitanNamestaj[idNamestaja-1].Cena}\ntip: {UcitanNamestaj[idNamestaja-1].TipNamestaja}");
+			Console.WriteLine($"Izmenjujete namestaj \nID: { UcitanNamestaj[idNamestaja-1].Id }\nnaziv: {UcitanNamestaj[idNamestaja-1].Naziv}\ncena: {UcitanNamestaj[idNamestaja-1].Cena}\ntip: {UcitanNamestaj[idNamestaja-1].TipNamestajaId}");
 
 			Console.WriteLine ("Unesite nove vrednosti");
 
@@ -256,7 +246,7 @@ namespace POP_SF_63_2017
 
 			UcitanNamestaj [idNamestaja-1].Naziv = naziv;
 			UcitanNamestaj [idNamestaja-1].Cena = cena;
-			UcitanNamestaj [idNamestaja-1].TipNamestaja = idTipaNamestaja;
+			UcitanNamestaj [idNamestaja-1].TipNamestajaId = idTipaNamestaja;
 
             Projekat.Instance.Namestaji = UcitanNamestaj;
 		}
@@ -270,7 +260,7 @@ namespace POP_SF_63_2017
 			Console.WriteLine ("Unesite redni broj namestaja");
 			int idNamestaja = int.Parse (Console.ReadLine ());
 
-			Console.WriteLine($"Da li zelite da obrisete namestaj \nID: { UcitanNamestaj[idNamestaja-1].Id }\nnaziv: {UcitanNamestaj[idNamestaja-1].Naziv}\ncena: {UcitanNamestaj[idNamestaja-1].Cena}\ntip: {UcitanNamestaj[idNamestaja-1].TipNamestaja}\nZa brisanje unesite 1");
+			Console.WriteLine($"Da li zelite da obrisete namestaj \nID: { UcitanNamestaj[idNamestaja-1].Id }\nnaziv: {UcitanNamestaj[idNamestaja-1].Naziv}\ncena: {UcitanNamestaj[idNamestaja-1].Cena}\ntip: {UcitanNamestaj[idNamestaja-1].TipNamestajaId}\nZa brisanje unesite 1");
 
 			int odgovor = int.Parse (Console.ReadLine ());
 

@@ -2,3 +2,7 @@
  ZADACA 2.11.2017.
  Pretvoriti liste u fajlove
  Logicko brisanje
+
+ -----
+ u modelima promijeniti entitete u akcijaId (ctrl + .)
+ korisnik - tipkorisnika - ubaciti objekat umjesto id

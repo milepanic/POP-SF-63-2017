@@ -1,0 +1,12 @@
+﻿Domaci 
+sistem za autentifikaciju
+prozor za login (u app.xaml startapu ga pokrece)
+
+singleton
+getbyid
+
+ne radi jer se treba izvrsiti ponovo serijalizacija
+
+dodavanje osobina modela
+
+pastebin.com/u50U4AeE

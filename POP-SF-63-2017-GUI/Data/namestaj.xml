@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfNamestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Namestaj>
+    <Id>1</Id>
+    <Naziv>Ekstra Krevet socijalni</Naziv>
+    <Sifra>KR3993434SC</Sifra>
+    <Cena>516</Cena>
+    <KolicinaUMagacinu>100</KolicinaUMagacinu>
+    <TipNamestajaId>1</TipNamestajaId>
+    <Obrisan>false</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>2</Id>
+    <Naziv>ssss</Naziv>
+    <Cena>31</Cena>
+    <KolicinaUMagacinu>0</KolicinaUMagacinu>
+    <TipNamestajaId>2</TipNamestajaId>
+    <Obrisan>true</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>3</Id>
+    <Naziv>Novi namestaj</Naziv>
+    <Cena>15400</Cena>
+    <KolicinaUMagacinu>0</KolicinaUMagacinu>
+    <TipNamestajaId>2</TipNamestajaId>
+    <Obrisan>true</Obrisan>
+  </Namestaj>
+</ArrayOfNamestaj>
