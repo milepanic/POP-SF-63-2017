@@ -6,11 +6,23 @@
     <Sifra>KR3993434SC</Sifra>
     <Cena>516</Cena>
     <KolicinaUMagacinu>100</KolicinaUMagacinu>
-    <TipNamestaja>
-      <Id>1</Id>
-      <Naziv>Krevet</Naziv>
-      <Obrisan>false</Obrisan>
-    </TipNamestaja>
+    <TipNamestaja>1</TipNamestaja>
     <Obrisan>false</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>2</Id>
+    <Naziv>ssss</Naziv>
+    <Cena>31</Cena>
+    <KolicinaUMagacinu>0</KolicinaUMagacinu>
+    <TipNamestaja>2</TipNamestaja>
+    <Obrisan>true</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>3</Id>
+    <Naziv>Novi namestaj</Naziv>
+    <Cena>15400</Cena>
+    <KolicinaUMagacinu>0</KolicinaUMagacinu>
+    <TipNamestaja>2</TipNamestaja>
+    <Obrisan>true</Obrisan>
   </Namestaj>
 </ArrayOfNamestaj>

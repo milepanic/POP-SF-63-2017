@@ -14,7 +14,7 @@ namespace POP_SF_63_2017.Model
 		public double Cena { get; set; }
 		public int KolicinaUMagacinu { get; set; }
 		public Akcija Akcija { get; set; }
-		public TipNamestaja TipNamestaja { get; set; }
+		public int TipNamestaja { get; set; }
 		public bool Obrisan { get; set; }
 	}
 }
