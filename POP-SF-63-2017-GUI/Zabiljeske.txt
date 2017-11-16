@@ -1,12 +1,8 @@
 ﻿Domaci 
-sistem za autentifikaciju
-prozor za login (u app.xaml startapu ga pokrece)
-
-singleton
-getbyid
-
-ne radi jer se treba izvrsiti ponovo serijalizacija
-
-dodavanje osobina modela
+- Login (u app.xaml startapu ga pokrece)
+- Svi entiteti
+- CRUD za sve osobine entiteta
 
 pastebin.com/u50U4AeE
+
+git config --global http.proxy 192.168.77.100:8080

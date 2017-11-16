@@ -12,8 +12,7 @@ namespace POP_SF_63_2017_GUI.GUI
         public enum TipOperacije
         {
             DODAVANJE,
-            IZMENA,
-            BRISANJE
+            IZMENA
         }
 
         private Namestaj namestaj;
@@ -34,6 +33,22 @@ namespace POP_SF_63_2017_GUI.GUI
             this.operacija = operacija;
 
             tbNaziv.Text = namestaj.Naziv;
+
+            // dropdown za tip namjestaja - override-uje se toString metoda klase
+            foreach (var TipNamestaja in Projekat.Instance.TipoviNamestaja)
+            {
+                cbTipNamestaja.Items.Add(TipNamestaja);
+            }
+
+            // petlja da ispise tip namjestaja u combo boxu kada se edituje
+            foreach (TipNamestaja tipNamestaja in cbTipNamestaja.Items)
+            {
+                if (tipNamestaja.Id == namestaj.TipNamestajaId)
+                {
+                    cbTipNamestaja.SelectedItem = tipNamestaja;
+                    break;
+                }
+            }
         }
 
         private void btnIzlaz_Click(object sender, RoutedEventArgs e)
@@ -43,8 +58,10 @@ namespace POP_SF_63_2017_GUI.GUI
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            //cita sa diska
+            //cita sa diska listu namjestaja
             var listaNamestaja = Projekat.Instance.Namestaji;
+            // uzima objekat tip namjestaja iz dropdown liste
+            TipNamestaja izabraniTipNamestaja = (TipNamestaja)cbTipNamestaja.SelectedItem;
 
             switch (operacija)
             {
@@ -54,19 +71,21 @@ namespace POP_SF_63_2017_GUI.GUI
                         Id = listaNamestaja.Count + 1,
                         Naziv = tbNaziv.Text,
                         Cena = double.Parse(tbCena.Text),
-                        TipNamestajaId = int.Parse(tbTipId.Text)
+                        TipNamestajaId = izabraniTipNamestaja.Id
                     };
                     listaNamestaja.Add(namestaj);
                     break;
                 case TipOperacije.IZMENA:
-                    var namestajZaIzmenu = listaNamestaja.SingleOrDefault(x => x.Id == namestaj.Id); //isto kao foreach
-                    namestajZaIzmenu.Naziv = tbNaziv.Text;
-                    break;
-                case TipOperacije.BRISANJE:
-                    var namestajZaBrisanje = listaNamestaja.SingleOrDefault(x => x.Id == namestaj.Id);
-                    namestajZaBrisanje.Obrisan = true;
-                    break;
-                default:
+                    foreach (var n in listaNamestaja)
+                    {
+                        if(n.Id == namestaj.Id)
+                        {
+                            n.Naziv = this.tbNaziv.Text;
+                            n.Cena = double.Parse(this.tbCena.Text);
+                            n.TipNamestajaId = izabraniTipNamestaja.Id;
+                            break;
+                        }
+                    }
                     break;
             }
 

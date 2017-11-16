@@ -5,36 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_63_2017_GUI"
         mc:Ignorable="d"
-        Title="Glavni prozor" Height="350" Width="525">
+        Title="Glavni prozor" Height="600" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="397*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="250*"/>
-            <RowDefinition Height="69*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="254*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <ListBox Grid.Row="0" x:Name="lbNamestaj" 
-                 HorizontalAlignment="Stretch" Height="230" 
-                 Margin="10,10,0,0" VerticalAlignment="Top" 
-                 Width="525"/>
-        <Button Grid.Row="1" Width="Auto" 
-                Height="30" HorizontalAlignment="Left" 
-                Name="btnDodajNamestaj" Click="btnDodajNamestaj_Click" Margin="10,10,0,29">
-            Dodaj Namestaj
-        </Button>
-        <Button Grid.Row="1" Width="Auto" 
-                Height="30" HorizontalAlignment="Left" 
-                Name="btnIzmeniNamestaj" Click="btnIzmeniNamestaj_Click" 
-                Margin="106,10,0,29">
-            Izmeni Namestaj
-        </Button>
-        <Button Width="Auto" Height="30"
-                HorizontalAlignment="Left"
-                Name="btnObrisiNamestaj" Click="btnObrisiNamestaj_Click" Margin="205,10,0,29" Grid.Row="1">
-            Obrisi Namestaj
-        </Button>
-        <Button Grid.Row="1" Width="115" 
-                Height="30" HorizontalAlignment="Right"
-                Name="btnIzlaz" Click="btnIzlaz_Click" Margin="0,10,10,29">
+        <Menu x:Name="menu" HorizontalAlignment="Left" 
+              Height="433" VerticalAlignment="Top" 
+              Width="164" Margin="10,10,0,0" 
+              Grid.Row="1"/>
+        <Label x:Name="label1" Content="Label" 
+               HorizontalAlignment="Left" VerticalAlignment="Top" 
+               Grid.Column="1" Margin="10,10,0,0" 
+               Height="35" Width="588"/>
+        <ListBox x:Name="listBox" Grid.Column="1" 
+                 HorizontalAlignment="Left" Height="433" 
+                 Margin="10,10,0,0" Grid.Row="1" 
+                 VerticalAlignment="Top" Width="588"/>
+        <Button x:Name="button" HorizontalAlignment="Left" 
+                VerticalAlignment="Top" Width="89" Grid.Column="1" 
+                Margin="509,8,0,0" Grid.Row="2" 
+                Height="25">
             Izlaz
         </Button>
+        <Button x:Name="button_Copy" Content="Ubaci" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Width="75" 
+                Margin="10,8,0,0" Grid.Row="2" 
+                Height="25"/>
+        <Button x:Name="button_Copy1" Content="Obrisi" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Width="75" 
+                Margin="170,8,0,0" Grid.Row="2" 
+                Height="25" Grid.ColumnSpan="2"/>
+        <Button x:Name="button_Copy2" Content="Izmeni" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Width="75" Margin="90,8,0,0" 
+                Grid.Row="2" Height="25"/>
     </Grid>
 </Window>

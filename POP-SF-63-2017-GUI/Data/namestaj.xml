@@ -19,10 +19,10 @@
   </Namestaj>
   <Namestaj>
     <Id>3</Id>
-    <Naziv>Novi namestaj</Naziv>
+    <Naziv>Krevet</Naziv>
     <Cena>15400</Cena>
     <KolicinaUMagacinu>0</KolicinaUMagacinu>
-    <TipNamestajaId>2</TipNamestajaId>
+    <TipNamestajaId>1</TipNamestajaId>
     <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
@@ -32,5 +32,37 @@
     <KolicinaUMagacinu>0</KolicinaUMagacinu>
     <TipNamestajaId>1</TipNamestajaId>
     <Obrisan>false</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>5</Id>
+    <Naziv>Stolicaa</Naziv>
+    <Cena>666</Cena>
+    <KolicinaUMagacinu>0</KolicinaUMagacinu>
+    <TipNamestajaId>2</TipNamestajaId>
+    <Obrisan>false</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>6</Id>
+    <Naziv>sto</Naziv>
+    <Cena>1100</Cena>
+    <KolicinaUMagacinu>0</KolicinaUMagacinu>
+    <TipNamestajaId>2</TipNamestajaId>
+    <Obrisan>true</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>7</Id>
+    <Naziv>www</Naziv>
+    <Cena>111</Cena>
+    <KolicinaUMagacinu>0</KolicinaUMagacinu>
+    <TipNamestajaId>1</TipNamestajaId>
+    <Obrisan>true</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>8</Id>
+    <Naziv>Proba</Naziv>
+    <Cena>222</Cena>
+    <KolicinaUMagacinu>0</KolicinaUMagacinu>
+    <TipNamestajaId>1</TipNamestajaId>
+    <Obrisan>true</Obrisan>
   </Namestaj>
 </ArrayOfNamestaj>

@@ -5,41 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_63_2017_GUI.GUI"
         mc:Ignorable="d"
-        Title="NamestajWindow" Height="300" Width="300">
+        Title="NamestajWindow" Height="302.55" Width="300">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="45*"/>
             <ColumnDefinition Width="101*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="90*"></RowDefinition>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="11*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" RenderTransformOrigin="0.497,0.53" Margin="10,10,20,88">
+        <Label Grid.Row="0" Grid.Column="0" RenderTransformOrigin="0.497,0.53" Margin="0,10,0,0" Grid.RowSpan="2">
             Naziv:
         </Label>
-        <TextBox Grid.Row="0" Height="30" 
+        <TextBox Grid.Row="1" Height="32" 
                  HorizontalAlignment="left" VerticalAlignment="Top" 
-                 Width="182" Margin="10,10,0,0" 
+                 Width="182" Margin="10,2,0,0" 
                  Name="tbNaziv" Grid.Column="1"/>
-        <Label Margin="10,52,0,53">
+        <Label Margin="0,10,0,15" Grid.Row="2">
             Cena:
         </Label>
         <TextBox 
-                 Name="tbCena" Grid.Column="1" Margin="10,52,10,53"/>
-        <Label Margin="0,94,0,10">
+                 Name="tbCena" Grid.Column="1" Margin="10,10,10,15" Grid.Row="2"/>
+        <Label Grid.Row="3">
             Tip namestaja:
         </Label>
-        <TextBox
-                 Name="tbTipId" Grid.Column="1" Margin="10,95,10,10"/>
-        <Button Grid.Row="1" HorizontalAlignment="Right" 
+        <ComboBox Name="cbTipNamestaja" Grid.Column="1" Margin="10,0" Grid.Row="3" />
+        <Button Grid.Row="5" HorizontalAlignment="Right" 
                 Name="btnSacuvaj" Click="btnSacuvaj_Click" 
-                Margin="0,87,113,10" Width="95" Grid.ColumnSpan="2">
+                Margin="0,0,107,0" Width="95" Grid.Column="1">
             Sacuvaj
         </Button>
-        <Button Grid.Row="1" HorizontalAlignment="Right" 
-                Name="btnIzlaz" Click="btnIzlaz_Click"
-                Margin="0,87,10,10" Width="95" 
+        <Button Grid.Row="5" HorizontalAlignment="Right" 
+                Name="btnIzlaz" Click="btnIzlaz_Click" Width="95" 
                 Grid.Column="1">
             Zatvori
         </Button>
