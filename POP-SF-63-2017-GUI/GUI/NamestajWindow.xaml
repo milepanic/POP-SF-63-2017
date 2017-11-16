@@ -8,16 +8,40 @@
         Title="NamestajWindow" Height="300" Width="300">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="37*"/>
-            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="101*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" RenderTransformOrigin="0.497,0.53">Naziv:</Label>
-        <TextBox Grid.Row="0" Height="30" HorizontalAlignment="left" VerticalAlignment="Top" Width="200" Margin="2,10,0,0" Name="tbNaziv" Grid.Column="1"/>
-        <Button Grid.Row="1" HorizontalAlignment="Right" Name="btnSacuvaj" Click="btnSacuvaj_Click" Margin="0,87,113,10" Width="95" Grid.Column="1">Sacuvaj</Button>
-        <Button Grid.Row="1" HorizontalAlignment="Right" Name="btnIzlaz" Click="btnIzlaz_Click" Margin="0,87,10,10" Width="95" Grid.Column="1">Zatvori</Button>
+        <Label Grid.Row="0" Grid.Column="0" RenderTransformOrigin="0.497,0.53" Margin="10,10,20,88">
+            Naziv:
+        </Label>
+        <TextBox Grid.Row="0" Height="30" 
+                 HorizontalAlignment="left" VerticalAlignment="Top" 
+                 Width="182" Margin="10,10,0,0" 
+                 Name="tbNaziv" Grid.Column="1"/>
+        <Label Margin="10,52,0,53">
+            Cena:
+        </Label>
+        <TextBox 
+                 Name="tbCena" Grid.Column="1" Margin="10,52,10,53"/>
+        <Label Margin="0,94,0,10">
+            Tip namestaja:
+        </Label>
+        <TextBox
+                 Name="tbTipId" Grid.Column="1" Margin="10,95,10,10"/>
+        <Button Grid.Row="1" HorizontalAlignment="Right" 
+                Name="btnSacuvaj" Click="btnSacuvaj_Click" 
+                Margin="0,87,113,10" Width="95" Grid.ColumnSpan="2">
+            Sacuvaj
+        </Button>
+        <Button Grid.Row="1" HorizontalAlignment="Right" 
+                Name="btnIzlaz" Click="btnIzlaz_Click"
+                Margin="0,87,10,10" Width="95" 
+                Grid.Column="1">
+            Zatvori
+        </Button>
     </Grid>
 </Window>

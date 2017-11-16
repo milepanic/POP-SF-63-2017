@@ -1,17 +1,6 @@
 ﻿using POP_SF_63_2017.Model;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace POP_SF_63_2017_GUI.GUI
 {
@@ -23,7 +12,8 @@ namespace POP_SF_63_2017_GUI.GUI
         public enum TipOperacije
         {
             DODAVANJE,
-            IZMENA
+            IZMENA,
+            BRISANJE
         }
 
         private Namestaj namestaj;
@@ -62,13 +52,19 @@ namespace POP_SF_63_2017_GUI.GUI
                     namestaj = new Namestaj()
                     {
                         Id = listaNamestaja.Count + 1,
-                        Naziv = tbNaziv.Text
+                        Naziv = tbNaziv.Text,
+                        Cena = double.Parse(tbCena.Text),
+                        TipNamestajaId = int.Parse(tbTipId.Text)
                     };
                     listaNamestaja.Add(namestaj);
                     break;
                 case TipOperacije.IZMENA:
                     var namestajZaIzmenu = listaNamestaja.SingleOrDefault(x => x.Id == namestaj.Id); //isto kao foreach
                     namestajZaIzmenu.Naziv = tbNaziv.Text;
+                    break;
+                case TipOperacije.BRISANJE:
+                    var namestajZaBrisanje = listaNamestaja.SingleOrDefault(x => x.Id == namestaj.Id);
+                    namestajZaBrisanje.Obrisan = true;
                     break;
                 default:
                     break;

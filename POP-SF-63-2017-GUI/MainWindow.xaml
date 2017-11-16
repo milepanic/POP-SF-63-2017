@@ -11,9 +11,30 @@
             <RowDefinition Height="250*"/>
             <RowDefinition Height="69*"/>
         </Grid.RowDefinitions>
-        <ListBox Grid.Row="0" x:Name="lbNamestaj" HorizontalAlignment="Stretch" Height="230" Margin="10,10,0,0" VerticalAlignment="Top" Width="525"/>
-        <Button Grid.Row="1" Width="Auto" Height="30" HorizontalAlignment="Left" Name="btnDodajNamestaj" Click="btnDodajNamestaj_Click">Dodaj Namestaj</Button>
-        <Button Grid.Row="1" Width="Auto" Height="30" HorizontalAlignment="Left" Name="btnIzmeniNamestaj" Click="btnIzmeniNamestaj_Click" Margin="109,20,0,19">Izmeni Namestaj</Button>
-        <Button Grid.Row="1" Width="Auto" Height="30" HorizontalAlignment="Right" Name="btnIzlaz" Click="btnIzlaz_Click">Izlaz</Button>
+        <ListBox Grid.Row="0" x:Name="lbNamestaj" 
+                 HorizontalAlignment="Stretch" Height="230" 
+                 Margin="10,10,0,0" VerticalAlignment="Top" 
+                 Width="525"/>
+        <Button Grid.Row="1" Width="Auto" 
+                Height="30" HorizontalAlignment="Left" 
+                Name="btnDodajNamestaj" Click="btnDodajNamestaj_Click" Margin="10,10,0,29">
+            Dodaj Namestaj
+        </Button>
+        <Button Grid.Row="1" Width="Auto" 
+                Height="30" HorizontalAlignment="Left" 
+                Name="btnIzmeniNamestaj" Click="btnIzmeniNamestaj_Click" 
+                Margin="106,10,0,29">
+            Izmeni Namestaj
+        </Button>
+        <Button Width="Auto" Height="30"
+                HorizontalAlignment="Left"
+                Name="btnObrisiNamestaj" Click="btnObrisiNamestaj_Click" Margin="205,10,0,29" Grid.Row="1">
+            Obrisi Namestaj
+        </Button>
+        <Button Grid.Row="1" Width="115" 
+                Height="30" HorizontalAlignment="Right"
+                Name="btnIzlaz" Click="btnIzlaz_Click" Margin="0,10,10,29">
+            Izlaz
+        </Button>
     </Grid>
 </Window>
