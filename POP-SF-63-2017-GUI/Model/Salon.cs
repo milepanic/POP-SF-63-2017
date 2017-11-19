@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace POP_SF_63_2017.Model
+﻿namespace POP_SF_63_2017.Model
 {
-	public class Salon
+    public class Salon
 	{
 		public int Id { get; set; }
 		public string Naziv { get; set; }

@@ -7,6 +7,24 @@
     <KorisnickoIme>admin</KorisnickoIme>
     <Lozinka>admin</Lozinka>
     <TipKorisnika>2</TipKorisnika>
+    <Obrisan>true</Obrisan>
+  </Korisnik>
+  <Korisnik>
+    <Id>2</Id>
+    <Ime>John</Ime>
+    <Prezime>Doe</Prezime>
+    <KorisnickoIme>johndoe</KorisnickoIme>
+    <Lozinka>admin123</Lozinka>
+    <TipKorisnika>0</TipKorisnika>
+    <Obrisan>false</Obrisan>
+  </Korisnik>
+  <Korisnik>
+    <Id>3</Id>
+    <Ime>a</Ime>
+    <Prezime>a</Prezime>
+    <KorisnickoIme>a</KorisnickoIme>
+    <Lozinka>a</Lozinka>
+    <TipKorisnika>1</TipKorisnika>
     <Obrisan>false</Obrisan>
   </Korisnik>
 </ArrayOfKorisnik>

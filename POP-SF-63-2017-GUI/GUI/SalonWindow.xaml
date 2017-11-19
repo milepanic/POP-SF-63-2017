@@ -1,0 +1,56 @@
+﻿<Window x:Class="POP_SF_63_2017_GUI.GUI.SalonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_63_2017_GUI.GUI"
+        mc:Ignorable="d"
+        Title="SalonWindow" Height="300" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="95*"/>
+            <ColumnDefinition Width="197*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="17*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="lbNaziv" Content="Naziv" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="lbAdresa" Content="Adresa" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="lbTelefon" Content="Telefon" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="lbEmail" Content="Email" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="lbWebsajt" Content="Websajt" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Width="95" Height="23" RenderTransformOrigin="0.498,4.58"/>
+        <Label x:Name="lbPIB" Content="PIB" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="lbMaticniBroj" Content="Maticni broj" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="lbBrojZirRacuna" Content="Broj ziro racuna" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Button x:Name="btnSacuvaj" Grid.Column="1" 
+                HorizontalAlignment="Left"
+                Grid.Row="10" VerticalAlignment="Top" 
+                Width="97" Height="24"
+                Content="Sacuvaj"/>
+        <Button x:Name="btnIzadji" Content="Izadji" 
+                Grid.Column="1" HorizontalAlignment="Left" 
+                Margin="102,0,0,0" Grid.Row="10" 
+                VerticalAlignment="Top" Width="95" 
+                Height="24"/>
+        <TextBox x:Name="tbNaziv" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbAdresa" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbTelefon" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbEmail" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="4" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbWebsajt" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="5" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbPIB" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="6" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbMaticniBroj" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="7" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbBrojZiroRacuna" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="8" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
+
+    </Grid>
+</Window>

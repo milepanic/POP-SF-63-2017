@@ -7,6 +7,29 @@
         mc:Ignorable="d"
         Title="TipNamestajaWindow" Height="300" Width="300">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="138*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="21*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="52*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="label" Content="Naziv" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="84" Height="40"/>
+        <TextBox x:Name="tbNaziv" Grid.Column="1" HorizontalAlignment="Left" Height="40" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="208"/>
+        <Button x:Name="btnIzadji" Content="Izadji" 
+                Grid.Column="1" HorizontalAlignment="Left" 
+                Margin="101,0,0,0" Grid.Row="3" 
+                VerticalAlignment="Top" Width="107"
+                Height="40" Click="btnIzadji_Click"/>
+        <Button x:Name="btnSacuvaj" Content="Sacuvaj" 
+                Grid.Column="1" HorizontalAlignment="Left" 
+                Grid.Row="3" VerticalAlignment="Top" 
+                Width="96" RenderTransformOrigin="-0.254,-0.007" 
+                Height="40" Click="btnSacuvaj_Click"/>
+
     </Grid>
 </Window>

@@ -55,21 +55,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="GUI\NamestajCRUD.xaml.cs">
-      <DependentUpon>NamestajCRUD.xaml</DependentUpon>
+    <Compile Include="GUI\KorisnikWindow.xaml.cs">
+      <DependentUpon>KorisnikWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\NamestajWindow.xaml.cs">
       <DependentUpon>NamestajWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SalonWindow.xaml.cs">
+      <DependentUpon>SalonWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\TipNamestajaWindow.xaml.cs">
       <DependentUpon>TipNamestajaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\GenericSerializer.cs" />
-    <Page Include="GUI\NamestajCRUD.xaml">
+    <Page Include="GUI\KorisnikWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\NamestajWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\SalonWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,6 +138,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Zabiljeske.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\korisnik.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -36,7 +36,7 @@
   <Namestaj>
     <Id>5</Id>
     <Naziv>Stolicaa</Naziv>
-    <Cena>666</Cena>
+    <Cena>333</Cena>
     <KolicinaUMagacinu>0</KolicinaUMagacinu>
     <TipNamestajaId>2</TipNamestajaId>
     <Obrisan>false</Obrisan>
@@ -61,6 +61,14 @@
     <Id>8</Id>
     <Naziv>Proba</Naziv>
     <Cena>222</Cena>
+    <KolicinaUMagacinu>0</KolicinaUMagacinu>
+    <TipNamestajaId>1</TipNamestajaId>
+    <Obrisan>true</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>9</Id>
+    <Naziv>aaa</Naziv>
+    <Cena>31</Cena>
     <KolicinaUMagacinu>0</KolicinaUMagacinu>
     <TipNamestajaId>1</TipNamestajaId>
     <Obrisan>true</Obrisan>

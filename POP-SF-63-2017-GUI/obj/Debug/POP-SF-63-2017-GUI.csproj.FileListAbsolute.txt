@@ -52,3 +52,5 @@ C:\Users\TEMP.FTN.012\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\POP_SF_63_2017
 C:\Users\TEMP.FTN.012\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\POP-SF-63-2017-GUI.csproj.GenerateResource.Cache
 C:\Users\TEMP.FTN.012\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\NamestajCRUD.g.cs
 C:\Users\TEMP.FTN.012\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\NamestajCRUD.baml
+C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\KorisnikWindow.g.cs
+C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\KorisnikWindow.baml

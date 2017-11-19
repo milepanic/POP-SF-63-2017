@@ -44,8 +44,6 @@ namespace POP_SF_63_2017.Model
             }
         }
 
-
-
         public List<Salon> Saloni
         {
             get

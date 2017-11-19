@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace POP_SF_63_2017.Model
+﻿namespace POP_SF_63_2017.Model
 {
-	public enum TipKorisnika
+    public enum TipKorisnika
 	{
 		Administrator,
 		Prodavac
@@ -20,6 +14,13 @@ namespace POP_SF_63_2017.Model
 		public string Lozinka { get; set; }
 		public int TipKorisnika { get; set; }
 		public bool Obrisan { get; set; }
-	}
+
+
+        // TODO: Tip korisnika
+        public override string ToString()
+        {
+            return $"{ Ime }, { Prezime }, { KorisnickoIme }";
+        }
+    }
 }
 

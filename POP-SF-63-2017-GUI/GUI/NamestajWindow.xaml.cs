@@ -78,10 +78,10 @@ namespace POP_SF_63_2017_GUI.GUI
                 case TipOperacije.IZMENA:
                     foreach (var n in listaNamestaja)
                     {
-                        if(n.Id == namestaj.Id)
+                        if (n.Id == namestaj.Id)
                         {
-                            n.Naziv = this.tbNaziv.Text;
-                            n.Cena = double.Parse(this.tbCena.Text);
+                            n.Naziv = tbNaziv.Text;
+                            n.Cena = double.Parse(tbCena.Text);
                             n.TipNamestajaId = izabraniTipNamestaja.Id;
                             break;
                         }

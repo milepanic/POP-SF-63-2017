@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POP_SF_63_2017", "POP_SF_63_2017\POP_SF_63_2017.csproj", "{E2373B41-9763-4263-A7AB-247640C58B87}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POP-SF-63-2017-GUI", "POP-SF-63-2017-GUI\POP-SF-63-2017-GUI.csproj", "{25EB4703-30C0-40AD-AAD7-6E91F13B81A5}"
 EndProject
 Global
@@ -15,12 +13,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E2373B41-9763-4263-A7AB-247640C58B87}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{E2373B41-9763-4263-A7AB-247640C58B87}.Debug|x86.ActiveCfg = Debug|x86
-		{E2373B41-9763-4263-A7AB-247640C58B87}.Debug|x86.Build.0 = Debug|x86
-		{E2373B41-9763-4263-A7AB-247640C58B87}.Release|Any CPU.ActiveCfg = Release|x86
-		{E2373B41-9763-4263-A7AB-247640C58B87}.Release|x86.ActiveCfg = Release|x86
-		{E2373B41-9763-4263-A7AB-247640C58B87}.Release|x86.Build.0 = Release|x86
 		{25EB4703-30C0-40AD-AAD7-6E91F13B81A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{25EB4703-30C0-40AD-AAD7-6E91F13B81A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25EB4703-30C0-40AD-AAD7-6E91F13B81A5}.Debug|x86.ActiveCfg = Debug|Any CPU

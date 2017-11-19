@@ -17,11 +17,34 @@
             <RowDefinition Height="27*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <Menu x:Name="menu" HorizontalAlignment="Left" 
+        
+        <StackPanel x:Name="panel" HorizontalAlignment="Left" 
               Height="433" VerticalAlignment="Top" 
               Width="164" Margin="10,10,0,0" 
-              Grid.Row="1"/>
-        <Label x:Name="label1" Content="Label" 
+              Grid.Row="1">
+            <Button Name="namestaj" Click="namestaj_Click">
+                Namestaj
+            </Button>
+            <Button Name="tipNamestaja" Click="tipNamestaja_Click">
+                Tip Namestaja
+            </Button>
+            <Button>
+                Akcija
+            </Button>
+            <Button>
+                Dodatna Usluga
+            </Button>
+            <Button Name="korisnik" Click="korisnik_Click">
+                Korisnik
+            </Button>
+            <Button>
+                Prodaja
+            </Button>
+            <Button Name="Salon" Click="Salon_Click">
+                Salon
+            </Button>
+        </StackPanel>
+        <Label x:Name="header" Content="Label" 
                HorizontalAlignment="Left" VerticalAlignment="Top" 
                Grid.Column="1" Margin="10,10,0,0" 
                Height="35" Width="588"/>
@@ -29,25 +52,26 @@
                  HorizontalAlignment="Left" Height="433" 
                  Margin="10,10,0,0" Grid.Row="1" 
                  VerticalAlignment="Top" Width="588"/>
-        <Button x:Name="button" HorizontalAlignment="Left" 
+        <Button x:Name="btnIzlaz" HorizontalAlignment="Left" 
                 VerticalAlignment="Top" Width="89" Grid.Column="1" 
                 Margin="509,8,0,0" Grid.Row="2" 
-                Height="25">
+                Height="25" Click="btnIzlaz_Click">
             Izlaz
         </Button>
-        <Button x:Name="button_Copy" Content="Ubaci" 
+        <Button x:Name="btnDodaj" Content="Dodaj" 
                 HorizontalAlignment="Left" VerticalAlignment="Top" 
-                Width="75" 
+                Width="75" Click="btnDodaj_Click"
                 Margin="10,8,0,0" Grid.Row="2" 
                 Height="25"/>
-        <Button x:Name="button_Copy1" Content="Obrisi" 
+        <Button x:Name="btnObrisi" Content="Obrisi" 
                 HorizontalAlignment="Left" VerticalAlignment="Top" 
-                Width="75" 
+                Width="75" Click="btnObrisi_Click"
                 Margin="170,8,0,0" Grid.Row="2" 
                 Height="25" Grid.ColumnSpan="2"/>
-        <Button x:Name="button_Copy2" Content="Izmeni" 
+        <Button x:Name="btnIzmeni" Content="Izmeni" 
                 HorizontalAlignment="Left" VerticalAlignment="Top" 
                 Width="75" Margin="90,8,0,0" 
-                Grid.Row="2" Height="25"/>
+                Grid.Row="2" Height="25"
+                Click="btnIzmeni_Click"/>
     </Grid>
 </Window>
