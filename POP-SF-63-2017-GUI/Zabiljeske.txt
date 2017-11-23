@@ -6,3 +6,12 @@
 pastebin.com/u50U4AeE
 
 git config --global http.proxy 192.168.77.100:8080
+
+data binding - n.naziv = tb.text; // rucno
+za svaki model ubaciti event koji kada se promijeni osobina automatski treba da mijenja objekat
+u projekat.cs obrisati liste
+listbox se mijenja u datagrid
+brise se osveziprikaz() metod
+u xaml se dodaje Binding Path koji je staticki, treba se napraviti dinamicki (pokusaj overrideovati preko neke funkcije)
+mijenja se svaki window modela
+u namestaj.cs se dodaje objekat tipnamestaja da bi se dobio po ID-u

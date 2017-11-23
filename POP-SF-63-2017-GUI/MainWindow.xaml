@@ -48,10 +48,11 @@
                HorizontalAlignment="Left" VerticalAlignment="Top" 
                Grid.Column="1" Margin="10,10,0,0" 
                Height="35" Width="588"/>
-        <ListBox x:Name="listBox" Grid.Column="1" 
+        <DataGrid x:Name="dataGrid" Grid.Column="1" 
                  HorizontalAlignment="Left" Height="433" 
                  Margin="10,10,0,0" Grid.Row="1" 
-                 VerticalAlignment="Top" Width="588"/>
+                 VerticalAlignment="Top" Width="588"
+                 SelectedItem="{Binding Path=IzabraniNamestaj}"/>
         <Button x:Name="btnIzlaz" HorizontalAlignment="Left" 
                 VerticalAlignment="Top" Width="89" Grid.Column="1" 
                 Margin="509,8,0,0" Grid.Row="2" 

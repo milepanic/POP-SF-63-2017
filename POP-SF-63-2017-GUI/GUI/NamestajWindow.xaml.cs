@@ -18,8 +18,6 @@ namespace POP_SF_63_2017_GUI.GUI
         private Namestaj namestaj;
         private TipOperacije operacija;
 
-        
-
         public NamestajWindow(Namestaj namestaj, TipOperacije operacija)
         {
             InitializeComponent();
@@ -32,23 +30,13 @@ namespace POP_SF_63_2017_GUI.GUI
             this.namestaj = namestaj;
             this.operacija = operacija;
 
-            tbNaziv.Text = namestaj.Naziv;
+            // brise se sve dalje, u xaml se dodaje Text property i dodaje se...
 
-            // dropdown za tip namjestaja - override-uje se toString metoda klase
-            foreach (var TipNamestaja in Projekat.Instance.TipoviNamestaja)
-            {
-                cbTipNamestaja.Items.Add(TipNamestaja);
-            }
+            // gdje treba da gleda kada bude mijenjao naziv
+            tbNaziv.DataContext = namestaj;
 
-            // petlja da ispise tip namjestaja u combo boxu kada se edituje
-            foreach (TipNamestaja tipNamestaja in cbTipNamestaja.Items)
-            {
-                if (tipNamestaja.Id == namestaj.TipNamestajaId)
-                {
-                    cbTipNamestaja.SelectedItem = tipNamestaja;
-                    break;
-                }
-            }
+            cbTipNamestaja.ItemsSource = Projekat.Instance.TipoviNamestaja;
+            cbTipNamestaja.DataContext = namestaj;
         }
 
         private void btnIzlaz_Click(object sender, RoutedEventArgs e)

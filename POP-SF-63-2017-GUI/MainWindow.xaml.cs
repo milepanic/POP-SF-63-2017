@@ -1,6 +1,7 @@
 ﻿using POP_SF_63_2017.Model;
 using POP_SF_63_2017_GUI.GUI;
 using System.Windows;
+using static POP_SF_63_2017_GUI.GUI.KorisnikWindow;
 
 namespace POP_SF_63_2017_GUI
 {
@@ -9,60 +10,19 @@ namespace POP_SF_63_2017_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Namestaj IzabraniNamestaj { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // switch po labelu
+            dataGrid.ItemsSource = Projekat.Instance.Namestaji;
+            
+            dataGrid.DataContext = this;
+            dataGrid.IsSynchronizedWithCurrentItem = true;
         }
-
-        private void OsveziPrikaz()
-        {
-            listBox.Items.Clear();
-
-            switch (header.Content.ToString())
-            {
-                case "Namestaj":
-                    foreach (var namestaj in Projekat.Instance.Namestaji)
-                    {
-                        if (namestaj.Obrisan == false)
-                        {
-                            listBox.Items.Add(namestaj);
-                        }
-                    }
-                    break;
-                case "Tip namestaja":
-                    foreach (var tipNamestaja in Projekat.Instance.TipoviNamestaja)
-                    {
-                        if (tipNamestaja.Obrisan == false)
-                        {
-                            listBox.Items.Add(tipNamestaja);
-                        }
-                    }
-                    break;
-                case "Korisnik":
-                    foreach (var korisnik in Projekat.Instance.Korisnici)
-                    {
-                        if (korisnik.Obrisan == false)
-                        {
-                            listBox.Items.Add(korisnik);
-                        }
-                    }
-                    break;
-                case "Salon":
-                    foreach (var salon in Projekat.Instance.Saloni)
-                    {
-                        if (salon.Obrisan == false)
-                        {
-                            listBox.Items.Add(salon);
-                        }
-                    }
-                    break;
-                default:
-                    break;
-            }
-
-            listBox.SelectedIndex = 0;
-        }
-
+        
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
             switch (header.Content.ToString())
@@ -91,18 +51,15 @@ namespace POP_SF_63_2017_GUI
                     var korisnikProzor = new KorisnikWindow(prazanKorisnik, KorisnikWindow.TipOperacije.DODAVANJE);
                     korisnikProzor.ShowDialog();
                     break;
-                case "Salon":
+                /* case "Salon":
                     var prazanSalon = new Salon()
                     {
                         Naziv = ""
                     };
                     var salonProzor = new SalonWindow(prazanSalon, SalonWindow.TipOperacije.DODAVANJE);
                     salonProzor.ShowDialog();
-                default:
-                    break;
+                    break; */
             }
-
-            OsveziPrikaz();
         }
 
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
@@ -110,32 +67,28 @@ namespace POP_SF_63_2017_GUI
             switch (header.Content.ToString())
             {
                 case "Namestaj":
-                    var izabraniNamestaj = (Namestaj)listBox.SelectedItem;
-
-                    var namestajProzor = new NamestajWindow(izabraniNamestaj, NamestajWindow.TipOperacije.IZMENA);
+                    // obrisan 1 red i promijenjeno u IzabraniNamestaj
+                    var namestajProzor = new NamestajWindow(IzabraniNamestaj, NamestajWindow.TipOperacije.IZMENA);
                     namestajProzor.ShowDialog();
                     break;
                 case "Tip namestaja":
-                    var izabraniTipNamestaja = (TipNamestaja)listBox.SelectedItem;
+                    var izabraniTipNamestaja = (TipNamestaja)dataGrid.SelectedItem;
 
                     var tipNamestajaProzor = new TipNamestajaWindow(izabraniTipNamestaja, TipNamestajaWindow.TipOperacije.IZMENA);
                     tipNamestajaProzor.ShowDialog();
                     break;
                 case "Korisnik":
-                    var izabraniTipKorisnika = (Korisnik)listBox.SelectedItem;
+                    var izabraniTipKorisnika = (Korisnik)dataGrid.SelectedItem;
 
                     var korisnikProzor = new KorisnikWindow(izabraniTipKorisnika, KorisnikWindow.TipOperacije.IZMENA);
                     break;
-                case "Salon":
-                    var izabraniSalon = (Salon)listBox.SelectedItem;
+                    // TODO: TipOperacije treba da bude staticki ( da se izbrise ModelWindow ) ili nisam napravio CRUD
+                    /* case "Salon":
+                         var izabraniSalon = (Salon)dataGrid.SelectedItem;
 
-                    var salonProzor = new SalonWindow(izabraniSalon, SalonWindow.TipOperacije.IZMENA);
-                    break;
-                default:
-                    break;
+                         var salonProzor = new SalonWindow(izabraniSalon, SalonWindow.TipOperacije.IZMENA); 
+                         break; */
             }
-
-            OsveziPrikaz();
         }
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
@@ -143,7 +96,7 @@ namespace POP_SF_63_2017_GUI
             switch (header.Content.ToString())
             {
                 case "Namestaj":
-                    var namestajZaBrisanje = (Namestaj)listBox.SelectedItem;
+                    var namestajZaBrisanje = (Namestaj)dataGrid.SelectedItem;
                     if (MessageBox.Show(
                         $"Da li ste sigurni da zelite da obrisete namestaj: { namestajZaBrisanje.Naziv }?",
                         "Brisanje namestaja", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
@@ -162,7 +115,7 @@ namespace POP_SF_63_2017_GUI
                     }
                     break;
                 case "Tip namestaja":
-                    var tipNamestajaZaBrisanje = (TipNamestaja)listBox.SelectedItem;
+                    var tipNamestajaZaBrisanje = (TipNamestaja)dataGrid.SelectedItem;
                     if (MessageBox.Show(
                         $"Da li ste sigurni da zelite da obristete namestaj: { tipNamestajaZaBrisanje.Naziv }?",
                         "Brisanje tipa namestaja", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
@@ -180,8 +133,8 @@ namespace POP_SF_63_2017_GUI
                         Projekat.Instance.TipoviNamestaja = lista;
                     }
                     break;
-                case "Korisnik":
-                    var korisnikZabrisanje = (Korisnik)listBox.SelectedItem;
+                /*case "Korisnik":
+                    var korisnikZabrisanje = (Korisnik)dataGrid.SelectedItem;
                     if (MessageBox.Show(
                         $"Da li ste sigurni da zelite da obrisete korisnika: { korisnikZabrisanje.Ime} { korisnikZabrisanje.Prezime }?",
                         "Brisanje korisnika", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
@@ -198,31 +151,27 @@ namespace POP_SF_63_2017_GUI
 
                         Projekat.Instance.Korisnici = lista;
                     }
-                    break;
-                case "Salon":
-                    var salonZaBrisanje = (Salon)listBox.SelectedItem;
-                    if (MessageBox.Show(
-                        $"Da li ste sigurni da zelite da obrisete salon: { Salon.Naziv}?",
-                        "Brisanje salona", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                    {
-                        var lista = Projekat.Instance.Saloni;
+                    break; */
+                    /* case "Salon":
+                         var salonZaBrisanje = (Salon)dataGrid.SelectedItem;
+                         if (MessageBox.Show(
+                             $"Da li ste sigurni da zelite da obrisete salon: { Salon.Naziv}?",
+                             "Brisanje salona", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                         {
+                             var lista = Projekat.Instance.Saloni;
 
-                        foreach (var salon in lista)
-                        {
-                            if (salon.Id == salonZaBrisanje.Id)
-                            {
-                                salon.Obrisan = true;
-                            }
-                        }
+                             foreach (var salon in lista)
+                             {
+                                 if (salon.Id == salonZaBrisanje.Id)
+                                 {
+                                     salon.Obrisan = true;
+                                 }
+                             }
 
-                        Projekat.Instance.Saloni = lista;
-                    }
-                    break;
-                default:
-                    break;
+                             Projekat.Instance.Saloni = lista;
+                         }
+                         break; */
             }
-
-            OsveziPrikaz();
         }
 
         private void btnIzlaz_Click(object sender, RoutedEventArgs e)
@@ -233,25 +182,21 @@ namespace POP_SF_63_2017_GUI
         private void namestaj_Click(object sender, RoutedEventArgs e)
         {
             header.Content = "Namestaj";
-            OsveziPrikaz();
         }
 
         private void tipNamestaja_Click(object sender, RoutedEventArgs e)
         {
             header.Content = "Tip namestaja";
-            OsveziPrikaz();
         }
 
         private void korisnik_Click(object sender, RoutedEventArgs e)
         {
             header.Content = "Korisnik";
-            OsveziPrikaz();
         }
 
         private void Salon_Click(object sender, RoutedEventArgs e)
         {
             header.Content = "Salon";
-            OsveziPrikaz();
         }
     }
 }
