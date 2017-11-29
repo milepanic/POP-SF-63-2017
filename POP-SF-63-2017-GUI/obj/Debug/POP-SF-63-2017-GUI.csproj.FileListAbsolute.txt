@@ -76,3 +76,5 @@ C:\Users\TEMP.FTN.008\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\MainWindow.bam
 C:\Users\TEMP.FTN.008\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\POP-SF-63-2017-GUI.g.resources
 C:\Users\TEMP.FTN.008\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\POP_SF_63_2017_GUI.Properties.Resources.resources
 C:\Users\TEMP.FTN.008\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\POP-SF-63-2017-GUI.csproj.GenerateResource.Cache
+C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\SalonWindow.g.cs
+C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\SalonWindow.baml

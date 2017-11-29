@@ -37,12 +37,12 @@
                 HorizontalAlignment="Left"
                 Grid.Row="10" VerticalAlignment="Top" 
                 Width="97" Height="24"
-                Content="Sacuvaj"/>
+                Content="Sacuvaj" Click="btnSacuvaj_Click"/>
         <Button x:Name="btnIzadji" Content="Izadji" 
                 Grid.Column="1" HorizontalAlignment="Left" 
                 Margin="102,0,0,0" Grid.Row="10" 
                 VerticalAlignment="Top" Width="95" 
-                Height="24"/>
+                Height="24" Click="btnIzadji_Click"/>
         <TextBox x:Name="tbNaziv" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
         <TextBox x:Name="tbAdresa" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
         <TextBox x:Name="tbTelefon" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>

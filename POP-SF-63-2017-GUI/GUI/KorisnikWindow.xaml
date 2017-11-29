@@ -46,7 +46,7 @@
         <TextBox x:Name="tbIme" Grid.Column="1" 
                  HorizontalAlignment="Left" Height="31" 
                  Grid.Row="1" TextWrapping="Wrap" 
-                 Text="TextBox" VerticalAlignment="Top" 
+                 Text="{Binding Path=Ime}" VerticalAlignment="Top" 
                  Width="195"/>
         <TextBox x:Name="tbPrezime" Grid.Column="1" 
                  HorizontalAlignment="Left" Height="31" 

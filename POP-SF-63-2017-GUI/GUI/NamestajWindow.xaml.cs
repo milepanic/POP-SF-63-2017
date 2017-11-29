@@ -1,5 +1,4 @@
 ﻿using POP_SF_63_2017.Model;
-using System.Linq;
 using System.Windows;
 
 namespace POP_SF_63_2017_GUI.GUI

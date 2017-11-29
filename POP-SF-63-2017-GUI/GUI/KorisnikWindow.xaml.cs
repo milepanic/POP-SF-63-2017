@@ -30,12 +30,12 @@ namespace POP_SF_63_2017_GUI.GUI
             this.korisnik = korisnik;
             this.operacija = operacija;
 
-            tbIme.Text = korisnik.Ime;
-            tbPrezime.Text = korisnik.Prezime;
+            tbIme.DataContext = korisnik;
+            /*tbPrezime.Text = korisnik.Prezime;
             tbKorisnickoIme.Text = korisnik.KorisnickoIme;
             tbLozinka.Text = korisnik.Lozinka;
             cbTipKorisnika.Items.Insert(0, "Prodavac");
-            cbTipKorisnika.Items.Insert(1, "Admin");
+            cbTipKorisnika.Items.Insert(1, "Admin");*/
         }
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)

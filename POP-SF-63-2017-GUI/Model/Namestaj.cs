@@ -32,8 +32,6 @@ namespace POP_SF_63_2017.Model
                 OnPropertyChanged("TipNamestaja");
             }
         }
-
-
         public int Id
         {
             get { return id; }
@@ -43,7 +41,6 @@ namespace POP_SF_63_2017.Model
                 OnPropertyChanged("Id");
             }
         }
-
         public string Naziv
         {
             get { return naziv; }
@@ -52,8 +49,7 @@ namespace POP_SF_63_2017.Model
                 naziv = value;
                 OnPropertyChanged("Naziv");
             }
-        }        
-
+        }
         public string Sifra
         {
             get { return sifra; }
@@ -62,8 +58,7 @@ namespace POP_SF_63_2017.Model
                 sifra = value;
                 OnPropertyChanged("Sifra");
             }
-        }        
-
+        }
         public double Cena
         {
             get { return cena; }
@@ -73,7 +68,6 @@ namespace POP_SF_63_2017.Model
                 OnPropertyChanged("Cena");
             }
         }
-        
         public int KolicinaUMagacinu
         {
             get { return kolicinaUMagacinu; }
@@ -83,7 +77,6 @@ namespace POP_SF_63_2017.Model
                 OnPropertyChanged("KolicinaUMagacinu");
             }
         }
-        
         // TODO: Akcija
 		public Akcija Akcija { get; set; }
         
@@ -97,7 +90,6 @@ namespace POP_SF_63_2017.Model
                 OnPropertyChanged("TipNamestajaId");
             }
         }
-
         public bool Obrisan
         {
             get { return obrisan; }

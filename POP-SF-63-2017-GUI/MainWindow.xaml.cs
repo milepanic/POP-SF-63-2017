@@ -17,8 +17,22 @@ namespace POP_SF_63_2017_GUI
             InitializeComponent();
 
             // switch po labelu
-            dataGrid.ItemsSource = Projekat.Instance.Namestaji;
-            
+            switch (header.Content.ToString())
+            {
+                case "Namestaj":
+                    dataGrid.ItemsSource = Projekat.Instance.Namestaji;
+                    break;
+                case "Tip namestaja":
+                    dataGrid.ItemsSource = Projekat.Instance.TipoviNamestaja;
+                    break;
+                case "Korisnik":
+                    dataGrid.ItemsSource = Projekat.Instance.Korisnici;
+                    break;
+                case "Salon":
+                    dataGrid.ItemsSource = Projekat.Instance.Saloni;
+                    break;
+            }
+
             dataGrid.DataContext = this;
             dataGrid.IsSynchronizedWithCurrentItem = true;
         }
@@ -51,14 +65,14 @@ namespace POP_SF_63_2017_GUI
                     var korisnikProzor = new KorisnikWindow(prazanKorisnik, KorisnikWindow.TipOperacije.DODAVANJE);
                     korisnikProzor.ShowDialog();
                     break;
-                /* case "Salon":
+                case "Salon":
                     var prazanSalon = new Salon()
                     {
                         Naziv = ""
                     };
                     var salonProzor = new SalonWindow(prazanSalon, SalonWindow.TipOperacije.DODAVANJE);
                     salonProzor.ShowDialog();
-                    break; */
+                    break;
             }
         }
 
@@ -83,11 +97,11 @@ namespace POP_SF_63_2017_GUI
                     var korisnikProzor = new KorisnikWindow(izabraniTipKorisnika, KorisnikWindow.TipOperacije.IZMENA);
                     break;
                     // TODO: TipOperacije treba da bude staticki ( da se izbrise ModelWindow ) ili nisam napravio CRUD
-                    /* case "Salon":
+                    case "Salon":
                          var izabraniSalon = (Salon)dataGrid.SelectedItem;
 
                          var salonProzor = new SalonWindow(izabraniSalon, SalonWindow.TipOperacije.IZMENA); 
-                         break; */
+                         break;
             }
         }
 
@@ -133,7 +147,7 @@ namespace POP_SF_63_2017_GUI
                         Projekat.Instance.TipoviNamestaja = lista;
                     }
                     break;
-                /*case "Korisnik":
+                case "Korisnik":
                     var korisnikZabrisanje = (Korisnik)dataGrid.SelectedItem;
                     if (MessageBox.Show(
                         $"Da li ste sigurni da zelite da obrisete korisnika: { korisnikZabrisanje.Ime} { korisnikZabrisanje.Prezime }?",
@@ -151,11 +165,11 @@ namespace POP_SF_63_2017_GUI
 
                         Projekat.Instance.Korisnici = lista;
                     }
-                    break; */
-                    /* case "Salon":
+                    break;
+                    case "Salon":
                          var salonZaBrisanje = (Salon)dataGrid.SelectedItem;
                          if (MessageBox.Show(
-                             $"Da li ste sigurni da zelite da obrisete salon: { Salon.Naziv}?",
+                             $"Da li ste sigurni da zelite da obrisete salon: { salonZaBrisanje.Naziv}?",
                              "Brisanje salona", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                          {
                              var lista = Projekat.Instance.Saloni;
@@ -170,7 +184,7 @@ namespace POP_SF_63_2017_GUI
 
                              Projekat.Instance.Saloni = lista;
                          }
-                         break; */
+                         break;
             }
         }
 
