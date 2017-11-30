@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace POP_SF_63_2017.Model
 {
     public class Salon : INotifyPropertyChanged
-	{
+    {
         private int id;
         private string naziv;
         private string adresa;

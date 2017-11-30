@@ -20,9 +20,10 @@ namespace POP_SF_63_2017.Model
         {
             get
             {
-                if (TipNamestaja == null)
+                if (tipNamestaja == null)
+                {
                     return TipNamestaja.GetById(tipNamestajaId);
-
+                }
                 return tipNamestaja;
             }
             set

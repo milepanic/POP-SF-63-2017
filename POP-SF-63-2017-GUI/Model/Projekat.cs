@@ -12,7 +12,7 @@ namespace POP_SF_63_2017.Model
     {
         public static Projekat Instance { get; private set; } = new Projekat();
         
-        public  ObservableCollection<TipNamestaja> TipoviNamestaja { get; set; }
+        public ObservableCollection<TipNamestaja> TipoviNamestaja { get; set; }
         public ObservableCollection<Namestaj> Namestaji { get; set; }
         public ObservableCollection<Korisnik> Korisnici { get; set; }
         public ObservableCollection<Salon> Saloni { get; set; }

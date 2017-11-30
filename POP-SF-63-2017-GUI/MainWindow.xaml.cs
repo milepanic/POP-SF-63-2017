@@ -11,6 +11,9 @@ namespace POP_SF_63_2017_GUI
     public partial class MainWindow : Window
     {
         public Namestaj IzabraniNamestaj { get; set; }
+        public TipNamestaja IzabraniTipNamestaja { get; set; }
+        public Korisnik IzabraniKorisnik { get; set; }
+        public Salon IzabraniSalon { get; set; }
 
         public MainWindow()
         {
@@ -32,6 +35,7 @@ namespace POP_SF_63_2017_GUI
                     dataGrid.ItemsSource = Projekat.Instance.Saloni;
                     break;
             }
+            dataGrid.ItemsSource = Projekat.Instance.Namestaji;
 
             dataGrid.DataContext = this;
             dataGrid.IsSynchronizedWithCurrentItem = true;
@@ -86,22 +90,17 @@ namespace POP_SF_63_2017_GUI
                     namestajProzor.ShowDialog();
                     break;
                 case "Tip namestaja":
-                    var izabraniTipNamestaja = (TipNamestaja)dataGrid.SelectedItem;
-
-                    var tipNamestajaProzor = new TipNamestajaWindow(izabraniTipNamestaja, TipNamestajaWindow.TipOperacije.IZMENA);
+                    var tipNamestajaProzor = new TipNamestajaWindow(IzabraniTipNamestaja, TipNamestajaWindow.TipOperacije.IZMENA);
                     tipNamestajaProzor.ShowDialog();
                     break;
                 case "Korisnik":
-                    var izabraniTipKorisnika = (Korisnik)dataGrid.SelectedItem;
-
-                    var korisnikProzor = new KorisnikWindow(izabraniTipKorisnika, KorisnikWindow.TipOperacije.IZMENA);
+                    var korisnikProzor = new KorisnikWindow(IzabraniKorisnik, KorisnikWindow.TipOperacije.IZMENA);
+                    korisnikProzor.ShowDialog();
                     break;
-                    // TODO: TipOperacije treba da bude staticki ( da se izbrise ModelWindow ) ili nisam napravio CRUD
-                    case "Salon":
-                         var izabraniSalon = (Salon)dataGrid.SelectedItem;
-
-                         var salonProzor = new SalonWindow(izabraniSalon, SalonWindow.TipOperacije.IZMENA); 
-                         break;
+                case "Salon":
+                    var salonProzor = new SalonWindow(IzabraniSalon, SalonWindow.TipOperacije.IZMENA);
+                    salonProzor.ShowDialog();
+                    break;
             }
         }
 

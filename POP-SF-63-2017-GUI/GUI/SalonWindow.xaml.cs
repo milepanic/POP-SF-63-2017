@@ -22,24 +22,24 @@ namespace POP_SF_63_2017_GUI.GUI
         {
             InitializeComponent();
 
-            InicijalizujPodatke(salon, operacija);
+            //InicijalizujPodatke(salon, operacija);
         }
 
-        private void InicijalizujPodatke(Salon salon, TipOperacije operacija)
+        /*private void InicijalizujPodatke(Salon salon, TipOperacije operacija)
         {
             this.salon = salon;
             this.operacija = operacija;
 
             tbNaziv.DataContext = salon;
         }
-
+        */
         private void btnIzadji_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
-        {
+        {/*
             //cita sa diska listu namjestaja
             var listaSalona = Projekat.Instance.Saloni;
 
@@ -80,8 +80,8 @@ namespace POP_SF_63_2017_GUI.GUI
             }
 
             //Serijalizuje se preko Projekat.cs - cuva u disk
-            Projekat.Instance.Saloni = listaSalona;
-
+            //Projekat.Instance.Saloni = listaSalona;
+            */
             Close();
         }
     }
