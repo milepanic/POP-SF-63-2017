@@ -15,7 +15,7 @@
     <Cena>31</Cena>
     <KolicinaUMagacinu>0</KolicinaUMagacinu>
     <TipNamestajaId>2</TipNamestajaId>
-    <Obrisan>true</Obrisan>
+    <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>3</Id>
@@ -23,7 +23,7 @@
     <Cena>15400</Cena>
     <KolicinaUMagacinu>0</KolicinaUMagacinu>
     <TipNamestajaId>1</TipNamestajaId>
-    <Obrisan>true</Obrisan>
+    <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>4</Id>
@@ -47,7 +47,7 @@
     <Cena>1100</Cena>
     <KolicinaUMagacinu>0</KolicinaUMagacinu>
     <TipNamestajaId>2</TipNamestajaId>
-    <Obrisan>true</Obrisan>
+    <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>7</Id>
@@ -55,7 +55,7 @@
     <Cena>111</Cena>
     <KolicinaUMagacinu>0</KolicinaUMagacinu>
     <TipNamestajaId>1</TipNamestajaId>
-    <Obrisan>true</Obrisan>
+    <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>8</Id>
@@ -63,12 +63,20 @@
     <Cena>222</Cena>
     <KolicinaUMagacinu>0</KolicinaUMagacinu>
     <TipNamestajaId>1</TipNamestajaId>
-    <Obrisan>true</Obrisan>
+    <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>9</Id>
     <Naziv>aaa</Naziv>
     <Cena>31</Cena>
+    <KolicinaUMagacinu>0</KolicinaUMagacinu>
+    <TipNamestajaId>1</TipNamestajaId>
+    <Obrisan>false</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>10</Id>
+    <Naziv>454156</Naziv>
+    <Cena>66699996666</Cena>
     <KolicinaUMagacinu>0</KolicinaUMagacinu>
     <TipNamestajaId>1</TipNamestajaId>
     <Obrisan>true</Obrisan>

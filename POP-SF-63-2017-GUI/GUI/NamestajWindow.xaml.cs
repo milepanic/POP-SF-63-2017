@@ -48,6 +48,7 @@ namespace POP_SF_63_2017_GUI.GUI
             //cita sa diska listu namjestaja
             var listaNamestaja = Projekat.Instance.Namestaji;
             // uzima objekat tip namjestaja iz dropdown liste
+            // TODO: obrisati
             TipNamestaja izabraniTipNamestaja = (TipNamestaja)cbTipNamestaja.SelectedItem;
 
             switch (operacija)
@@ -67,8 +68,9 @@ namespace POP_SF_63_2017_GUI.GUI
                     {
                         if (n.Id == namestaj.Id)
                         {
-                            n.Naziv = tbNaziv.Text;
-                            n.Cena = double.Parse(tbCena.Text);
+                            // tbNaziv.Text promijenjen u namestaj.Naziv, tip namestaja moze bez izabranitip...
+                            n.Naziv = namestaj.Naziv;
+                            //n.Cena = double.Parse(tbCena.Text);
                             n.TipNamestajaId = izabraniTipNamestaja.Id;
                             break;
                         }

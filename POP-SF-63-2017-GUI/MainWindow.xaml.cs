@@ -1,7 +1,10 @@
 ﻿using POP_SF_63_2017.Model;
 using POP_SF_63_2017_GUI.GUI;
+using System.ComponentModel;
 using System.Windows;
-using static POP_SF_63_2017_GUI.GUI.KorisnikWindow;
+using System.Windows.Data;
+using System;
+using POP_SF_63_2017.Utils;
 
 namespace POP_SF_63_2017_GUI
 {
@@ -10,37 +13,69 @@ namespace POP_SF_63_2017_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        // ubacujemo view da bi se namjestaj dinamicki prikazivao, tj kada se obrise da se odmah vise ne prikazuje
+        private ICollectionView view;
+
         public Namestaj IzabraniNamestaj { get; set; }
         public TipNamestaja IzabraniTipNamestaja { get; set; }
         public Korisnik IzabraniKorisnik { get; set; }
         public Salon IzabraniSalon { get; set; }
 
+        public enum IzabranaKlasa
+        {
+            NAMESTAJ,
+            TIPNAMESTAJA,
+            KORISNIK,
+            SALON
+        }
+
+        private IzabranaKlasa izabranaKlasa;
+
         public MainWindow()
         {
             InitializeComponent();
 
+            Ispis();  
+            
+        }
+
+        private void Ispis()
+        {
             // switch po labelu
-            switch (header.Content.ToString())
+            switch (izabranaKlasa)
             {
-                case "Namestaj":
-                    dataGrid.ItemsSource = Projekat.Instance.Namestaji;
+                case IzabranaKlasa.NAMESTAJ:
+                    // zamijeniti
+                    view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestaji);
+                    // uslov po kome cemo prikazivati namjestaj
+                    view.Filter = FilterNeobrisanogNamestaja;
                     break;
-                case "Tip namestaja":
+                case IzabranaKlasa.TIPNAMESTAJA:
+                    view = CollectionViewSource.GetDefaultView(Projekat.Instance.TipoviNamestaja);
                     dataGrid.ItemsSource = Projekat.Instance.TipoviNamestaja;
                     break;
-                case "Korisnik":
-                    dataGrid.ItemsSource = Projekat.Instance.Korisnici;
-                    break;
-                case "Salon":
-                    dataGrid.ItemsSource = Projekat.Instance.Saloni;
-                    break;
+                    /*case "Korisnik":
+                        dataGrid.ItemsSource = Projekat.Instance.Korisnici;
+                        break;
+                    case "Salon":
+                        dataGrid.ItemsSource = Projekat.Instance.Saloni;
+                        break;*/
             }
-            dataGrid.ItemsSource = Projekat.Instance.Namestaji;
+            dataGrid.ItemsSource = view;
 
             dataGrid.DataContext = this;
             dataGrid.IsSynchronizedWithCurrentItem = true;
+
+            // sinhronizuje broj kolona u data gridu (kada izbacimo neke kolone da ne pokazuje praznu)
+            dataGrid.ColumnWidth = new System.Windows.Controls.DataGridLength(1, System.Windows.Controls.DataGridLengthUnitType.Star);
         }
-        
+
+        private bool FilterNeobrisanogNamestaja(object obj)
+        {
+            // vratice true ako namjestaj nije obrisan, jer obrisan = false
+            return ((Namestaj)obj).Obrisan == false;
+        }
+
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
             switch (header.Content.ToString())
@@ -85,8 +120,10 @@ namespace POP_SF_63_2017_GUI
             switch (header.Content.ToString())
             {
                 case "Namestaj":
-                    // obrisan 1 red i promijenjeno u IzabraniNamestaj
-                    var namestajProzor = new NamestajWindow(IzabraniNamestaj, NamestajWindow.TipOperacije.IZMENA);
+                    // klonira se da bi radila izmjena pravilno
+                    Namestaj kopijaNamestaja = (Namestaj)IzabraniNamestaj.Clone();
+
+                    var namestajProzor = new NamestajWindow(kopijaNamestaja, NamestajWindow.TipOperacije.IZMENA);
                     namestajProzor.ShowDialog();
                     break;
                 case "Tip namestaja":
@@ -120,11 +157,13 @@ namespace POP_SF_63_2017_GUI
                         {
                             if (namestaj.Id == namestajZaBrisanje.Id)
                             {
+                                // dodato view.r i break
+                                
                                 namestaj.Obrisan = true;
+                                view.Refresh();
                             }
                         }
-
-                        Projekat.Instance.Namestaji = lista;
+                        GenericSerializer.Serialize("namestaj.xml", lista);
                     }
                     break;
                 case "Tip namestaja":
@@ -194,12 +233,16 @@ namespace POP_SF_63_2017_GUI
 
         private void namestaj_Click(object sender, RoutedEventArgs e)
         {
+            izabranaKlasa = IzabranaKlasa.NAMESTAJ;
             header.Content = "Namestaj";
+            Ispis();
         }
 
         private void tipNamestaja_Click(object sender, RoutedEventArgs e)
         {
-            header.Content = "Tip namestaja";
+            izabranaKlasa = IzabranaKlasa.TIPNAMESTAJA;
+            header.Content = "Tip Namestaja";
+            Ispis();
         }
 
         private void korisnik_Click(object sender, RoutedEventArgs e)
@@ -210,6 +253,16 @@ namespace POP_SF_63_2017_GUI
         private void Salon_Click(object sender, RoutedEventArgs e)
         {
             header.Content = "Salon";
+        }
+
+        // manipulacija izgleda data grida (kolone koje se prikazuju)
+        // TODO: ubaciti u using System.win..Controls
+        private void dataGrid_AutoGeneratingColumn(object sender, System.Windows.Controls.DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.Column.Header.ToString() == "Id" || e.Column.Header.ToString() == "TipNamestajaId" || e.Column.Header.ToString() == "Obrisan")
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

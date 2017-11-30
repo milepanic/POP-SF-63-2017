@@ -15,3 +15,16 @@ brise se osveziprikaz() metod
 u xaml se dodaje Binding Path koji je staticki, treba se napraviti dinamicki (pokusaj overrideovati preko neke funkcije)
 mijenja se svaki window modela
 u namestaj.cs se dodaje objekat tipnamestaja da bi se dobio po ID-u
+
+binding - path gleda gdje da pronadje, context sta
+
+u izmjeni se objekat automatski mijienja, a treba tek kada se sacuva
+
+uvodjenje kloniranja - u model implementirati da bi se moglo editovati kako treba
+
+datagrid u read-only IsReadOnly="True" CanUserAddRows="False"
+datagrid - izbaciti neke kolone, brisanje napraviti; xaml -  AutoGeneratingColumn="dataGrid_AutoGeneratingColumn"
+
+rucno se poziva serializer
+
+tip korisnika preko enumeracije

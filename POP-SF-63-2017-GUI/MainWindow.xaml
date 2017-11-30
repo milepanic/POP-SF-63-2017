@@ -44,7 +44,7 @@
                 Salon
             </Button>
         </StackPanel>
-        <Label x:Name="header" Content="Label" 
+        <Label x:Name="header" Content="Namestaj" 
                HorizontalAlignment="Left" VerticalAlignment="Top" 
                Grid.Column="1" Margin="10,10,0,0" 
                Height="35" Width="588"/>
@@ -52,7 +52,9 @@
                  HorizontalAlignment="Left" Height="433" 
                  Margin="10,10,0,0" Grid.Row="1" 
                  VerticalAlignment="Top" Width="588"
-                 SelectedItem="{Binding Path=IzabraniNamestaj}"/>
+                 SelectedItem="{Binding Path=IzabraniNamestaj}"
+                 IsReadOnly="True" CanUserAddRows="False"
+                 AutoGeneratingColumn="dataGrid_AutoGeneratingColumn"/>
         <Button x:Name="btnIzlaz" HorizontalAlignment="Left" 
                 VerticalAlignment="Top" Width="89" Grid.Column="1" 
                 Margin="509,8,0,0" Grid.Row="2" 
