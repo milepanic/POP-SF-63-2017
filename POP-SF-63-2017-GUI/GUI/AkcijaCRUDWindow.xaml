@@ -1,0 +1,48 @@
+﻿<Window x:Class="POP_SF_63_2017_GUI.GUI.AkcijaCRUDWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_63_2017_GUI.GUI"
+        mc:Ignorable="d"
+        Title="AkcijaCRUDWindow" Height="498.941" Width="600.000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="361*"/>
+            <RowDefinition Height="44*"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="header" Content="Akcija" 
+               HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,-6,0" 
+               Height="35" Width="588"/>
+        <DataGrid x:Name="dataGrid" 
+                 HorizontalAlignment="Left" Height="342" 
+                 Margin="10,0,0,0" Grid.Row="1" 
+                 VerticalAlignment="Top" Width="564"
+                 SelectedItem="{Binding Path=IzabranaAkcija}"
+                 IsReadOnly="True" CanUserAddRows="False"
+                 AutoGeneratingColumn="dataGrid_AutoGeneratingColumn"/>
+        <Button x:Name="btnIzlaz" HorizontalAlignment="Left" 
+                VerticalAlignment="Top" Width="89" 
+                Margin="485,0,0,0" Grid.Row="2" 
+                Height="25" Click="btnIzlaz_Click">
+            Izlaz
+        </Button>
+        <Button x:Name="btnDodaj" Content="Dodaj" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Width="75" Click="btnDodaj_Click"
+                Margin="10,0,0,0" Grid.Row="2" 
+                Height="25"/>
+        <Button x:Name="btnObrisi" Content="Obrisi" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Width="75" Click="btnObrisi_Click"
+                Margin="170,0,0,0" Grid.Row="2" 
+                Height="25"/>
+        <Button x:Name="btnIzmeni" Content="Izmeni" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Width="75" Margin="90,0,0,0" 
+                Grid.Row="2" Height="25"
+                Click="btnIzmeni_Click"/>
+    </Grid>
+</Window>

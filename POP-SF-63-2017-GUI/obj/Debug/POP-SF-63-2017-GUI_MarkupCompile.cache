@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\TEMP.FTN.012\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\
+C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\
 POP_SF_63_2017_GUI
 none
 false
 DEBUG;TRACE
-C:\Users\TEMP.FTN.012\POP-SF-63-2017\POP-SF-63-2017-GUI\App.xaml
-5-1960235625
+C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\App.xaml
+13-132797123
 
-181005202369
+26-775573625
 13738642453
-GUI\KorisnikWindow.xaml;GUI\NamestajWindow.xaml;GUI\SalonWindow.xaml;GUI\TipNamestajaWindow.xaml;MainWindow.xaml;
+GUI\AkcijaCRUDWindow.xaml;GUI\AkcijaWindow.xaml;GUI\DodatnaUslugaCRUDWindow.xaml;GUI\DodatnaUslugaWindow.xaml;GUI\KorisnikCRUDWindow.xaml;GUI\KorisnikWindow.xaml;GUI\NamestajCRUDWindow.xaml;GUI\NamestajWindow.xaml;GUI\SalonCRUDWindow.xaml;GUI\SalonWindow.xaml;GUI\TipNamestajaCRUDWindow.xaml;GUI\TipNamestajaWindow.xaml;MainWindow.xaml;
 
-True
+False
 

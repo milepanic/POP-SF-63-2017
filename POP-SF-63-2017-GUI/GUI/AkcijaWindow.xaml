@@ -1,0 +1,50 @@
+﻿<Window x:Class="POP_SF_63_2017_GUI.GUI.AkcijaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_63_2017_GUI.GUI"
+        mc:Ignorable="d"
+        Title="AkcijaWindow" Height="365.9" Width="362.134">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="134*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Left" Height="224" Margin="10,10,-31,0" VerticalAlignment="Top" Width="313">
+            <Label x:Name="lbDatumPocetka" Content="Datum pocetka" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Margin="10,26,0,0" Width="120"/>
+            <Label x:Name="lbDatumZavrsetka" Content="Datum zavrsetka" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Margin="10,57,0,0" Width="120"/>
+            <Label x:Name="lbPopust" Content="Popust" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Margin="10,88,0,0" Width="120"/>
+            <TextBox x:Name="tbPopust" HorizontalAlignment="Left" 
+                     Height="26" Margin="135,88,0,0" 
+                     TextWrapping="Wrap" VerticalAlignment="Top" 
+                     Width="120" Text="{Binding Path=Popust }"/>
+            <DatePicker x:Name="dpPocetakAkcije" HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" Margin="135,26,0,0" 
+                        Width="120" FirstDayOfWeek="Monday" 
+                        SelectedDate="{Binding Path=DatumPocetka}" />
+            <DatePicker x:Name="dpZavrsetakAkcije" HorizontalAlignment="Left" 
+                        Margin="135,58,0,0" VerticalAlignment="Top" 
+                        Width="120" FirstDayOfWeek="Monday" 
+                        SelectedDate="{Binding Path=DatumZavrsetka}" />
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="68" 
+              Margin="10,239,-31,-37" VerticalAlignment="Top" 
+              Width="313" Grid.RowSpan="2">
+            <Button x:Name="btnSacuvaj" Content="Sacuvaj" 
+                    HorizontalAlignment="Left" 
+                    Margin="10,34,0,0" VerticalAlignment="Top" 
+                    Width="85" Height="27" Click="btnSacuvaj_Click"/>
+            <Button x:Name="btnIzlaz" Content="Izlaz" 
+                    HorizontalAlignment="Left" Margin="218,34,0,0" 
+                    VerticalAlignment="Top" Width="85" 
+                    Height="27" Click="btnIzlaz_Click"/>
+        </Grid>
+    </Grid>
+</Window>

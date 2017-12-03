@@ -1,9 +1,9 @@
-﻿using System.ComponentModel;
-using System.Xml.Serialization;
+﻿using System;
+using System.ComponentModel;
 
 namespace POP_SF_63_2017.Model
 {
-    public class Salon : INotifyPropertyChanged
+    public class Salon : INotifyPropertyChanged, ICloneable
     {
         private int id;
         private string naziv;
@@ -115,6 +115,23 @@ namespace POP_SF_63_2017.Model
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        public object Clone()
+        {
+            return new Salon()
+            {
+                id = Id,
+                naziv = Naziv,
+                adresa = Adresa,
+                telefon = Telefon,
+                email = Email,
+                websajt = Websajt,
+                pib = PIB,
+                maticniBroj = MaticniBroj,
+                brojZiroRacuna = BrojZiroRacuna,
+                obrisan = Obrisan
+            };
         }
     }
 }

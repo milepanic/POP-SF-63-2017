@@ -25,14 +25,23 @@
             <RowDefinition Height="24*"/>
             <RowDefinition Height="17*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lbNaziv" Content="Naziv" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="95" Height="23"/>
-        <Label x:Name="lbAdresa" Content="Adresa" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="95" Height="23"/>
-        <Label x:Name="lbTelefon" Content="Telefon" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="95" Height="23"/>
-        <Label x:Name="lbEmail" Content="Email" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Width="95" Height="23"/>
-        <Label x:Name="lbWebsajt" Content="Websajt" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Width="95" Height="23" RenderTransformOrigin="0.498,4.58"/>
-        <Label x:Name="lbPIB" Content="PIB" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Top" Width="95" Height="23"/>
-        <Label x:Name="lbMaticniBroj" Content="Maticni broj" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Width="95" Height="23"/>
-        <Label x:Name="lbBrojZirRacuna" Content="Broj ziro racuna" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="lbNaziv" Content="Naziv" 
+               HorizontalAlignment="Left" Grid.Row="1" 
+               VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="lbAdresa" Content="Adresa" 
+               HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="lbTelefon" Content="Telefon" 
+               HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="lbEmail" Content="Email"
+               HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="lbWebsajt" Content="Websajt" 
+               HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Width="95" Height="23" RenderTransformOrigin="0.498,4.58"/>
+        <Label x:Name="lbPIB" Content="PIB" 
+               HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="lbMaticniBroj" Content="Maticni broj" 
+               HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="lbBrojZirRacuna" Content="Broj ziro racuna" 
+               HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Width="95" Height="23"/>
         <Button x:Name="btnSacuvaj" Grid.Column="1" 
                 HorizontalAlignment="Left"
                 Grid.Row="10" VerticalAlignment="Top" 
@@ -43,14 +52,36 @@
                 Margin="102,0,0,0" Grid.Row="10" 
                 VerticalAlignment="Top" Width="95" 
                 Height="24" Click="btnIzadji_Click"/>
-        <TextBox x:Name="tbNaziv" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
-        <TextBox x:Name="tbAdresa" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
-        <TextBox x:Name="tbTelefon" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
-        <TextBox x:Name="tbEmail" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="4" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
-        <TextBox x:Name="tbWebsajt" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="5" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
-        <TextBox x:Name="tbPIB" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="6" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
-        <TextBox x:Name="tbMaticniBroj" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="7" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
-        <TextBox x:Name="tbBrojZiroRacuna" Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="8" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbNaziv" Grid.Column="1" 
+                 HorizontalAlignment="Left" Height="23" Grid.Row="1" 
+                 TextWrapping="Wrap" Text="{Binding Path=Naziv}" 
+                 VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbAdresa" Grid.Column="1" HorizontalAlignment="Left" 
+                 Height="23" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Path=Adresa}" 
+                 VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbTelefon" Grid.Column="1" 
+                 HorizontalAlignment="Left" Height="23" 
+                 Grid.Row="3" TextWrapping="Wrap" 
+                 Text="{Binding Path=Telefon}" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbEmail" Grid.Column="1" HorizontalAlignment="Left" 
+                 Height="23" Grid.Row="4" TextWrapping="Wrap" 
+                 Text="{Binding Path=Email}" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbWebsajt" Grid.Column="1" 
+                 HorizontalAlignment="Left" Height="23"
+                 Grid.Row="5" TextWrapping="Wrap" 
+                 Text="{Binding Path=Websajt}" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbPIB" Grid.Column="1" 
+                 HorizontalAlignment="Left" Height="23"
+                 Grid.Row="6" TextWrapping="Wrap" 
+                 Text="{Binding Path=PIB}" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbMaticniBroj" Grid.Column="1" 
+                 HorizontalAlignment="Left" Height="23" 
+                 Grid.Row="7" TextWrapping="Wrap" 
+                 Text="{Binding Path=MaticniBroj}" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="tbBrojZiroRacuna" Grid.Column="1" 
+                 HorizontalAlignment="Left" Height="23" 
+                 Grid.Row="8" TextWrapping="Wrap" 
+                 Text="{Binding Path=BrojZiroRacuna}" VerticalAlignment="Top" Width="197"/>
 
     </Grid>
 </Window>

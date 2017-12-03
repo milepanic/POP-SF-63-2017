@@ -55,20 +55,68 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GUI\AkcijaCRUDWindow.xaml.cs">
+      <DependentUpon>AkcijaCRUDWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\AkcijaWindow.xaml.cs">
+      <DependentUpon>AkcijaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DodatnaUslugaCRUDWindow.xaml.cs">
+      <DependentUpon>DodatnaUslugaCRUDWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DodatnaUslugaWindow.xaml.cs">
+      <DependentUpon>DodatnaUslugaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\KorisnikCRUDWindow.xaml.cs">
+      <DependentUpon>KorisnikCRUDWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\KorisnikWindow.xaml.cs">
       <DependentUpon>KorisnikWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\NamestajCRUDWindow.xaml.cs">
+      <DependentUpon>NamestajCRUDWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\NamestajWindow.xaml.cs">
       <DependentUpon>NamestajWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\SalonCRUDWindow.xaml.cs">
+      <DependentUpon>SalonCRUDWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\SalonWindow.xaml.cs">
       <DependentUpon>SalonWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TipNamestajaCRUDWindow.xaml.cs">
+      <DependentUpon>TipNamestajaCRUDWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\TipNamestajaWindow.xaml.cs">
       <DependentUpon>TipNamestajaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\GenericSerializer.cs" />
+    <Page Include="GUI\AkcijaCRUDWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\AkcijaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\DodatnaUslugaCRUDWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\DodatnaUslugaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\KorisnikCRUDWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\KorisnikWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\NamestajCRUDWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -76,7 +124,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\SalonCRUDWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\SalonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\TipNamestajaCRUDWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,6 +200,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Data\salon.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\dodatna_usluga.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Prodaja.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\akcije.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

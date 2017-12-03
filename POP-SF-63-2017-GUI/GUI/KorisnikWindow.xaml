@@ -51,24 +51,24 @@
         <TextBox x:Name="tbPrezime" Grid.Column="1" 
                  HorizontalAlignment="Left" Height="31" 
                  Grid.Row="2" TextWrapping="Wrap" 
-                 Text="TextBox" VerticalAlignment="Top" 
+                 Text="{Binding Path=Prezime}" VerticalAlignment="Top" 
                  Width="195"/>
         <TextBox x:Name="tbKorisnickoIme" Grid.Column="1" 
                  HorizontalAlignment="Left" Height="31" 
                  Grid.Row="2" TextWrapping="Wrap" 
-                 Text="TextBox" VerticalAlignment="Top" 
+                 Text="{Binding Path=KorisnickoIme}" VerticalAlignment="Top" 
                  Width="195" Margin="0,31,0,0" 
                  Grid.RowSpan="2"/>
         <TextBox x:Name="tbLozinka" Grid.Column="1" 
                  HorizontalAlignment="Left" Height="31" 
                  Grid.Row="4" TextWrapping="Wrap" 
-                 Text="TextBox" VerticalAlignment="Top" 
+                 Text="{Binding Path=Lozinka}" VerticalAlignment="Top" 
                  Width="195"/>
         <ComboBox x:Name="cbTipKorisnika" Grid.Column="1" 
                   HorizontalAlignment="Left" Grid.Row="5" 
                   VerticalAlignment="Top" Width="195" 
-                  Height="32"/>
-        <Button x:Name="btnSacuvaj" Content="Sacuvaj" 
+                  Height="32" SelectedItem="{Binding Path=TipKorisnika}"/>
+        <Button x:Name="btnSacuvaj" Content="Sacuvaj"
                 Grid.Column="1" HorizontalAlignment="Left" 
                 Grid.Row="7" VerticalAlignment="Top" 
                 Width="92" Height="34" Click="btnSacuvaj_Click"/>

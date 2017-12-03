@@ -31,16 +31,16 @@ namespace POP_SF_63_2017_GUI.GUI
             this.operacija = operacija;
 
             tbIme.DataContext = korisnik;
-            /*tbPrezime.Text = korisnik.Prezime;
-            tbKorisnickoIme.Text = korisnik.KorisnickoIme;
-            tbLozinka.Text = korisnik.Lozinka;
+            tbPrezime.DataContext = korisnik;
+            tbKorisnickoIme.DataContext = korisnik;
+            tbLozinka.DataContext = korisnik;
+
             cbTipKorisnika.Items.Insert(0, "Prodavac");
-            cbTipKorisnika.Items.Insert(1, "Admin");*/
+            cbTipKorisnika.Items.Insert(1, "Admin");
         }
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            //cita sa diska listu namjestaja
             var listaKorisnika = Projekat.Instance.Korisnici;
 
             switch (operacija)
@@ -62,10 +62,10 @@ namespace POP_SF_63_2017_GUI.GUI
                     {
                         if (n.Id == korisnik.Id)
                         {
-                            n.Ime = this.tbIme.Text;
-                            n.Prezime = this.tbPrezime.Text;
-                            n.KorisnickoIme = this.tbKorisnickoIme.Text;
-                            n.Lozinka = this.tbLozinka.Text;
+                            n.Ime = korisnik.Ime;
+                            n.Prezime = korisnik.Prezime;
+                            n.KorisnickoIme = korisnik.KorisnickoIme;
+                            n.Lozinka = korisnik.Lozinka;
                             n.TipKorisnika = cbTipKorisnika.SelectedIndex;
                             break;
                         }
@@ -73,7 +73,6 @@ namespace POP_SF_63_2017_GUI.GUI
                     break;
             }
 
-            //Serijalizuje se preko Projekat.cs - cuva u disk
             Projekat.Instance.Korisnici = listaKorisnika;
 
             Close();

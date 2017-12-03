@@ -1,8 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace POP_SF_63_2017.Model
 {
-    public class TipNamestaja : INotifyPropertyChanged
+    public class TipNamestaja : INotifyPropertyChanged, ICloneable
 	{
         private int id;
         private string naziv;
@@ -62,6 +63,16 @@ namespace POP_SF_63_2017.Model
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        public object Clone()
+        {
+            return new TipNamestaja()
+            {
+                id = Id,
+                naziv = Naziv,
+                obrisan = Obrisan
+            };
         }
     }
 }

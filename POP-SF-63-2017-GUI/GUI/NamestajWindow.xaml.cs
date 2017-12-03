@@ -29,10 +29,15 @@ namespace POP_SF_63_2017_GUI.GUI
             this.namestaj = namestaj;
             this.operacija = operacija;
 
-            // brise se sve dalje, u xaml se dodaje Text property i dodaje se...
-
             // gdje treba da gleda kada bude mijenjao naziv
             tbNaziv.DataContext = namestaj;
+            tbSifra.DataContext = namestaj;
+            tbCena.DataContext = namestaj;
+            tbKolicinaUMagacinu.DataContext = namestaj;
+
+            cbAkcija.ItemsSource = Projekat.Instance.Akcije;
+            cbAkcija.DataContext = namestaj;
+            
 
             cbTipNamestaja.ItemsSource = Projekat.Instance.TipoviNamestaja;
             cbTipNamestaja.DataContext = namestaj;
@@ -47,9 +52,10 @@ namespace POP_SF_63_2017_GUI.GUI
         {
             //cita sa diska listu namjestaja
             var listaNamestaja = Projekat.Instance.Namestaji;
+
             // uzima objekat tip namjestaja iz dropdown liste
-            // TODO: obrisati
             TipNamestaja izabraniTipNamestaja = (TipNamestaja)cbTipNamestaja.SelectedItem;
+            Akcija izabranaAkcija = (Akcija)cbAkcija.SelectedItem;
 
             switch (operacija)
             {
@@ -58,7 +64,10 @@ namespace POP_SF_63_2017_GUI.GUI
                     {
                         Id = listaNamestaja.Count + 1,
                         Naziv = tbNaziv.Text,
+                        Sifra = tbSifra.Text,
                         Cena = double.Parse(tbCena.Text),
+                        KolicinaUMagacinu = int.Parse(tbKolicinaUMagacinu.Text),
+                        AkcijaId = izabranaAkcija.Id,
                         TipNamestajaId = izabraniTipNamestaja.Id
                     };
                     listaNamestaja.Add(namestaj);
@@ -68,9 +77,11 @@ namespace POP_SF_63_2017_GUI.GUI
                     {
                         if (n.Id == namestaj.Id)
                         {
-                            // tbNaziv.Text promijenjen u namestaj.Naziv, tip namestaja moze bez izabranitip...
                             n.Naziv = namestaj.Naziv;
-                            //n.Cena = double.Parse(tbCena.Text);
+                            n.Sifra = namestaj.Sifra;
+                            n.Cena = namestaj.Cena;
+                            n.KolicinaUMagacinu = namestaj.KolicinaUMagacinu;
+                            n.AkcijaId = izabranaAkcija.Id;
                             n.TipNamestajaId = izabraniTipNamestaja.Id;
                             break;
                         }

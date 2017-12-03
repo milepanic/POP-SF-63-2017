@@ -6,14 +6,15 @@ namespace POP_SF_63_2017.Model
 {
     public class Namestaj : INotifyPropertyChanged, ICloneable
 	{
-        // propfull
         private int id;
         private string naziv;
         private string sifra;
         private double cena;
         private int kolicinaUMagacinu;
+        private int akcijaId;
         private int tipNamestajaId;
         private bool obrisan;
+        private Akcija akcija;
         private TipNamestaja tipNamestaja;
 
         [XmlIgnore]
@@ -32,6 +33,25 @@ namespace POP_SF_63_2017.Model
                 tipNamestaja = value;
                 TipNamestajaId = tipNamestaja.Id;
                 OnPropertyChanged("TipNamestaja");
+            }
+        }
+
+        [XmlIgnore]
+        public Akcija Akcija
+        {
+            get
+            {
+                if (akcija == null)
+                {
+                    return Akcija.GetById(akcijaId);
+                }
+                return akcija;
+            }
+            set
+            {
+                akcija = value;
+                akcijaId = akcija.Id;
+                OnPropertyChanged("Akcija");
             }
         }
         public int Id
@@ -79,9 +99,15 @@ namespace POP_SF_63_2017.Model
                 OnPropertyChanged("KolicinaUMagacinu");
             }
         }
-        // TODO: Akcija
-		public Akcija Akcija { get; set; }
-        
+        public int AkcijaId
+        {
+            get { return akcijaId; }
+            set
+            {
+                akcijaId = value;
+                OnPropertyChanged("AkcijaId");
+            }
+        }
 
         public int TipNamestajaId
         {

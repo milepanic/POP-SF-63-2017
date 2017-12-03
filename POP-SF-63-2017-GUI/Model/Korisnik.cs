@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace POP_SF_63_2017.Model
 {
@@ -7,8 +8,8 @@ namespace POP_SF_63_2017.Model
 		Administrator,
 		Prodavac
 	}
-	public class Korisnik : INotifyPropertyChanged
-	{
+	public class Korisnik : INotifyPropertyChanged, ICloneable
+    {
         private int id;
         private string ime;
         private string prezime;
@@ -95,6 +96,20 @@ namespace POP_SF_63_2017.Model
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        public object Clone()
+        {
+            return new Korisnik()
+            {
+                id = Id,
+                ime = Ime,
+                prezime = Prezime,
+                korisnickoIme = KorisnickoIme,
+                lozinka = Lozinka,
+                tipKorisnika = TipKorisnika,
+                obrisan = Obrisan
+            };
         }
     }
 }

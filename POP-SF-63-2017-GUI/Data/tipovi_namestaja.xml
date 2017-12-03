@@ -18,6 +18,16 @@
   <TipNamestaja>
     <Id>4</Id>
     <Naziv>Stolica</Naziv>
-    <Obrisan>false</Obrisan>
+    <Obrisan>true</Obrisan>
+  </TipNamestaja>
+  <TipNamestaja>
+    <Id>5</Id>
+    <Naziv>za obrisati</Naziv>
+    <Obrisan>true</Obrisan>
+  </TipNamestaja>
+  <TipNamestaja>
+    <Id>6</Id>
+    <Naziv>novi tip radi</Naziv>
+    <Obrisan>true</Obrisan>
   </TipNamestaja>
 </ArrayOfTipNamestaja>

@@ -39,7 +39,7 @@
     <Cena>333</Cena>
     <KolicinaUMagacinu>0</KolicinaUMagacinu>
     <TipNamestajaId>2</TipNamestajaId>
-    <Obrisan>false</Obrisan>
+    <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>6</Id>
@@ -71,7 +71,7 @@
     <Cena>31</Cena>
     <KolicinaUMagacinu>0</KolicinaUMagacinu>
     <TipNamestajaId>1</TipNamestajaId>
-    <Obrisan>false</Obrisan>
+    <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>10</Id>

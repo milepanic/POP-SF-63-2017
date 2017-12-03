@@ -19,7 +19,10 @@
             <ColumnDefinition Width="52*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="label" Content="Naziv" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="84" Height="40"/>
-        <TextBox x:Name="tbNaziv" Grid.Column="1" HorizontalAlignment="Left" Height="40" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="208"/>
+        <TextBox x:Name="tbNaziv" Grid.Column="1" 
+                 HorizontalAlignment="Left" Height="40"
+                 Grid.Row="1" TextWrapping="Wrap" 
+                 Text="{Binding Path=Naziv}" VerticalAlignment="Top" Width="208"/>
         <Button x:Name="btnIzadji" Content="Izadji" 
                 Grid.Column="1" HorizontalAlignment="Left" 
                 Margin="101,0,0,0" Grid.Row="3" 

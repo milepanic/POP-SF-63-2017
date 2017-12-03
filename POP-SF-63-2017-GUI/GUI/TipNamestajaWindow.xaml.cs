@@ -30,7 +30,7 @@ namespace POP_SF_63_2017_GUI.GUI
             this.tipNamestaja = tipNamestaja;
             this.operacija = operacija;
 
-            tbNaziv.Text = tipNamestaja.Naziv;
+            tbNaziv.DataContext = tipNamestaja;
         }
 
         private void btnIzadji_Click(object sender, RoutedEventArgs e)
@@ -40,7 +40,6 @@ namespace POP_SF_63_2017_GUI.GUI
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            //cita sa diska listu namjestaja
             var listaTipovaNamestaja = Projekat.Instance.TipoviNamestaja;
 
             switch (operacija)
@@ -58,14 +57,13 @@ namespace POP_SF_63_2017_GUI.GUI
                     {
                         if (n.Id == tipNamestaja.Id)
                         {
-                            n.Naziv = this.tbNaziv.Text;
+                            n.Naziv = tipNamestaja.Naziv;
                             break;
                         }
                     }
                     break;
             }
-
-            //Serijalizuje se preko Projekat.cs - cuva u disk
+            
             Projekat.Instance.TipoviNamestaja = listaTipovaNamestaja;
 
             Close();

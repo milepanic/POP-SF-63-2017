@@ -5,48 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_63_2017_GUI.GUI"
         mc:Ignorable="d"
-        Title="NamestajWindow" Height="302.55" Width="300">
-    <Grid>
+        Title="NamestajWindow" Height="461.341" Width="441.759">
+    <Grid Margin="0,0,40,52">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="45*"/>
-            <ColumnDefinition Width="101*"/>
+            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition Width="272*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"></RowDefinition>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="36*"/>
-            <RowDefinition Height="90*"></RowDefinition>
-            <RowDefinition Height="36*"/>
-            <RowDefinition Height="11*"/>
+            <RowDefinition Height="14*"></RowDefinition>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="36*"></RowDefinition>
+            <RowDefinition Height="154*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" RenderTransformOrigin="0.497,0.53" Margin="0,10,0,0" Grid.RowSpan="2">
+        <Label Grid.Row="1" Grid.Column="0" RenderTransformOrigin="0.497,0.53">
             Naziv:
         </Label>
         <TextBox Grid.Row="1" Height="32" 
                  HorizontalAlignment="left" VerticalAlignment="Top" 
-                 Width="182" Margin="10,2,0,0" 
+                 Width="272" 
                  Name="tbNaziv" Grid.Column="1"
                  Text="{Binding Path=Naziv}"/>
-        <Label Margin="0,10,0,15" Grid.Row="2">
+        <Label Grid.Row="2" Grid.Column="0" 
+               RenderTransformOrigin="0.497,0.53" 
+               Margin="0,10,0,6">
+            Sifra:
+        </Label>
+        <TextBox Grid.Row="2" Height="32" 
+                 HorizontalAlignment="left" VerticalAlignment="Top" 
+                 Width="272" 
+                 Name="tbSifra" Grid.Column="1"
+                 Text="{Binding Path=Sifra}" Margin="0,10,0,0"/>
+        <Label Margin="0,2,0,10" Grid.Row="3">
             Cena:
         </Label>
         <TextBox 
-                 Name="tbCena" Grid.Column="1" Margin="10,10,10,15" Grid.Row="2"/>
-        <Label Grid.Row="3">
+            Name="tbCena" Grid.Column="1" 
+            Margin="0,2,0,10" Grid.Row="3"
+            Text="{Binding Path=Cena}" HorizontalAlignment="Left" Width="272"/>
+        <Label Margin="0,0,0,16" Grid.Row="4">
+            Kolicina u magacinu:
+        </Label>
+        <TextBox 
+            Name="tbKolicinaUMagacinu" Grid.Column="1" 
+            Margin="0,0,0,16" Grid.Row="4"
+            Text="{Binding Path=KolicinaUMagacinu}" HorizontalAlignment="Left" Width="272"/>
+        <Label Grid.Row="5" Margin="0,0,0,8.099">
+            Akcija:
+        </Label>
+        <ComboBox Name="cbAkcija" Grid.Column="1" 
+                  Margin="0,0,0,8.099" Grid.Row="5" 
+                  SelectedItem="{Binding Path=Akcija}"/>
+        <Label Grid.Row="6" Margin="0,0,0,126">
             Tip namestaja:
         </Label>
         <ComboBox Name="cbTipNamestaja" Grid.Column="1" 
-                  Margin="10,0" Grid.Row="3" 
+                  Margin="0,0,0,126" Grid.Row="6" 
                   SelectedItem="{Binding Path=TipNamestaja}"/>
-        <Button Grid.Row="5" HorizontalAlignment="Right" 
+        <Button Grid.Row="6" HorizontalAlignment="Right" 
                 Name="btnSacuvaj" Click="btnSacuvaj_Click" 
-                Margin="0,0,107,0" Width="95" Grid.Column="1">
+                Margin="0,121.901,110,0" Width="95" Grid.Column="1">
             Sacuvaj
         </Button>
-        <Button Grid.Row="5" HorizontalAlignment="Right" 
+        <Button Grid.Row="6" HorizontalAlignment="Right" 
                 Name="btnIzlaz" Click="btnIzlaz_Click" Width="95" 
-                Grid.Column="1">
+                Grid.Column="1" Margin="0,121.901,0,0" Grid.ColumnSpan="2">
             Zatvori
         </Button>
     </Grid>

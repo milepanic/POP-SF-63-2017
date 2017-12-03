@@ -1,6 +1,5 @@
 ﻿using POP_SF_63_2017.Model;
 using System.Windows;
-using System;
 
 namespace POP_SF_63_2017_GUI.GUI
 {
@@ -22,25 +21,31 @@ namespace POP_SF_63_2017_GUI.GUI
         {
             InitializeComponent();
 
-            //InicijalizujPodatke(salon, operacija);
+            InicijalizujPodatke(salon, operacija);
         }
 
-        /*private void InicijalizujPodatke(Salon salon, TipOperacije operacija)
+        private void InicijalizujPodatke(Salon salon, TipOperacije operacija)
         {
             this.salon = salon;
             this.operacija = operacija;
 
             tbNaziv.DataContext = salon;
+            tbAdresa.DataContext = salon;
+            tbTelefon.DataContext = salon;
+            tbEmail.DataContext = salon;
+            tbWebsajt.DataContext = salon;
+            tbPIB.DataContext = salon;
+            tbMaticniBroj.DataContext = salon;
+            tbBrojZiroRacuna.DataContext = salon;
         }
-        */
+        
         private void btnIzadji_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
-        {/*
-            //cita sa diska listu namjestaja
+        {
             var listaSalona = Projekat.Instance.Saloni;
 
             switch (operacija)
@@ -65,23 +70,22 @@ namespace POP_SF_63_2017_GUI.GUI
                     {
                         if (n.Id == salon.Id)
                         {
-                            n.Naziv = tbNaziv.Text;
-                            n.Adresa = tbAdresa.Text;
-                            n.Telefon = tbTelefon.Text;
-                            n.Email = tbEmail.Text;
-                            n.Websajt = tbWebsajt.Text;
-                            n.PIB = int.Parse(tbPIB.Text);
-                            n.MaticniBroj = int.Parse(tbMaticniBroj.Text);
-                            n.BrojZiroRacuna = tbBrojZiroRacuna.Text;
+                            n.Naziv = salon.Naziv;
+                            n.Adresa = salon.Adresa;
+                            n.Telefon = salon.Telefon;
+                            n.Email = salon.Email;
+                            n.Websajt = salon.Websajt;
+                            n.PIB = salon.PIB;
+                            n.MaticniBroj = salon.MaticniBroj;
+                            n.BrojZiroRacuna = salon.BrojZiroRacuna;
                             break;
                         }
                     }
                     break;
             }
-
-            //Serijalizuje se preko Projekat.cs - cuva u disk
-            //Projekat.Instance.Saloni = listaSalona;
-            */
+            
+            Projekat.Instance.Saloni = listaSalona;
+            
             Close();
         }
     }

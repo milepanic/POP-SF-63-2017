@@ -25,6 +25,24 @@
     <KorisnickoIme>a</KorisnickoIme>
     <Lozinka>a</Lozinka>
     <TipKorisnika>1</TipKorisnika>
+    <Obrisan>true</Obrisan>
+  </Korisnik>
+  <Korisnik>
+    <Id>4</Id>
+    <Ime>adminaaa</Ime>
+    <Prezime>TextBox</Prezime>
+    <KorisnickoIme>TextBox</KorisnickoIme>
+    <Lozinka>TextBox</Lozinka>
+    <TipKorisnika>-1</TipKorisnika>
     <Obrisan>false</Obrisan>
+  </Korisnik>
+  <Korisnik>
+    <Id>5</Id>
+    <Ime>prrrrr</Ime>
+    <Prezime>TextBox</Prezime>
+    <KorisnickoIme>TextBox</KorisnickoIme>
+    <Lozinka>TextBox</Lozinka>
+    <TipKorisnika>-1</TipKorisnika>
+    <Obrisan>true</Obrisan>
   </Korisnik>
 </ArrayOfKorisnik>
