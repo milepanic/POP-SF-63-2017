@@ -28,3 +28,9 @@ datagrid - izbaciti neke kolone, brisanje napraviti; xaml -  AutoGeneratingColum
 rucno se poziva serializer
 
 tip korisnika preko enumeracije
+
+--baze
+napravljene skripte
+dodati u modele #region
+references - otkaciti config
+promijeniti u projekat.cs
