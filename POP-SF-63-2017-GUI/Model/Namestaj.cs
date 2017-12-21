@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Xml.Serialization;
 
 namespace POP_SF_63_2017.Model
@@ -14,7 +18,7 @@ namespace POP_SF_63_2017.Model
         private int akcijaId;
         private int tipNamestajaId;
         private bool obrisan;
-        private Akcija akcija;
+        //private Akcija akcija;
         private TipNamestaja tipNamestaja;
 
         [XmlIgnore]
@@ -36,24 +40,24 @@ namespace POP_SF_63_2017.Model
             }
         }
 
-        [XmlIgnore]
-        public Akcija Akcija
-        {
-            get
-            {
-                if (akcija == null)
-                {
-                    return Akcija.GetById(akcijaId);
-                }
-                return akcija;
-            }
-            set
-            {
-                akcija = value;
-                akcijaId = akcija.Id;
-                OnPropertyChanged("Akcija");
-            }
-        }
+        //[XmlIgnore]
+        //public Akcija Akcija
+        //{
+        //    get
+        //    {
+        //        if (akcija == null)
+        //        {
+        //            return Akcija.GetById(akcijaId);
+        //        }
+        //        return akcija;
+        //    }
+        //    set
+        //    {
+        //        akcija = value;
+        //        akcijaId = akcija.Id;
+        //        OnPropertyChanged("Akcija");
+        //    }
+        //}
         public int Id
         {
             get { return id; }
@@ -99,15 +103,15 @@ namespace POP_SF_63_2017.Model
                 OnPropertyChanged("KolicinaUMagacinu");
             }
         }
-        public int AkcijaId
-        {
-            get { return akcijaId; }
-            set
-            {
-                akcijaId = value;
-                OnPropertyChanged("AkcijaId");
-            }
-        }
+        //public int AkcijaId
+        //{
+        //    get { return akcijaId; }
+        //    set
+        //    {
+        //        akcijaId = value;
+        //        OnPropertyChanged("AkcijaId");
+        //    }
+        //}
 
         public int TipNamestajaId
         {
@@ -161,12 +165,115 @@ namespace POP_SF_63_2017.Model
             {
                 id = Id,
                 naziv = Naziv,
+                sifra = Sifra,
                 tipNamestaja = TipNamestaja,
                 tipNamestajaId = TipNamestajaId,
+                kolicinaUMagacinu = KolicinaUMagacinu,
                 cena = Cena,
                 obrisan = Obrisan
             };
         }
+
+        #region Database
+        public static ObservableCollection<Namestaj> GetAll()
+        {
+            var namestaji = new ObservableCollection<Namestaj>();
+
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Namestaj WHERE Obrisan=0";
+
+                DataSet ds = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Namestaj");
+
+                foreach (DataRow row in ds.Tables["Namestaj"].Rows)
+                {
+                    var n = new Namestaj();
+                    n.Id = int.Parse(row["Id"].ToString());
+                    n.Sifra = row["Sifra"].ToString();
+                    n.TipNamestajaId = int.Parse(row["TipNamestajaId"].ToString());
+                    n.Naziv = row["Naziv"].ToString();
+                    n.Cena = double.Parse(row["Cena"].ToString());
+                    n.KolicinaUMagacinu = int.Parse(row["KolicinaUMagacinu"].ToString());
+                    n.Obrisan = bool.Parse(row["Obrisan"].ToString());
+
+                    namestaji.Add(n);
+                }
+            }
+
+            return namestaji;
+        }
+
+        public static Namestaj Create(Namestaj n)
+        {
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "INSERT INTO Namestaj (TipNamestajaId, Sifra, Naziv, Cena, KolicinaUMagacinu) VALUES (@TipNamestajaId, @Sifra, @Naziv, @Cena, @KolicinaUMagacinu);";
+                cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+
+                cmd.Parameters.AddWithValue("TipNamestajaId", n.TipNamestajaId);
+                cmd.Parameters.AddWithValue("Sifra", n.Sifra);
+                cmd.Parameters.AddWithValue("Naziv", n.Naziv);
+                cmd.Parameters.AddWithValue("Cena", n.Cena);
+                cmd.Parameters.AddWithValue("KolicinaUMagacinu", n.KolicinaUMagacinu);
+
+                int newId = int.Parse(cmd.ExecuteScalar().ToString()); // ExecuteScalar izvrsava query
+                n.Id = newId;
+            }
+            Projekat.Instance.Namestaji.Add(n);
+
+            return n;
+        }
+
+        public static void Update(Namestaj n)
+        {
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "UPDATE Namestaj SET TipNamestajaId=@TipNamestajaId,Sifra=@Sifra,Naziv=@Naziv,Cena=@Cena,KolicinaUMagacinu=@KolicinaUMagacinu,Obrisan=@Obrisan WHERE Id=@Id";
+
+                cmd.Parameters.AddWithValue("Id", n.Id);
+                cmd.Parameters.AddWithValue("TipNamestajaId", n.TipNamestajaId);
+                cmd.Parameters.AddWithValue("Sifra", n.Sifra);
+                cmd.Parameters.AddWithValue("Naziv", n.Naziv);
+                cmd.Parameters.AddWithValue("Cena", n.Cena);
+                cmd.Parameters.AddWithValue("KolicinaUMagacinu", n.KolicinaUMagacinu);
+                cmd.Parameters.AddWithValue("Obrisan", n.Obrisan);
+
+                cmd.ExecuteNonQuery();
+
+                // azurira se stanje modela
+                foreach (var namestaj in Projekat.Instance.Namestaji)
+                {
+                    if (namestaj.Id == n.Id)
+                    {
+                        namestaj.TipNamestajaId = n.TipNamestajaId;
+                        namestaj.Sifra = n.Sifra;
+                        namestaj.Naziv = n.Naziv;
+                        namestaj.Cena = n.Cena;
+                        namestaj.KolicinaUMagacinu = n.KolicinaUMagacinu;
+                        namestaj.Obrisan = n.Obrisan;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public static void Delete(Namestaj n)
+        {
+            n.Obrisan = true;
+            Update(n);
+        }
+        #endregion
     }
 }
 

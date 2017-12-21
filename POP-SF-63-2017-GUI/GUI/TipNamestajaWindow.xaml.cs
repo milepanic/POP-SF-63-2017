@@ -45,12 +45,16 @@ namespace POP_SF_63_2017_GUI.GUI
             switch (operacija)
             {
                 case TipOperacije.DODAVANJE:
+                    // obrisati
+                    /*
                     tipNamestaja = new TipNamestaja()
                     {
                         Id = listaTipovaNamestaja.Count + 1,
                         Naziv = tbNaziv.Text
                     };
-                    listaTipovaNamestaja.Add(tipNamestaja);
+                    */
+                    TipNamestaja.Create(tipNamestaja);
+                    //listaTipovaNamestaja.Add(tipNamestaja);
                     break;
                 case TipOperacije.IZMENA:
                     foreach (var n in listaTipovaNamestaja)
@@ -61,10 +65,12 @@ namespace POP_SF_63_2017_GUI.GUI
                             break;
                         }
                     }
+                    TipNamestaja.Update(tipNamestaja);
                     break;
             }
             
-            Projekat.Instance.TipoviNamestaja = listaTipovaNamestaja;
+            //obrisati
+            //Projekat.Instance.TipoviNamestaja = listaTipovaNamestaja;
 
             Close();
         }

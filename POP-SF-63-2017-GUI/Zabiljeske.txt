@@ -35,3 +35,5 @@ dodati u modele #region
 references - otkaciti config
 promijeniti u projekat.cs
 u code-behindu testirati da li radi kod (create)
+
+sqlexpress download

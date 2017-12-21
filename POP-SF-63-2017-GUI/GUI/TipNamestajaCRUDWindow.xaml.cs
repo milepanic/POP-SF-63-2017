@@ -21,11 +21,13 @@ namespace POP_SF_63_2017_GUI.GUI
             InitializeComponent();
 
             // proba da li radi create
+            /*
             TipNamestaja novi = TipNamestaja.Create(new TipNamestaja()
             {
                 Naziv = "Cekam ID",
                 Obrisan = false
             });
+            */
 
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.TipoviNamestaja);
 
@@ -61,7 +63,9 @@ namespace POP_SF_63_2017_GUI.GUI
 
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
-            var tipNamestajaProzor = new TipNamestajaWindow(IzabraniTipNamestaja, TipNamestajaWindow.TipOperacije.IZMENA);
+            TipNamestaja kopijaTipaNamestaja = (TipNamestaja)IzabraniTipNamestaja.Clone();
+
+            var tipNamestajaProzor = new TipNamestajaWindow(kopijaTipaNamestaja, TipNamestajaWindow.TipOperacije.IZMENA);
             tipNamestajaProzor.ShowDialog();
         }
 
@@ -83,7 +87,7 @@ namespace POP_SF_63_2017_GUI.GUI
                     }
                 }
 
-                GenericSerializer.Serialize("tipovi_namestaja.xml", lista);
+                TipNamestaja.Delete(tipNamestajaZaBrisanje);
             }
         }
 

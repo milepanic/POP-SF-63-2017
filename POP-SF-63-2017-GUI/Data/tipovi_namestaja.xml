@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTipNamestaja xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TipNamestaja>
-    <Id>0</Id>
-    <Naziv>Podrazumevani tip namestaja</Naziv>
-    <Obrisan>false</Obrisan>
-  </TipNamestaja>
-  <TipNamestaja>
     <Id>1</Id>
-    <Naziv>Krevet</Naziv>
-    <Obrisan>true</Obrisan>
-  </TipNamestaja>
-  <TipNamestaja>
-    <Id>2</Id>
-    <Naziv>Sofa</Naziv>
+    <Naziv>Cekam ID</Naziv>
     <Obrisan>false</Obrisan>
-  </TipNamestaja>
-  <TipNamestaja>
-    <Id>4</Id>
-    <Naziv>Stolica</Naziv>
-    <Obrisan>true</Obrisan>
   </TipNamestaja>
   <TipNamestaja>
     <Id>5</Id>
-    <Naziv>za obrisati</Naziv>
-    <Obrisan>true</Obrisan>
+    <Naziv>q</Naziv>
+    <Obrisan>false</Obrisan>
   </TipNamestaja>
   <TipNamestaja>
     <Id>6</Id>
-    <Naziv>novi tip radi</Naziv>
+    <Naziv>q</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamestaja>
+  <TipNamestaja>
+    <Id>7</Id>
+    <Naziv>aasaaaa</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamestaja>
+  <TipNamestaja>
+    <Id>8</Id>
+    <Naziv>e</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamestaja>
+  <TipNamestaja>
+    <Id>9</Id>
+    <Naziv>aaaaeeee</Naziv>
     <Obrisan>true</Obrisan>
   </TipNamestaja>
 </ArrayOfTipNamestaja>

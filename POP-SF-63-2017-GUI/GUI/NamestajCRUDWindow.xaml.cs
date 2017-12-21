@@ -1,7 +1,6 @@
 ﻿using POP_SF_63_2017.Model;
 using System.ComponentModel;
 using System.Windows;
-using System;
 using System.Windows.Data;
 using POP_SF_63_2017.Utils;
 
@@ -72,7 +71,7 @@ namespace POP_SF_63_2017_GUI.GUI
                         view.Refresh();
                     }
                 }
-                GenericSerializer.Serialize("namestaj.xml", lista);
+                Namestaj.Delete(namestajZaBrisanje);
             }
         }
 

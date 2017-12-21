@@ -115,7 +115,7 @@ namespace POP_SF_63_2017.Model
                 con.Open();
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "INSERT INTO TipNamestaja (Naziv, Obrisan) VALUES (@Naziv, @Obrisan);";
+                cmd.CommandText = "INSERT INTO TipNamestaja (Naziv) VALUES (@Naziv);";
                 cmd.CommandText += "SELECT SCOPE_IDENTITY();";
 
                 cmd.Parameters.AddWithValue("Naziv", tn.Naziv);

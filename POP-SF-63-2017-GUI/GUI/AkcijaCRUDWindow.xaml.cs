@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Data;
-using System;
 using POP_SF_63_2017.Utils;
 
 namespace POP_SF_63_2017_GUI.GUI
@@ -77,7 +76,7 @@ namespace POP_SF_63_2017_GUI.GUI
                     }
                 }
 
-                GenericSerializer.Serialize("akcija.xml", lista);
+                Akcija.Delete(akcijaZaBrisanje);
             }
         }
 

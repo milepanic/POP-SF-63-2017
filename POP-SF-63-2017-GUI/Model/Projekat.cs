@@ -18,12 +18,14 @@ namespace POP_SF_63_2017.Model
         private Projekat()
         {
             TipoviNamestaja = TipNamestaja.GetAll();
-            Namestaji = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
+            Namestaji = Namestaj.GetAll();
+            Akcije = Akcija.GetAll();
+            /*
             Korisnici = GenericSerializer.Deserialize<Korisnik>("korisnik.xml");
             Saloni = GenericSerializer.Deserialize<Salon>("salon.xml");
             DodatneUsluge = GenericSerializer.Deserialize<DodatnaUsluga>("dodatna_usluga.xml");
-            Akcije = GenericSerializer.Deserialize<Akcija>("akcije.xml");
             Prodaje = GenericSerializer.Deserialize<Prodaja>("prodaja.xml");
+            */
         }
 
     }

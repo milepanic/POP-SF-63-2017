@@ -35,8 +35,8 @@ namespace POP_SF_63_2017_GUI.GUI
             tbCena.DataContext = namestaj;
             tbKolicinaUMagacinu.DataContext = namestaj;
 
-            cbAkcija.ItemsSource = Projekat.Instance.Akcije;
-            cbAkcija.DataContext = namestaj;
+            //cbAkcija.ItemsSource = Projekat.Instance.Akcije;
+            //cbAkcija.DataContext = namestaj;
             
 
             cbTipNamestaja.ItemsSource = Projekat.Instance.TipoviNamestaja;
@@ -55,22 +55,12 @@ namespace POP_SF_63_2017_GUI.GUI
 
             // uzima objekat tip namjestaja iz dropdown liste
             TipNamestaja izabraniTipNamestaja = (TipNamestaja)cbTipNamestaja.SelectedItem;
-            Akcija izabranaAkcija = (Akcija)cbAkcija.SelectedItem;
+            //Akcija izabranaAkcija = (Akcija)cbAkcija.SelectedItem;
 
             switch (operacija)
             {
                 case TipOperacije.DODAVANJE:
-                    namestaj = new Namestaj()
-                    {
-                        Id = listaNamestaja.Count + 1,
-                        Naziv = tbNaziv.Text,
-                        Sifra = tbSifra.Text,
-                        Cena = double.Parse(tbCena.Text),
-                        KolicinaUMagacinu = int.Parse(tbKolicinaUMagacinu.Text),
-                        AkcijaId = izabranaAkcija.Id,
-                        TipNamestajaId = izabraniTipNamestaja.Id
-                    };
-                    listaNamestaja.Add(namestaj);
+                    Namestaj.Create(namestaj);
                     break;
                 case TipOperacije.IZMENA:
                     foreach (var n in listaNamestaja)
@@ -81,17 +71,14 @@ namespace POP_SF_63_2017_GUI.GUI
                             n.Sifra = namestaj.Sifra;
                             n.Cena = namestaj.Cena;
                             n.KolicinaUMagacinu = namestaj.KolicinaUMagacinu;
-                            n.AkcijaId = izabranaAkcija.Id;
+                            //n.AkcijaId = izabranaAkcija.Id;
                             n.TipNamestajaId = izabraniTipNamestaja.Id;
                             break;
                         }
+                        Namestaj.Update(namestaj);
                     }
                     break;
             }
-
-            //Serijalizuje se preko Projekat.cs - cuva u disk
-            Projekat.Instance.Namestaji = listaNamestaja;
-
             Close();
         }
     }

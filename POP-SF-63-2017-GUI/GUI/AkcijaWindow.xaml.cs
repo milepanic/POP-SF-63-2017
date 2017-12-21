@@ -48,14 +48,7 @@ namespace POP_SF_63_2017_GUI.GUI
             switch (operacija)
             {
                 case TipOperacije.DODAVANJE:
-                    akcija = new Akcija()
-                    {
-                        Id = listaAkcija.Count + 1,
-                        //DatumPocetka = dpPocetakAkcije.GetValue,
-                        Popust = decimal.Parse(tbPopust.Text),
-                        //DatumZavrsetka = (DateTime)lbDatumZavrsetka.DataContext
-                    };
-                    listaAkcija.Add(akcija);
+                    Akcija.Create(akcija);
                     break;
                 case TipOperacije.IZMENA:
                     foreach (var n in listaAkcija)
@@ -67,12 +60,10 @@ namespace POP_SF_63_2017_GUI.GUI
                             n.DatumZavrsetka = akcija.DatumZavrsetka;
                             break;
                         }
+                        Akcija.Update(akcija);
                     }
                     break;
             }
-
-            Projekat.Instance.Akcije = listaAkcija;
-
             Close();
         }
     }
