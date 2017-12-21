@@ -20,7 +20,12 @@ namespace POP_SF_63_2017_GUI.GUI
         {
             InitializeComponent();
 
-            InitializeComponent();
+            // proba da li radi create
+            TipNamestaja novi = TipNamestaja.Create(new TipNamestaja()
+            {
+                Naziv = "Cekam ID",
+                Obrisan = false
+            });
 
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.TipoviNamestaja);
 

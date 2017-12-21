@@ -1,7 +1,7 @@
 ﻿CREATE TABLE TipNamestaja (
 	Id INT PRIMARY KEY IDENTITY(1,1),
 	Naziv VARCHAR(80),
-	Obrsian BIT
+	Obrisan BIT
 )
 GO
 CREATE TABLE Namestaj (

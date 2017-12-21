@@ -107,6 +107,61 @@ namespace POP_SF_63_2017.Model
             }
             return tipoviNamestaja;
         }
+
+        public static TipNamestaja Create(TipNamestaja tn)
+        {
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "INSERT INTO TipNamestaja (Naziv, Obrisan) VALUES (@Naziv, @Obrisan);";
+                cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+
+                cmd.Parameters.AddWithValue("Naziv", tn.Naziv);
+                cmd.Parameters.AddWithValue("Obrisan", tn.Obrisan);
+
+                int newId = int.Parse(cmd.ExecuteScalar().ToString()); // ExecuteScalar izvrsava query
+                tn.Id = newId;
+            }
+            Projekat.Instance.TipoviNamestaja.Add(tn); // azurira model
+
+            return tn;
+        }
+
+        public static void Update(TipNamestaja tn)
+        {
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "UPDATE TipNamestaja SET Naziv=@Naziv,Obrisan=@Obrisan WHERE Id=@Id";
+
+                cmd.Parameters.AddWithValue("Id", tn.Id);
+                cmd.Parameters.AddWithValue("Naziv", tn.Naziv);
+                cmd.Parameters.AddWithValue("Obrisan", tn.Obrisan);
+
+                cmd.ExecuteNonQuery();
+
+                // azurira se stanje modela
+                foreach (var tipNamestaja in Projekat.Instance.TipoviNamestaja)
+                {
+                    if(tipNamestaja.Id == tn.Id)
+                    {
+                        tipNamestaja.Naziv = tn.Naziv;
+                        tipNamestaja.Obrisan = tn.Obrisan;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public static void Delete(TipNamestaja tn)
+        {
+            tn.Obrisan = true;
+            Update(tn);
+        }
         #endregion
     }
 }
