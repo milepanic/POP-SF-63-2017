@@ -20,8 +20,8 @@ namespace POP_SF_63_2017.Model
             TipoviNamestaja = TipNamestaja.GetAll();
             Namestaji = Namestaj.GetAll();
             Akcije = Akcija.GetAll();
+            Korisnici = Korisnik.GetAll();
             /*
-            Korisnici = GenericSerializer.Deserialize<Korisnik>("korisnik.xml");
             Saloni = GenericSerializer.Deserialize<Salon>("salon.xml");
             DodatneUsluge = GenericSerializer.Deserialize<DodatnaUsluga>("dodatna_usluga.xml");
             Prodaje = GenericSerializer.Deserialize<Prodaja>("prodaja.xml");
