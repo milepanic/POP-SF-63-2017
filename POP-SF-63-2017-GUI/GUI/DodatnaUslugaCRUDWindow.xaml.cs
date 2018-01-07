@@ -76,7 +76,7 @@ namespace POP_SF_63_2017_GUI.GUI
                     }
                 }
 
-                GenericSerializer.Serialize("dodatna_usluga.xml", lista);
+                DodatnaUsluga.Delete(dodatnaUslugaZaBrisanje);
             }
         }
 

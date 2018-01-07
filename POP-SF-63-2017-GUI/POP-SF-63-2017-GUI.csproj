@@ -80,6 +80,12 @@
     <Compile Include="GUI\NamestajWindow.xaml.cs">
       <DependentUpon>NamestajWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ProdajaCRUDWindow.xaml.cs">
+      <DependentUpon>ProdajaCRUDWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ProdajaWindow.xaml.cs">
+      <DependentUpon>ProdajaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\SalonCRUDWindow.xaml.cs">
       <DependentUpon>SalonCRUDWindow.xaml</DependentUpon>
     </Compile>
@@ -122,6 +128,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\NamestajWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ProdajaCRUDWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ProdajaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

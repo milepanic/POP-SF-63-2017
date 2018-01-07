@@ -51,19 +51,7 @@ namespace POP_SF_63_2017_GUI.GUI
             switch (operacija)
             {
                 case TipOperacije.DODAVANJE:
-                    salon = new Salon()
-                    {
-                        Id = listaSalona.Count + 1,
-                        Naziv = tbNaziv.Text,
-                        Adresa = tbAdresa.Text,
-                        Telefon = tbTelefon.Text,
-                        Email = tbEmail.Text,
-                        Websajt = tbWebsajt.Text,
-                        PIB = int.Parse(tbPIB.Text),
-                        MaticniBroj = int.Parse(tbMaticniBroj.Text),
-                        BrojZiroRacuna = tbBrojZiroRacuna.Text
-                    };
-                    listaSalona.Add(salon);
+                    Salon.Create(salon);
                     break;
                 case TipOperacije.IZMENA:
                     foreach (var n in listaSalona)
@@ -80,12 +68,10 @@ namespace POP_SF_63_2017_GUI.GUI
                             n.BrojZiroRacuna = salon.BrojZiroRacuna;
                             break;
                         }
+                        Salon.Update(salon);//TODO: Provjeriti da li treba ovo biti u if uslovu
                     }
                     break;
             }
-            
-            Projekat.Instance.Saloni = listaSalona;
-            
             Close();
         }
     }

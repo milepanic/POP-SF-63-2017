@@ -32,3 +32,32 @@ CREATE TABLE Korisnik (
 	TipKorisnika INT DEFAULT ((0)),
 	Obrisan BIT NOT NULL DEFAULT ((0))
 )
+
+CREATE TABLE Salon (
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	Naziv VARCHAR(60),
+	Adresa VARCHAR(50),
+	Telefon VARCHAR(50),
+	Email VARCHAR(50),
+	Websajt VARCHAR(50),
+	PIB INT,
+	MaticniBroj INT,
+	BrojZiroRacuna VARCHAR(60),
+	Obrisan BIT NOT NULL DEFAULT((0))
+)
+
+CREATE TABLE DodatnaUsluga (
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	Naziv VARCHAR(60),
+	Cena NUMERIC(9,2),
+	Obrisan BIT NOT NULL DEFAULT((0))
+)
+
+CREATE TABLE Prodaja (
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	NamestajId INT,
+	BrojRacuna VARCHAR(60),
+	Kupac VARCHAR(60),
+	DodatnaUslugaId INT,
+	UkupnaCena NUMERIC(9,2)
+)

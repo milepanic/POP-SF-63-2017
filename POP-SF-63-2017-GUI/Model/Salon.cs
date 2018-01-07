@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace POP_SF_63_2017.Model
 {
@@ -133,6 +137,117 @@ namespace POP_SF_63_2017.Model
                 obrisan = Obrisan
             };
         }
+        #region Database
+        public static ObservableCollection<Salon> GetAll()
+        {
+            var saloni = new ObservableCollection<Salon>();
+
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Salon WHERE Obrisan=0";
+
+                DataSet ds = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Salon");
+
+                foreach (DataRow row in ds.Tables["Salon"].Rows)
+                {
+                    var s = new Salon();
+                    s.Id = int.Parse(row["Id"].ToString());
+                    s.Naziv = row["Naziv"].ToString();
+                    s.Adresa = row["Adresa"].ToString();
+                    s.Telefon = row["Telefon"].ToString();
+                    s.Email = row["Email"].ToString();
+                    s.Websajt = row["Websajt"].ToString();
+                    s.PIB = int.Parse(row["PIB"].ToString());
+                    s.MaticniBroj = int.Parse(row["MaticniBroj"].ToString());
+                    s.BrojZiroRacuna = row["BrojZiroRacuna"].ToString();
+                    s.Obrisan = bool.Parse(row["Obrisan"].ToString());
+
+                    saloni.Add(s);
+                }
+            }
+            return saloni;
+        }
+
+        public static Salon Create(Salon s)
+        {
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "INSERT INTO Salon (Naziv, Adresa, Telefon, Email, Websajt, PIB, MaticniBroj, BrojZiroRacuna) VALUES (@Naziv, @Adresa, @Telefon, @Email, @Websajt, @PIB, @MaticniBroj, @BrojZiroRacuna);";
+                cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+
+                cmd.Parameters.AddWithValue("Naziv", s.Naziv);
+                cmd.Parameters.AddWithValue("Adresa", s.Adresa);
+                cmd.Parameters.AddWithValue("Telefon", s.Telefon);
+                cmd.Parameters.AddWithValue("Email", s.Email);
+                cmd.Parameters.AddWithValue("Websajt", s.Websajt);
+                cmd.Parameters.AddWithValue("PIB", s.PIB);
+                cmd.Parameters.AddWithValue("MaticniBroj", s.MaticniBroj);
+                cmd.Parameters.AddWithValue("BrojZiroRacuna", s.BrojZiroRacuna);
+
+                int newId = int.Parse(cmd.ExecuteScalar().ToString()); // ExecuteScalar izvrsava query
+                s.Id = newId;
+            }
+            Projekat.Instance.Saloni.Add(s); // azurira model
+
+            return s;
+        }
+
+        public static void Update(Salon s)
+        {
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "UPDATE TipNamestaja SET Naziv=@Naziv,Adresa=@Adresa,Telefon=@Telefon,Email=@Email,Websajt=@Websajt,PIB=@PIB,MaticniBroj=@MaticniBroj,BrojZiroRacuna=@BrojZiroRacuna,Obrisan=@Obrisan WHERE Id=@Id";
+
+                cmd.Parameters.AddWithValue("Id", s.Id);
+                cmd.Parameters.AddWithValue("Naziv", s.Naziv);
+                cmd.Parameters.AddWithValue("Adresa", s.Adresa);
+                cmd.Parameters.AddWithValue("Telefon", s.Telefon);
+                cmd.Parameters.AddWithValue("Email", s.Email);
+                cmd.Parameters.AddWithValue("Websajt", s.Websajt);
+                cmd.Parameters.AddWithValue("PIB", s.PIB);
+                cmd.Parameters.AddWithValue("MaticniBroj", s.MaticniBroj);
+                cmd.Parameters.AddWithValue("BrojZiroRacuna", s.BrojZiroRacuna);
+                cmd.Parameters.AddWithValue("Obrisan", s.Obrisan);
+
+                cmd.ExecuteNonQuery();
+
+                // azurira se stanje modela
+                foreach (var salon in Projekat.Instance.Saloni)
+                {
+                    if (salon.Id == s.Id)
+                    {
+                        salon.Naziv = s.Naziv;
+                        salon.Adresa = s.Adresa;
+                        salon.Telefon = s.Telefon;
+                        salon.Email = s.Email;
+                        salon.Websajt = s.Websajt;
+                        salon.PIB = s.PIB;
+                        salon.MaticniBroj = s.MaticniBroj;
+                        salon.BrojZiroRacuna = s.BrojZiroRacuna;
+                        salon.Obrisan = s.Obrisan;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public static void Delete(Salon s)
+        {
+            s.Obrisan = true;
+            Update(s);
+        }
+        #endregion
     }
 }
 

@@ -1,8 +1,6 @@
 ﻿using POP_SF_63_2017.Model;
 using System.ComponentModel;
 using System.Windows;
-using System;
-using POP_SF_63_2017.Utils;
 using System.Windows.Data;
 
 namespace POP_SF_63_2017_GUI.GUI
@@ -70,7 +68,7 @@ namespace POP_SF_63_2017_GUI.GUI
                     }
                 }
 
-                GenericSerializer.Serialize("salon.xml", lista);
+                Salon.Delete(salonZaBrisanje);
             }
         }
 

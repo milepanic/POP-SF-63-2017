@@ -233,3 +233,5 @@ C:\Users\TEMP.FTN.012\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\KorisnikCR
 C:\Users\TEMP.FTN.012\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\NamestajCRUDWindow.baml
 C:\Users\TEMP.FTN.012\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\SalonCRUDWindow.baml
 C:\Users\TEMP.FTN.012\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\TipNamestajaCRUDWindow.baml
+C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\POP-SF-63-2017-GUI_Content.g.cs
+C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\POP-SF-63-2017-GUI.csproj.CoreCompileInputs.cache
