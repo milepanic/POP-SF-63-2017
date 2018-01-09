@@ -21,7 +21,7 @@ INSERT INTO Korisnik (Ime, Prezime, KorisnickoIme, Lozinka, TipKorisnika)
 INSERT INTO Korisnik (Ime, Prezime, KorisnickoIme, Lozinka, TipKorisnika)
 	VALUES ('Jovan', 'Ilic', 'JovanIlic', '123', 0);
 INSERT INTO Korisnik (Ime, Prezime, KorisnickoIme, Lozinka, TipKorisnika)
-	VALUES ('Admin', 'Admin', 'Admin', '123', 1);
+	VALUES ('Admin', 'Admin', 'Admin', '123', 0);
 
 INSERT INTO Salon (Naziv, Adresa, Telefon, Email, Websajt, PIB, MaticniBroj, BrojZiroRacuna)
 	VALUES ('Salon1', 'Ulica neka', '+381662154681', 'salon1@gmail.com', 'salon1.com', 1247161, 14198519, '41085198571');
@@ -34,6 +34,6 @@ INSERT INTO DodatnaUsluga (Naziv, Cena)
 
 
 
-INSERT INTO Prodaja (NamestajId, BrojRacuna, Kupac, DodatnaUslugaId, UkupnaCena)
-	VALUES (1, '314151', 'Petar Maric', 1, 1200.0);
+INSERT INTO Prodaja (NamestajId, DatumProdaje, BrojRacuna, Kupac, DodatnaUslugaId, UkupnaCena)
+	VALUES (1, '2018-01-01', '314151', 'Petar Maric', 1, 1200.0);
 

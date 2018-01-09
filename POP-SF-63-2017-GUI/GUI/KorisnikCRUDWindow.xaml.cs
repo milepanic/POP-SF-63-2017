@@ -1,5 +1,4 @@
 ﻿using POP_SF_63_2017.Model;
-using POP_SF_63_2017.Utils;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Data;
@@ -53,7 +52,9 @@ namespace POP_SF_63_2017_GUI.GUI
 
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
-            var korisnikProzor = new KorisnikWindow(IzabraniKorisnik, KorisnikWindow.TipOperacije.IZMENA);
+            Korisnik kopijaKorisnika = (Korisnik)IzabraniKorisnik.Clone();
+
+            var korisnikProzor = new KorisnikWindow(kopijaKorisnika, KorisnikWindow.TipOperacije.IZMENA);
             korisnikProzor.ShowDialog();
         }
 
@@ -75,7 +76,7 @@ namespace POP_SF_63_2017_GUI.GUI
                     }
                 }
 
-                GenericSerializer.Serialize("korisnik.xml", lista);
+                Korisnik.Delete(korisnikZabrisanje);
             }
         }
         private void dataGrid_AutoGeneratingColumn(object sender, System.Windows.Controls.DataGridAutoGeneratingColumnEventArgs e)

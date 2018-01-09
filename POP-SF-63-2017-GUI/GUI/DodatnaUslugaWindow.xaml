@@ -26,7 +26,8 @@
         <TextBox x:Name="tbNaziv" Grid.Column="1" 
                  HorizontalAlignment="Left" Height="40" 
                  Grid.Row="1" TextWrapping="Wrap" 
-                 VerticalAlignment="Top" Width="208"/>
+                 VerticalAlignment="Top" Width="208"
+                 Text="{Binding Path=Naziv}"/>
         <Label x:Name="lbCena" Content="Cena"
                HorizontalAlignment="Left" Grid.Row="2" 
                VerticalAlignment="Top" Width="84" 
@@ -34,6 +35,7 @@
         <TextBox x:Name="tbCena" Grid.Column="1" 
                  HorizontalAlignment="Left" Height="40" 
                  Grid.Row="2" TextWrapping="Wrap" 
+                 Text="{Binding Path=Cena}"
                  VerticalAlignment="Top" Width="208" Margin="0,18,0,0" Grid.RowSpan="2"/>
         <Button x:Name="btnIzadji" Content="Izadji" 
                 Grid.Column="1" HorizontalAlignment="Left" 

@@ -207,7 +207,7 @@ namespace POP_SF_63_2017.Model
                 con.Open();
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "UPDATE TipNamestaja SET Naziv=@Naziv,Adresa=@Adresa,Telefon=@Telefon,Email=@Email,Websajt=@Websajt,PIB=@PIB,MaticniBroj=@MaticniBroj,BrojZiroRacuna=@BrojZiroRacuna,Obrisan=@Obrisan WHERE Id=@Id";
+                cmd.CommandText = "UPDATE Salon SET Naziv=@Naziv,Adresa=@Adresa,Telefon=@Telefon,Email=@Email,Websajt=@Websajt,PIB=@PIB,MaticniBroj=@MaticniBroj,BrojZiroRacuna=@BrojZiroRacuna,Obrisan=@Obrisan WHERE Id=@Id";
 
                 cmd.Parameters.AddWithValue("Id", s.Id);
                 cmd.Parameters.AddWithValue("Naziv", s.Naziv);

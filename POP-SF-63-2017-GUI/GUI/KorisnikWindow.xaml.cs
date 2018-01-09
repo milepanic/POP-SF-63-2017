@@ -1,6 +1,6 @@
 ﻿using POP_SF_63_2017.Model;
-using System.Windows;
 using System;
+using System.Windows;
 
 namespace POP_SF_63_2017_GUI.GUI
 {
@@ -35,27 +35,20 @@ namespace POP_SF_63_2017_GUI.GUI
             tbKorisnickoIme.DataContext = korisnik;
             tbLozinka.DataContext = korisnik;
 
-            cbTipKorisnika.Items.Insert(0, "Prodavac");
-            cbTipKorisnika.Items.Insert(1, "Admin");
+            cbTipKorisnika.ItemsSource = Enum.GetValues(typeof(TipKorisnika));
+            cbTipKorisnika.DataContext = korisnik;
         }
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
             var listaKorisnika = Projekat.Instance.Korisnici;
 
+            var izabraniTipKorisnika = (TipKorisnika)cbTipKorisnika.SelectedItem;
+
             switch (operacija)
             {
                 case TipOperacije.DODAVANJE:
-                    korisnik = new Korisnik()
-                    {
-                        Id = listaKorisnika.Count + 1,
-                        Ime = tbIme.Text,
-                        Prezime = tbPrezime.Text,
-                        KorisnickoIme = tbKorisnickoIme.Text,
-                        Lozinka = tbLozinka.Text,
-                        TipKorisnika = cbTipKorisnika.SelectedIndex
-                    };
-                    listaKorisnika.Add(korisnik);
+                    Korisnik.Create(korisnik);
                     break;
                 case TipOperacije.IZMENA:
                     foreach (var n in listaKorisnika)
@@ -66,15 +59,13 @@ namespace POP_SF_63_2017_GUI.GUI
                             n.Prezime = korisnik.Prezime;
                             n.KorisnickoIme = korisnik.KorisnickoIme;
                             n.Lozinka = korisnik.Lozinka;
-                            n.TipKorisnika = cbTipKorisnika.SelectedIndex;
+                            n.TipKorisnika = izabraniTipKorisnika;
                             break;
                         }
+                        Korisnik.Update(korisnik);
                     }
                     break;
             }
-
-            Projekat.Instance.Korisnici = listaKorisnika;
-
             Close();
         }
 

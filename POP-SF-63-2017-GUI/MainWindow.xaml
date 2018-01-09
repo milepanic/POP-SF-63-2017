@@ -22,7 +22,6 @@
             <Button x:Name="akcija" Click="akcija_Click" Content="Akcija" Height="38"/>
             <Button x:Name="dodatnaUsluga" Click="dodatnaUsluga_Click" Content="Dodatna Usluga" Height="38"/>
             <Button x:Name="korisnik" Click="korisnik_Click" Content="Korisnik" Height="38"/>
-            <Button Content="Prodaja" Height="38"/>
             <Button x:Name="Salon" Click="Salon_Click" Content="Salon" Height="38"/>
         </StackPanel>
     </Grid>

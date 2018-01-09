@@ -9,8 +9,8 @@ namespace POP_SF_63_2017.Model
 {
     public enum TipKorisnika
 	{
-		Administrator,
-		Prodavac
+		ADMINISTRATOR,
+		PRODAVAC
 	}
     public class Korisnik : INotifyPropertyChanged, ICloneable
     {
@@ -19,7 +19,7 @@ namespace POP_SF_63_2017.Model
         private string prezime;
         private string korisnickoIme;
         private string lozinka;
-        private int tipKorisnika;
+        private TipKorisnika tipKorisnika;
         private bool obrisan;
 
         public int Id
@@ -67,7 +67,7 @@ namespace POP_SF_63_2017.Model
                 OnPropertyChanged("Lozinka");
             }
         }
-        public int TipKorisnika
+        public TipKorisnika TipKorisnika
         {
             get { return tipKorisnika; }
             set
@@ -140,7 +140,7 @@ namespace POP_SF_63_2017.Model
                     k.Prezime = row["Prezime"].ToString();
                     k.KorisnickoIme = row["KorisnickoIme"].ToString();
                     k.Lozinka = row["Lozinka"].ToString();
-                    k.TipKorisnika = int.Parse(row["TipKorisnika"].ToString());
+                    k.TipKorisnika = (TipKorisnika)Enum.Parse(typeof(TipKorisnika), row["TipKorisnika"].ToString());
                     k.Obrisan = bool.Parse(row["Obrisan"].ToString());
 
                     korisnici.Add(k);
@@ -157,7 +157,7 @@ namespace POP_SF_63_2017.Model
                 con.Open();
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "INSERT INTO Korisnik (Ime, Prezime, KorisnickoIme, Lozinka, TipKorisinka) VALUES (@Ime, @Prezime, @KorisnickoIme, @Lozinka, @TipKorisinka);";
+                cmd.CommandText = "INSERT INTO Korisnik (Ime, Prezime, KorisnickoIme, Lozinka, TipKorisnika) VALUES (@Ime, @Prezime, @KorisnickoIme, @Lozinka, @TipKorisnika);";
                 cmd.CommandText += "SELECT SCOPE_IDENTITY();";
 
                 cmd.Parameters.AddWithValue("Ime", k.Ime);
@@ -181,7 +181,7 @@ namespace POP_SF_63_2017.Model
                 con.Open();
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "UPDATE Korisnik SET Ime=@Ime,Prezime=@Prezime,KorisnickoIme=@KorisnickoIme,Lozinka=@Lozinka,TipKorisinka=@TipKorisinka,Obrisan=@Obrisan WHERE Id=@Id";
+                cmd.CommandText = "UPDATE Korisnik SET Ime=@Ime,Prezime=@Prezime,KorisnickoIme=@KorisnickoIme,Lozinka=@Lozinka,TipKorisnika=@TipKorisnika,Obrisan=@Obrisan WHERE Id=@Id";
 
                 cmd.Parameters.AddWithValue("Id", k.Id);
                 cmd.Parameters.AddWithValue("Ime", k.Ime);

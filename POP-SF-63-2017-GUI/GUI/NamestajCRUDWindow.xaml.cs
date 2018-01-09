@@ -85,7 +85,7 @@ namespace POP_SF_63_2017_GUI.GUI
         // manipulacija izgleda data grida (kolone koje se prikazuju)
         private void dataGrid_AutoGeneratingColumn(object sender, System.Windows.Controls.DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.Column.Header.ToString() == "Id" || e.Column.Header.ToString() == "Obrisan")
+            if (e.Column.Header.ToString() == "Id" || e.Column.Header.ToString() == "AkcijaId" || e.Column.Header.ToString() == "TipNamestajaId" || e.Column.Header.ToString() == "Obrisan")
             {
                 e.Cancel = true;
             }

@@ -32,7 +32,7 @@ namespace POP_SF_63_2017_GUI.GUI
 
         private bool FilterNeobrisanogSalona(object obj)
         {
-            return ((Korisnik)obj).Obrisan == false;
+            return ((Salon)obj).Obrisan == false;
         }
 
         private void btnIzlaz_Click(object sender, RoutedEventArgs e)

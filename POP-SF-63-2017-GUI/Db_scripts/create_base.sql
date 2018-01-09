@@ -23,16 +23,17 @@ CREATE TABLE Akcija (
 	DatumZavrsetka DATE,
 	Obrisan BIT NOT NULL DEFAULT ((0))
 )
+GO
 CREATE TABLE Korisnik (
 	Id INT PRIMARY KEY IDENTITY(1,1),
 	Ime VARCHAR(30),
 	Prezime VARCHAR(30),
 	KorisnickoIme VARCHAR(50),
 	Lozinka VARCHAR(30),
-	TipKorisnika INT DEFAULT ((0)),
+	TipKorisnika INT,
 	Obrisan BIT NOT NULL DEFAULT ((0))
 )
-
+GO
 CREATE TABLE Salon (
 	Id INT PRIMARY KEY IDENTITY(1,1),
 	Naziv VARCHAR(60),
@@ -45,17 +46,18 @@ CREATE TABLE Salon (
 	BrojZiroRacuna VARCHAR(60),
 	Obrisan BIT NOT NULL DEFAULT((0))
 )
-
+GO
 CREATE TABLE DodatnaUsluga (
 	Id INT PRIMARY KEY IDENTITY(1,1),
 	Naziv VARCHAR(60),
 	Cena NUMERIC(9,2),
 	Obrisan BIT NOT NULL DEFAULT((0))
 )
-
+GO
 CREATE TABLE Prodaja (
 	Id INT PRIMARY KEY IDENTITY(1,1),
 	NamestajId INT,
+	DatumProdaje DATETIME,
 	BrojRacuna VARCHAR(60),
 	Kupac VARCHAR(60),
 	DodatnaUslugaId INT,
