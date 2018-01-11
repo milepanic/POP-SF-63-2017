@@ -41,16 +41,16 @@ namespace POP_SF_63_2017_GUI.GUI
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            var listaKorisnika = Projekat.Instance.Korisnici;
-
-            var izabraniTipKorisnika = (TipKorisnika)cbTipKorisnika.SelectedItem;
-
             switch (operacija)
             {
                 case TipOperacije.DODAVANJE:
                     Korisnik.Create(korisnik);
                     break;
                 case TipOperacije.IZMENA:
+                    var listaKorisnika = Projekat.Instance.Korisnici;
+
+                    var izabraniTipKorisnika = (TipKorisnika)cbTipKorisnika.SelectedItem;
+
                     foreach (var n in listaKorisnika)
                     {
                         if (n.Id == korisnik.Id)
@@ -60,9 +60,11 @@ namespace POP_SF_63_2017_GUI.GUI
                             n.KorisnickoIme = korisnik.KorisnickoIme;
                             n.Lozinka = korisnik.Lozinka;
                             n.TipKorisnika = izabraniTipKorisnika;
+
+                            Korisnik.Update(korisnik);
+
                             break;
                         }
-                        Korisnik.Update(korisnik);
                     }
                     break;
             }

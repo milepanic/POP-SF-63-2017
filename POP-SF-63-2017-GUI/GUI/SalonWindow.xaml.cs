@@ -46,14 +46,14 @@ namespace POP_SF_63_2017_GUI.GUI
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            var listaSalona = Projekat.Instance.Saloni;
-
             switch (operacija)
             {
                 case TipOperacije.DODAVANJE:
                     Salon.Create(salon);
                     break;
                 case TipOperacije.IZMENA:
+                    var listaSalona = Projekat.Instance.Saloni;
+
                     foreach (var n in listaSalona)
                     {
                         if (n.Id == salon.Id)
@@ -66,9 +66,11 @@ namespace POP_SF_63_2017_GUI.GUI
                             n.PIB = salon.PIB;
                             n.MaticniBroj = salon.MaticniBroj;
                             n.BrojZiroRacuna = salon.BrojZiroRacuna;
+
+                            Salon.Update(salon);
+
                             break;
                         }
-                        Salon.Update(salon);//TODO: Provjeriti da li treba ovo biti u if uslovu
                     }
                     break;
             }

@@ -63,7 +63,7 @@ namespace POP_SF_63_2017.Model
 
         public override string ToString()
         {
-            return $"Popust: {Popust.ToString()}%, do {DatumZavrsetka.ToString()}";
+            return $"{Popust.ToString()} %";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

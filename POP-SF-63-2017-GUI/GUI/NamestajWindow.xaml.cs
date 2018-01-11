@@ -50,19 +50,19 @@ namespace POP_SF_63_2017_GUI.GUI
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            //cita sa diska listu namjestaja
-            var listaNamestaja = Projekat.Instance.Namestaji;
-
-            // uzima objekat tip namjestaja iz dropdown liste
-            TipNamestaja izabraniTipNamestaja = (TipNamestaja)cbTipNamestaja.SelectedItem;
-            Akcija izabranaAkcija = (Akcija)cbAkcija.SelectedItem;
-
             switch (operacija)
             {
                 case TipOperacije.DODAVANJE:
                     Namestaj.Create(namestaj);
                     break;
                 case TipOperacije.IZMENA:
+                    //cita sa diska listu namjestaja
+                    var listaNamestaja = Projekat.Instance.Namestaji;
+
+                    // uzima objekat tip namjestaja iz dropdown liste
+                    TipNamestaja izabraniTipNamestaja = (TipNamestaja)cbTipNamestaja.SelectedItem;
+                    Akcija izabranaAkcija = (Akcija)cbAkcija.SelectedItem;
+
                     foreach (var n in listaNamestaja)
                     {
                         if (n.Id == namestaj.Id)
@@ -73,9 +73,11 @@ namespace POP_SF_63_2017_GUI.GUI
                             n.KolicinaUMagacinu = namestaj.KolicinaUMagacinu;
                             n.Akcija = izabranaAkcija;
                             n.TipNamestaja = izabraniTipNamestaja;
+
+                            Namestaj.Update(namestaj);
+
                             break;
                         }
-                        Namestaj.Update(namestaj);
                     }
                     break;
             }

@@ -74,7 +74,9 @@ namespace POP_SF_63_2017_GUI.GUI
 
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
-            var salonProzor = new SalonWindow(IzabraniSalon, SalonWindow.TipOperacije.IZMENA);
+            Salon kopijaSalona = (Salon)IzabraniSalon.Clone();
+
+            var salonProzor = new SalonWindow(kopijaSalona, SalonWindow.TipOperacije.IZMENA);
             salonProzor.ShowDialog();
         }
 

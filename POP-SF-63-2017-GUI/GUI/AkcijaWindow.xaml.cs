@@ -43,14 +43,14 @@ namespace POP_SF_63_2017_GUI.GUI
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            var listaAkcija = Projekat.Instance.Akcije;
-
             switch (operacija)
             {
                 case TipOperacije.DODAVANJE:
                     Akcija.Create(akcija);
                     break;
                 case TipOperacije.IZMENA:
+                    var listaAkcija = Projekat.Instance.Akcije;
+
                     foreach (var n in listaAkcija)
                     {
                         if (n.Id == akcija.Id)
@@ -58,9 +58,11 @@ namespace POP_SF_63_2017_GUI.GUI
                             n.DatumPocetka = akcija.DatumPocetka;
                             n.Popust = akcija.Popust;
                             n.DatumZavrsetka = akcija.DatumZavrsetka;
+
+                            Akcija.Update(akcija);
+
                             break;
                         }
-                        Akcija.Update(akcija);
                     }
                     break;
             }

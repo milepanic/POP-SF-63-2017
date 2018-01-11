@@ -137,6 +137,12 @@ namespace POP_SF_63_2017.Model
                 obrisan = Obrisan
             };
         }
+
+        public override string ToString()
+        {
+            return $"Salon namestaja {Naziv}\nAdresa: {Adresa}\nTelefon: {Telefon}\nEmail: {Email}\nWebsajt: {Websajt}\nPIB: {PIB}\nMaticni broj: {MaticniBroj}\nBroj ziro racuna: {BrojZiroRacuna}";
+        }
+
         #region Database
         public static ObservableCollection<Salon> GetAll()
         {
@@ -222,7 +228,6 @@ namespace POP_SF_63_2017.Model
 
                 cmd.ExecuteNonQuery();
 
-                // azurira se stanje modela
                 foreach (var salon in Projekat.Instance.Saloni)
                 {
                     if (salon.Id == s.Id)

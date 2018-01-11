@@ -19,6 +19,7 @@ namespace POP_SF_63_2017.Model
         private bool obrisan;
         private Akcija akcija;
         private TipNamestaja tipNamestaja;
+        private int prodataKolicina;
         
         public TipNamestaja TipNamestaja
         {
@@ -129,6 +130,16 @@ namespace POP_SF_63_2017.Model
             }
         }
 
+        public int ProdataKolicina
+        {
+            get { return prodataKolicina; }
+            set
+            {
+                prodataKolicina = value;
+                OnPropertyChanged("ProdataKolicina");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public override string ToString()
@@ -169,7 +180,8 @@ namespace POP_SF_63_2017.Model
                 akcijaId = AkcijaId,
                 kolicinaUMagacinu = KolicinaUMagacinu,
                 cena = Cena,
-                obrisan = Obrisan
+                obrisan = Obrisan,
+                prodataKolicina = ProdataKolicina
             };
         }
 

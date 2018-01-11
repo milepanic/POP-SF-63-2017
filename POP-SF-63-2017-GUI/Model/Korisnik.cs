@@ -91,7 +91,7 @@ namespace POP_SF_63_2017.Model
         // TODO: Tip korisnika
         public override string ToString()
         {
-            return $"{ Ime }, { Prezime }, { KorisnickoIme }";
+            return $"{ Ime } { Prezime }\nKorisnicko ime: { KorisnickoIme }\nTip korisnika: { TipKorisnika }";
         }
 
         protected void OnPropertyChanged(string propertyName)

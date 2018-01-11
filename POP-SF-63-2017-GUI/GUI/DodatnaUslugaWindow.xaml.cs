@@ -40,23 +40,25 @@ namespace POP_SF_63_2017_GUI.GUI
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            var listaDodatnihUsluga = Projekat.Instance.DodatneUsluge;
-
             switch (operacija)
             {
                 case TipOperacije.DODAVANJE:
                     DodatnaUsluga.Create(dodatnaUsluga);
                     break;
                 case TipOperacije.IZMENA:
+                    var listaDodatnihUsluga = Projekat.Instance.DodatneUsluge;
+
                     foreach (var n in listaDodatnihUsluga)
                     {
                         if (n.Id == dodatnaUsluga.Id)
                         {
                             n.Naziv = dodatnaUsluga.Naziv;
                             n.Cena = dodatnaUsluga.Cena;
+
+                            DodatnaUsluga.Update(dodatnaUsluga);
+
                             break;
                         }
-                        DodatnaUsluga.Update(dodatnaUsluga);
                     }
                     break;
             }

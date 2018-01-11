@@ -5,24 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_63_2017_GUI"
         mc:Ignorable="d"
-        Title="Glavni prozor" Height="386.128" Width="388.439">
-    <Grid Margin="0,0,355,245">
+        Title="Glavni prozor" Height="453.18" Width="729.48">
+    <Grid Margin="0,0,2,0" RenderTransformOrigin="0.5,0.5">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="273*"/>
+            <ColumnDefinition Width="411*"/>
+            <ColumnDefinition Width="20*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="329*"/>
+            <RowDefinition Height="77*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="panel" HorizontalAlignment="Left" 
-              Height="288" VerticalAlignment="Top" 
-              Width="352" Margin="10,10,-343,-187">
+        <StackPanel x:Name="adminPanel" HorizontalAlignment="Left" 
+              Height="227" VerticalAlignment="Top" Visibility="Visible"
+              Width="267" Grid.Row="1" Grid.Column="1" Margin="0,54,0,0">
             <Button x:Name="namestaj" Click="namestaj_Click" Content="Namestaj" Height="38"/>
             <Button x:Name="tipNamestaja" Click="tipNamestaja_Click" Content="Tip Namestaja" Height="38"/>
             <Button x:Name="akcija" Click="akcija_Click" Content="Akcija" Height="38"/>
             <Button x:Name="dodatnaUsluga" Click="dodatnaUsluga_Click" Content="Dodatna Usluga" Height="38"/>
             <Button x:Name="korisnik" Click="korisnik_Click" Content="Korisnik" Height="38"/>
-            <Button x:Name="Salon" Click="Salon_Click" Content="Salon" Height="38"/>
+            <Button x:Name="Salon" Click="Salon_Click" Content="Salon" Height="43"/>
         </StackPanel>
+        <StackPanel x:Name="prodavacPanel" Grid.Column="1" HorizontalAlignment="Left" 
+                    Height="35" Grid.Row="1" 
+                    VerticalAlignment="Top" Width="267">
+            <Button x:Name="prodaja" Click="prodaja_Click" Height="38">Prodaja</Button>
+        </StackPanel>
+        <Button x:Name="odjava" Content="Odjavi se" Click="odjava_Click"
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Width="120" Grid.Column="2" Margin="281,10,0,0" 
+                Grid.Row="2" Height="33"/>
+        <Label x:Name="lbSalon" Content="Label" Grid.Column="2" HorizontalAlignment="Left" Margin="10,6,0,0" Grid.Row="1" VerticalAlignment="Top" Height="192" Width="391"/>
+        <Label x:Name="lbKorisnik" Content="Label" Grid.Column="2" HorizontalAlignment="Left" Margin="10,203,0,0" Grid.Row="1" VerticalAlignment="Top" Height="116" Width="391"/>
     </Grid>
 </Window>

@@ -61,5 +61,23 @@ CREATE TABLE Prodaja (
 	BrojRacuna VARCHAR(60),
 	Kupac VARCHAR(60),
 	DodatnaUslugaId INT,
-	UkupnaCena NUMERIC(9,2)
+	UkupnaCena NUMERIC(9,2),
+	Obrisan BIT NOT NULL DEFAULT((0))
+)
+GO
+CREATE TABLE Korpa(
+	Id INT PRIMARY KEY IDENTITY(1, 1),
+	RacunId INT,
+	NamestajId INT,
+	FOREIGN KEY (NamestajId) REFERENCES Namestaj(Id),
+	Kolicina INT DEFAULT(1),
+	Obrisan BIT DEFAULT ((0))
+)
+GO
+CREATE TABLE IzabranaUsluga(
+	Id INT PRIMARY KEY IDENTITY(1, 1),
+	RacunId INT,
+	UslugaId INT,
+	FOREIGN KEY (UslugaId) REFERENCES DodatnaUsluga(Id),
+	Obrisan BIT DEFAULT ((0))
 )

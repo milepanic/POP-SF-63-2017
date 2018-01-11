@@ -15,8 +15,9 @@ namespace POP_SF_63_2017.Model
         private string brojRacuna;
         private string kupac;
         private int dodatnaUslugaId;
-        private const double pdv = 0.02;
+        private decimal pdv = 20M;
         private double ukupnaCena;
+        private bool obrisan;
         private Namestaj namestajZaProdaju;
         private DodatnaUsluga dodatneUsluge;
 
@@ -116,8 +117,16 @@ namespace POP_SF_63_2017.Model
             }
         }
 
-        public const double PDV = 0.02;
-        
+        public decimal PDV
+        {
+            get { return pdv; }
+            set
+            {
+                pdv = 20M;
+            }
+        }
+
+
         public double UkupnaCena
         {
             get { return ukupnaCena; }
@@ -125,6 +134,16 @@ namespace POP_SF_63_2017.Model
             {
                 ukupnaCena = value;
                 OnPropertyChanged("UkupnaCena");
+            }
+        }
+
+        public bool Obrisan
+        {
+            get { return obrisan; }
+            set
+            {
+                obrisan = value;
+                OnPropertyChanged("Obrisan");
             }
         }
 
@@ -150,8 +169,8 @@ namespace POP_SF_63_2017.Model
                 kupac = Kupac,
                 dodatneUsluge = DodatneUsluge,
                 dodatnaUslugaId = dodatnaUslugaId,
-                // pdv ??
-                ukupnaCena = UkupnaCena
+                ukupnaCena = UkupnaCena,
+                obrisan = Obrisan
             };
         }
         #region Database
@@ -162,7 +181,7 @@ namespace POP_SF_63_2017.Model
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM Prodaja";
+                cmd.CommandText = "SELECT * FROM Prodaja WHERE Obrisan=0";
 
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter();
@@ -179,8 +198,8 @@ namespace POP_SF_63_2017.Model
                     p.BrojRacuna = row["BrojRacuna"].ToString();
                     p.Kupac = row["Kupac"].ToString();
                     p.DodatnaUslugaId = int.Parse(row["DodatnaUslugaId"].ToString());
-                    //pdv
                     p.UkupnaCena = double.Parse(row["UkupnaCena"].ToString());
+                    p.Obrisan = bool.Parse(row["Obrisan"].ToString());
 
                     prodaje.Add(p);
                 }
@@ -188,6 +207,8 @@ namespace POP_SF_63_2017.Model
 
             return prodaje;
         }
+
+        
 
         public static Prodaja Create(Prodaja p)
         {
@@ -228,6 +249,7 @@ namespace POP_SF_63_2017.Model
                 cmd.Parameters.AddWithValue("Kupac", p.Kupac);
                 cmd.Parameters.AddWithValue("DodatnaUslugaId", p.DodatnaUslugaId);
                 cmd.Parameters.AddWithValue("UkupnaCena", p.UkupnaCena);
+                cmd.Parameters.AddWithValue("Obrisan", p.Obrisan);
 
                 cmd.ExecuteNonQuery();
                 
@@ -240,10 +262,17 @@ namespace POP_SF_63_2017.Model
                         prodaja.Kupac = p.Kupac;
                         prodaja.DodatnaUslugaId = p.DodatnaUslugaId;
                         prodaja.UkupnaCena = p.UkupnaCena;
+                        prodaja.Obrisan = p.Obrisan;
                         break;
                     }
                 }
             }
+        }
+
+        public static void Delete(Prodaja p)
+        {
+            p.Obrisan = true;
+            Update(p);
         }
         #endregion
     }

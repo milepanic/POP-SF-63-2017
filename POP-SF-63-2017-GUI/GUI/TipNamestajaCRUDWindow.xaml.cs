@@ -1,9 +1,7 @@
 ﻿using POP_SF_63_2017.Model;
 using System.ComponentModel;
 using System.Windows;
-using System;
 using System.Windows.Data;
-using POP_SF_63_2017.Utils;
 
 namespace POP_SF_63_2017_GUI.GUI
 {
@@ -19,15 +17,6 @@ namespace POP_SF_63_2017_GUI.GUI
         public TipNamestajaCRUDWindow()
         {
             InitializeComponent();
-
-            // proba da li radi create
-            /*
-            TipNamestaja novi = TipNamestaja.Create(new TipNamestaja()
-            {
-                Naziv = "Cekam ID",
-                Obrisan = false
-            });
-            */
 
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.TipoviNamestaja);
 

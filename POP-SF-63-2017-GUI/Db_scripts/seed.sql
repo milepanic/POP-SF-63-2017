@@ -17,11 +17,11 @@ INSERT INTO Namestaj (TipNamestajaId, AkcijaId, Sifra, Naziv, Cena, KolicinaUMag
 	VALUES (3, 3, 'efafea', 'Ivan kauc', 735.9, 2);
 
 INSERT INTO Korisnik (Ime, Prezime, KorisnickoIme, Lozinka, TipKorisnika)
-	VALUES ('Pero', 'Peric', 'PeroPeric', '123', 0);
+	VALUES ('Todor', 'Boroja', 's', 's', 0);
 INSERT INTO Korisnik (Ime, Prezime, KorisnickoIme, Lozinka, TipKorisnika)
-	VALUES ('Jovan', 'Ilic', 'JovanIlic', '123', 0);
+	VALUES ('Goran', 'Bratic', 'b', 'b', 1);
 INSERT INTO Korisnik (Ime, Prezime, KorisnickoIme, Lozinka, TipKorisnika)
-	VALUES ('Admin', 'Admin', 'Admin', '123', 0);
+	VALUES ('Djole', 'Joveta', 'a', 'a', 0);
 
 INSERT INTO Salon (Naziv, Adresa, Telefon, Email, Websajt, PIB, MaticniBroj, BrojZiroRacuna)
 	VALUES ('Salon1', 'Ulica neka', '+381662154681', 'salon1@gmail.com', 'salon1.com', 1247161, 14198519, '41085198571');

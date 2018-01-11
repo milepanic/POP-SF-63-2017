@@ -1,4 +1,6 @@
-﻿using POP_SF_63_2017_GUI.GUI;
+﻿using POP_SF_63_2017.Model;
+using POP_SF_63_2017_GUI.GUI;
+using System.Linq;
 using System.Windows;
 
 namespace POP_SF_63_2017_GUI
@@ -8,10 +10,21 @@ namespace POP_SF_63_2017_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(Korisnik korisnik)
         {
             InitializeComponent();
             
+            if(korisnik.TipKorisnika == TipKorisnika.PRODAVAC)
+            {
+                adminPanel.Visibility = Visibility.Hidden;
+            }
+
+            var saloni = Projekat.Instance.Saloni;
+            var salon = saloni.First();
+
+            lbSalon.Content = $"{salon}";
+
+            lbKorisnik.Content = $"{korisnik}";
         }
         
         private void btnIzlaz_Click(object sender, RoutedEventArgs e)
@@ -53,6 +66,19 @@ namespace POP_SF_63_2017_GUI
         {
             var akcijaProzor = new AkcijaCRUDWindow();
             akcijaProzor.ShowDialog();
+        }
+
+        private void prodaja_Click(object sender, RoutedEventArgs e)
+        {
+            var prodajaProzor = new ProdajaCRUDWindow();
+            prodajaProzor.ShowDialog();
+        }
+
+        private void odjava_Click(object sender, RoutedEventArgs e)
+        {
+            var prijavaProzor = new Login();
+            Close();
+            prijavaProzor.ShowDialog();
         }
     }
 }

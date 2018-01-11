@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\App.xaml
-13-132797123
+16-1914877515
 2-405604926
-301140480330
+35-1066073175
 14598183689
-GUI\AkcijaCRUDWindow.xaml;GUI\AkcijaWindow.xaml;GUI\DodatnaUslugaCRUDWindow.xaml;GUI\DodatnaUslugaWindow.xaml;GUI\KorisnikCRUDWindow.xaml;GUI\KorisnikWindow.xaml;GUI\NamestajCRUDWindow.xaml;GUI\NamestajWindow.xaml;GUI\SalonCRUDWindow.xaml;GUI\SalonWindow.xaml;GUI\TipNamestajaCRUDWindow.xaml;GUI\TipNamestajaWindow.xaml;MainWindow.xaml;
+GUI\AkcijaCRUDWindow.xaml;GUI\AkcijaWindow.xaml;GUI\DodatnaUslugaCRUDWindow.xaml;GUI\DodatnaUslugaWindow.xaml;GUI\KorisnikCRUDWindow.xaml;GUI\KorisnikWindow.xaml;GUI\NamestajCRUDWindow.xaml;GUI\NamestajWindow.xaml;GUI\ProdajaCRUDWindow.xaml;GUI\ProdajaWindow.xaml;GUI\SalonCRUDWindow.xaml;GUI\SalonWindow.xaml;GUI\TipNamestajaCRUDWindow.xaml;GUI\TipNamestajaWindow.xaml;Login.xaml;MainWindow.xaml;
 
 False
 

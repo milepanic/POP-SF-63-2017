@@ -1,39 +1,9 @@
-﻿Domaci 
-- Login (u app.xaml startapu ga pokrece)
-- Svi entiteti
-- CRUD za sve osobine entiteta
-
-pastebin.com/u50U4AeE
-
-git config --global http.proxy 192.168.77.100:8080
-
-data binding - n.naziv = tb.text; // rucno
-za svaki model ubaciti event koji kada se promijeni osobina automatski treba da mijenja objekat
-u projekat.cs obrisati liste
-listbox se mijenja u datagrid
-brise se osveziprikaz() metod
-u xaml se dodaje Binding Path koji je staticki, treba se napraviti dinamicki (pokusaj overrideovati preko neke funkcije)
-mijenja se svaki window modela
-u namestaj.cs se dodaje objekat tipnamestaja da bi se dobio po ID-u
-
-binding - path gleda gdje da pronadje, context sta
-
-u izmjeni se objekat automatski mijienja, a treba tek kada se sacuva
-
-uvodjenje kloniranja - u model implementirati da bi se moglo editovati kako treba
+﻿git config --global http.proxy 192.168.77.100:8080
 
 datagrid u read-only IsReadOnly="True" CanUserAddRows="False"
 datagrid - izbaciti neke kolone, brisanje napraviti; xaml -  AutoGeneratingColumn="dataGrid_AutoGeneratingColumn"
 
-rucno se poziva serializer
-
-tip korisnika preko enumeracije
-
 --baze
-napravljene skripte
-dodati u modele #region
 references - otkaciti config
-promijeniti u projekat.cs
-u code-behindu testirati da li radi kod (create)
 
 sqlexpress download

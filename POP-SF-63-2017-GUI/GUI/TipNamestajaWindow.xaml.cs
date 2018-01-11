@@ -40,23 +40,25 @@ namespace POP_SF_63_2017_GUI.GUI
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            var listaTipovaNamestaja = Projekat.Instance.TipoviNamestaja;
-
             switch (operacija)
             {
                 case TipOperacije.DODAVANJE:
                     TipNamestaja.Create(tipNamestaja);
                     break;
                 case TipOperacije.IZMENA:
+                    var listaTipovaNamestaja = Projekat.Instance.TipoviNamestaja;
+
                     foreach (var n in listaTipovaNamestaja)
                     {
                         if (n.Id == tipNamestaja.Id)
                         {
                             n.Naziv = tipNamestaja.Naziv;
+
+                            TipNamestaja.Update(tipNamestaja);
+
                             break;
                         }
                     }
-                    TipNamestaja.Update(tipNamestaja);
                     break;
             }
             Close();
