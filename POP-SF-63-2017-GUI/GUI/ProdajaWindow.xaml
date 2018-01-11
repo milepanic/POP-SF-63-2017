@@ -25,10 +25,10 @@
         <Label Grid.Row="1" Grid.Column="0" RenderTransformOrigin="0.497,0.53">
             Datum Prodaje:
         </Label>
-        <DatePicker Grid.Row="1" Height="32" 
+        <Label Grid.Row="1" Height="32" 
                  HorizontalAlignment="left" VerticalAlignment="Top" 
                  Width="207" 
-                 Name="dpDatum" Grid.Column="1"/>
+                 Name="lbDatum" Grid.Column="1"/>
         <Label Grid.Row="2" Grid.Column="0" 
                RenderTransformOrigin="0.497,0.53" 
                Margin="0,10,0,6">

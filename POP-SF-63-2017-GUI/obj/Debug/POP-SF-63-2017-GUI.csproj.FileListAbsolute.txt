@@ -241,3 +241,5 @@ C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\ProdajaCRU
 C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\ProdajaWindow.g.cs
 C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\ProdajaCRUDWindow.baml
 C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\ProdajaWindow.baml
+C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\ProdajaRacun.g.cs
+C:\Users\Mile\Desktop\POP-SF-63-2017\POP-SF-63-2017-GUI\obj\Debug\GUI\ProdajaRacun.baml

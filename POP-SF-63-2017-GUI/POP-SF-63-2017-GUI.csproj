@@ -83,6 +83,9 @@
     <Compile Include="GUI\ProdajaCRUDWindow.xaml.cs">
       <DependentUpon>ProdajaCRUDWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ProdajaRacun.xaml.cs">
+      <DependentUpon>ProdajaRacun.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ProdajaWindow.xaml.cs">
       <DependentUpon>ProdajaWindow.xaml</DependentUpon>
     </Compile>
@@ -137,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\ProdajaCRUDWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ProdajaRacun.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

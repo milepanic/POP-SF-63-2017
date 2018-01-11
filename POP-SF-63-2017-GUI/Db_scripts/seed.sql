@@ -9,12 +9,12 @@ INSERT INTO Akcija (DatumPocetka, Popust, DatumZavrsetka)
 INSERT INTO Akcija (DatumPocetka, Popust, DatumZavrsetka)
 	VALUES ('2017-06-01', 10, '2018-01-21');
 
-INSERT INTO Namestaj (TipNamestajaId, AkcijaId, Sifra, Naziv, Cena, KolicinaUMagacinu) 
-	VALUES (1, 2, 'asdasda', 'Francuski krevet', 123.5, 22);
-INSERT INTO Namestaj (TipNamestajaId, AkcijaId, Sifra, Naziv, Cena, KolicinaUMagacinu) 
-	VALUES (2, 1, 'aadfadagg', 'Sofija ugaona', 223.9, 12);
-INSERT INTO Namestaj (TipNamestajaId, AkcijaId, Sifra, Naziv, Cena, KolicinaUMagacinu) 
-	VALUES (3, 3, 'efafea', 'Ivan kauc', 735.9, 2);
+INSERT INTO Namestaj (TipNamestajaId, AkcijaId, Sifra, Naziv, Cena, KolicinaUMagacinu, ProdataKolicina) 
+	VALUES (1, 2, 'asdasda', 'Francuski krevet', 123.5, 22, 0);
+INSERT INTO Namestaj (TipNamestajaId, AkcijaId, Sifra, Naziv, Cena, KolicinaUMagacinu, ProdataKolicina) 
+	VALUES (2, 1, 'aadfadagg', 'Sofija ugaona', 223.9, 12, 0);
+INSERT INTO Namestaj (TipNamestajaId, AkcijaId, Sifra, Naziv, Cena, KolicinaUMagacinu, ProdataKolicina) 
+	VALUES (3, 3, 'efafea', 'Ivan kauc', 735.9, 2, 0);
 
 INSERT INTO Korisnik (Ime, Prezime, KorisnickoIme, Lozinka, TipKorisnika)
 	VALUES ('Todor', 'Boroja', 's', 's', 0);
@@ -34,6 +34,6 @@ INSERT INTO DodatnaUsluga (Naziv, Cena)
 
 
 
-INSERT INTO Prodaja (NamestajId, DatumProdaje, BrojRacuna, Kupac, DodatnaUslugaId, UkupnaCena)
-	VALUES (1, '2018-01-01', '314151', 'Petar Maric', 1, 1200.0);
+INSERT INTO Prodaja (BrojRacuna, Kupac, UkupnaCena)
+	VALUES ('314151', 'Petar Maric', 1200.0);
 

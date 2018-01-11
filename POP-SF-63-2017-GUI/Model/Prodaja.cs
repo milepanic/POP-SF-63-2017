@@ -10,52 +10,12 @@ namespace POP_SF_63_2017.Model
     public class Prodaja : INotifyPropertyChanged, ICloneable
     {
         private int id;
-        private int namestajId;
         private DateTime datumProdaje;
         private string brojRacuna;
         private string kupac;
-        private int dodatnaUslugaId;
         private decimal pdv = 20M;
         private double ukupnaCena;
         private bool obrisan;
-        private Namestaj namestajZaProdaju;
-        private DodatnaUsluga dodatneUsluge;
-
-        public Namestaj NamestajZaProdaju
-        {
-            get
-            {
-                if (namestajZaProdaju == null)
-                {
-                    return Namestaj.GetById(namestajId);
-                }
-                return namestajZaProdaju;
-            }
-            set
-            {
-                namestajZaProdaju = value;
-                NamestajId = namestajZaProdaju.Id;
-                OnPropertyChanged("Namestaj");
-            }
-        }
-
-        public DodatnaUsluga DodatneUsluge
-        {
-            get
-            {
-                if (dodatneUsluge == null)
-                {
-                    return DodatnaUsluga.GetById(dodatnaUslugaId);
-                }
-                return dodatneUsluge;
-            }
-            set
-            {
-                dodatneUsluge = value;
-                DodatnaUslugaId = dodatneUsluge.Id;
-                OnPropertyChanged("DodatneUsluge");
-            }
-        }
 
         public int Id
         {
@@ -66,16 +26,6 @@ namespace POP_SF_63_2017.Model
                 OnPropertyChanged("Id");
             }
         }
-
-        public int NamestajId
-        {
-            get { return namestajId; }
-            set
-            {
-                namestajId = value;
-                OnPropertyChanged("NamestajId");
-            }
-        }        
 
         public DateTime DatumProdaje
         {
@@ -104,16 +54,6 @@ namespace POP_SF_63_2017.Model
             {
                 kupac = value;
                 OnPropertyChanged("Kupac");
-            }
-        }
-
-        public int DodatnaUslugaId
-        {
-            get { return dodatnaUslugaId; }
-            set
-            {
-                dodatnaUslugaId = value;
-                OnPropertyChanged("DodatnaUslugaId");
             }
         }
 
@@ -162,13 +102,9 @@ namespace POP_SF_63_2017.Model
             return new Prodaja()
             {
                 id = Id,
-                namestajZaProdaju = NamestajZaProdaju,
-                namestajId = NamestajId,
                 datumProdaje = DatumProdaje,
                 brojRacuna = BrojRacuna,
                 kupac = Kupac,
-                dodatneUsluge = DodatneUsluge,
-                dodatnaUslugaId = dodatnaUslugaId,
                 ukupnaCena = UkupnaCena,
                 obrisan = Obrisan
             };
@@ -193,11 +129,9 @@ namespace POP_SF_63_2017.Model
                 {
                     var p = new Prodaja();
                     p.Id = int.Parse(row["Id"].ToString());
-                    p.NamestajId = int.Parse(row["NamestajId"].ToString());
                     p.DatumProdaje = DateTime.Parse(row["DatumProdaje"].ToString());
                     p.BrojRacuna = row["BrojRacuna"].ToString();
                     p.Kupac = row["Kupac"].ToString();
-                    p.DodatnaUslugaId = int.Parse(row["DodatnaUslugaId"].ToString());
                     p.UkupnaCena = double.Parse(row["UkupnaCena"].ToString());
                     p.Obrisan = bool.Parse(row["Obrisan"].ToString());
 
@@ -217,13 +151,11 @@ namespace POP_SF_63_2017.Model
                 con.Open();
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "INSERT INTO Prodaja (NamestajId, BrojRacuna, Kupac, DodatnaUslugaId, UkupnaCena) VALUES (@NamestajId, @BrojRacuna, @Kupac, @DodatnaUslugaId, @UkupnaCena);";
+                cmd.CommandText = "INSERT INTO Prodaja ( BrojRacuna, Kupac, UkupnaCena) VALUES (@BrojRacuna, @Kupac, @UkupnaCena);";
                 cmd.CommandText += "SELECT SCOPE_IDENTITY();";
-
-                cmd.Parameters.AddWithValue("NamestajId", p.NamestajId);
+                
                 cmd.Parameters.AddWithValue("BrojRacuna", p.BrojRacuna);
                 cmd.Parameters.AddWithValue("Kupac", p.Kupac);
-                cmd.Parameters.AddWithValue("DodatnaUslugaId", p.DodatnaUslugaId);
                 cmd.Parameters.AddWithValue("UkupnaCena", p.UkupnaCena);
 
                 int newId = int.Parse(cmd.ExecuteScalar().ToString());
@@ -241,13 +173,11 @@ namespace POP_SF_63_2017.Model
                 con.Open();
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "UPDATE Prodaja SET NamestajId=@NamestajId, BrojRacuna=@BrojRacuna, Kupac=@Kupac, DodatnaUslugaId=@DodatnaUslugaId, UkupnaCena=@UkupnaCena WHERE Id=@Id";
+                cmd.CommandText = "UPDATE Prodaja SET BrojRacuna=@BrojRacuna, Kupac=@Kupac, UkupnaCena=@UkupnaCena WHERE Id=@Id";
 
                 cmd.Parameters.AddWithValue("Id", p.Id);
-                cmd.Parameters.AddWithValue("NamestajId", p.NamestajId);
                 cmd.Parameters.AddWithValue("BrojRacuna", p.BrojRacuna);
                 cmd.Parameters.AddWithValue("Kupac", p.Kupac);
-                cmd.Parameters.AddWithValue("DodatnaUslugaId", p.DodatnaUslugaId);
                 cmd.Parameters.AddWithValue("UkupnaCena", p.UkupnaCena);
                 cmd.Parameters.AddWithValue("Obrisan", p.Obrisan);
 
@@ -257,10 +187,8 @@ namespace POP_SF_63_2017.Model
                 {
                     if (prodaja.Id == p.Id)
                     {
-                        prodaja.NamestajId = p.NamestajId;
                         prodaja.BrojRacuna = p.BrojRacuna;
                         prodaja.Kupac = p.Kupac;
-                        prodaja.DodatnaUslugaId = p.DodatnaUslugaId;
                         prodaja.UkupnaCena = p.UkupnaCena;
                         prodaja.Obrisan = p.Obrisan;
                         break;

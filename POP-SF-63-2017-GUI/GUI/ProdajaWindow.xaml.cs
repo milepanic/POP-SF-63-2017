@@ -26,8 +26,8 @@ namespace POP_SF_63_2017_GUI.GUI
 
             var countProdaje = Projekat.Instance.Prodaje.Count;
 
-            dpDatum.SelectedDate = DateTime.Now;
-            lbBrojRacuna.Content = 1000000 + countProdaje;
+            lbDatum.Content = DateTime.Now;
+            lbBrojRacuna.Content = 100000 + countProdaje;
 
             prikaziNamestaj();
 
@@ -47,9 +47,7 @@ namespace POP_SF_63_2017_GUI.GUI
             dgUsluge.IsReadOnly = true;
 
             dgUsluge.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
-
-            dpDatum.DataContext = prodaja;
-            lbBrojRacuna.DataContext = prodaja;
+            
             tbKupac.DataContext = prodaja;
             
             dgKorpa.ItemsSource = korpaNamestaj;
@@ -208,6 +206,9 @@ namespace POP_SF_63_2017_GUI.GUI
                 MessageBox.Show("Nije moguce dodati prazan racun", "Greska", MessageBoxButton.OK);
             }
 
+            prodaja.DatumProdaje = DateTime.Now;
+            var countProdaje = Projekat.Instance.Prodaje.Count;
+            prodaja.BrojRacuna = (countProdaje + 100000).ToString();
             prodaja.UkupnaCena = double.Parse(lbUkupnaCena.Content.ToString());
             Prodaja.Create(prodaja);
             Close();

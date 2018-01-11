@@ -12,6 +12,7 @@ CREATE TABLE Namestaj (
 	Naziv VARCHAR(100),
 	Cena NUMERIC(9,2),
 	KolicinaUMagacinu INT,
+	ProdataKolicina INT,
 	Obrisan BIT NOT NULL DEFAULT ((0)),
 	FOREIGN KEY (TipNamestajaId) REFERENCES TipNamestaja(Id)
 )
@@ -56,11 +57,9 @@ CREATE TABLE DodatnaUsluga (
 GO
 CREATE TABLE Prodaja (
 	Id INT PRIMARY KEY IDENTITY(1,1),
-	NamestajId INT,
-	DatumProdaje DATETIME,
+	DatumProdaje DATETIME DEFAULT CURRENT_TIMESTAMP,
 	BrojRacuna VARCHAR(60),
 	Kupac VARCHAR(60),
-	DodatnaUslugaId INT,
 	UkupnaCena NUMERIC(9,2),
 	Obrisan BIT NOT NULL DEFAULT((0))
 )

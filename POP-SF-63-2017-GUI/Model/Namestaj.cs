@@ -212,6 +212,7 @@ namespace POP_SF_63_2017.Model
                     n.Cena = double.Parse(row["Cena"].ToString());
                     n.KolicinaUMagacinu = int.Parse(row["KolicinaUMagacinu"].ToString());
                     n.Obrisan = bool.Parse(row["Obrisan"].ToString());
+                    n.ProdataKolicina = int.Parse(row["ProdataKolicina"].ToString());
 
                     namestaji.Add(n);
                 }
@@ -227,7 +228,7 @@ namespace POP_SF_63_2017.Model
                 con.Open();
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "INSERT INTO Namestaj (TipNamestajaId, AkcijaId, Sifra, Naziv, Cena, KolicinaUMagacinu) VALUES (@TipNamestajaId, @AkcijaId, @Sifra, @Naziv, @Cena, @KolicinaUMagacinu);";
+                cmd.CommandText = "INSERT INTO Namestaj (TipNamestajaId, AkcijaId, Sifra, Naziv, Cena, KolicinaUMagacinu, ProdataKolicina) VALUES (@TipNamestajaId, @AkcijaId, @Sifra, @Naziv, @Cena, @KolicinaUMagacinu, @ProdataKolicina);";
                 cmd.CommandText += "SELECT SCOPE_IDENTITY();";
 
                 cmd.Parameters.AddWithValue("TipNamestajaId", n.TipNamestajaId);
@@ -236,6 +237,7 @@ namespace POP_SF_63_2017.Model
                 cmd.Parameters.AddWithValue("Naziv", n.Naziv);
                 cmd.Parameters.AddWithValue("Cena", n.Cena);
                 cmd.Parameters.AddWithValue("KolicinaUMagacinu", n.KolicinaUMagacinu);
+                cmd.Parameters.AddWithValue("ProdataKolicina", n.ProdataKolicina);
 
                 int newId = int.Parse(cmd.ExecuteScalar().ToString()); // ExecuteScalar izvrsava query
                 n.Id = newId;
@@ -252,7 +254,7 @@ namespace POP_SF_63_2017.Model
                 con.Open();
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "UPDATE Namestaj SET TipNamestajaId=@TipNamestajaId,AkcijaId=@AkcijaId,Sifra=@Sifra,Naziv=@Naziv,Cena=@Cena,KolicinaUMagacinu=@KolicinaUMagacinu,Obrisan=@Obrisan WHERE Id=@Id";
+                cmd.CommandText = "UPDATE Namestaj SET TipNamestajaId=@TipNamestajaId,AkcijaId=@AkcijaId,Sifra=@Sifra,Naziv=@Naziv,Cena=@Cena,KolicinaUMagacinu=@KolicinaUMagacinu,ProdataKolicina=@ProdataKolicina,Obrisan=@Obrisan WHERE Id=@Id";
 
                 cmd.Parameters.AddWithValue("Id", n.Id);
                 cmd.Parameters.AddWithValue("TipNamestajaId", n.TipNamestajaId);
@@ -261,6 +263,7 @@ namespace POP_SF_63_2017.Model
                 cmd.Parameters.AddWithValue("Naziv", n.Naziv);
                 cmd.Parameters.AddWithValue("Cena", n.Cena);
                 cmd.Parameters.AddWithValue("KolicinaUMagacinu", n.KolicinaUMagacinu);
+                cmd.Parameters.AddWithValue("ProdataKolicina", n.ProdataKolicina);
                 cmd.Parameters.AddWithValue("Obrisan", n.Obrisan);
 
                 cmd.ExecuteNonQuery();
@@ -276,6 +279,7 @@ namespace POP_SF_63_2017.Model
                         namestaj.Naziv = n.Naziv;
                         namestaj.Cena = n.Cena;
                         namestaj.KolicinaUMagacinu = n.KolicinaUMagacinu;
+                        namestaj.ProdataKolicina = n.ProdataKolicina;
                         namestaj.Obrisan = n.Obrisan;
                         break;
                     }
