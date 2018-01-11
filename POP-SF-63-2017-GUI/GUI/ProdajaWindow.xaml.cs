@@ -26,6 +26,8 @@ namespace POP_SF_63_2017_GUI.GUI
 
             var countProdaje = Projekat.Instance.Prodaje.Count;
 
+            prodaja.Id = countProdaje;
+
             lbDatum.Content = DateTime.Now;
             lbBrojRacuna.Content = 100000 + countProdaje;
 
@@ -124,10 +126,12 @@ namespace POP_SF_63_2017_GUI.GUI
                     MessageBox.Show("Nema toliko proizvoda na raspolaganju", "Greska", MessageBoxButton.OK);
                     return;
                 }
-                
+
+                var countProdaje = Projekat.Instance.Prodaje.Count;
+
                 var proizvod = new Korpa()
                 {
-                    RacunId = prodaja.Id,
+                    RacunId = countProdaje,
                     NamestajId = IzabraniNamestaj.Id,
                     Kolicina = kolicina
                 };
